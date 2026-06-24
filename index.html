@@ -15,85 +15,78 @@
     line-height: 1.6;
   }
 
-  header {
-    background: #030303;
-    color: white;
-    padding: 80px 24px;
-    text-align: center;
-  }
+ header {
+  background: #CFD2B4;
+  color: #030303;
+  padding: 64px 24px;
+}
 
-  header h1 {
-    font-size: 48px;
-    margin: 0 0 12px;
-  }
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
 
-  header h2 {
-    font-size: 24px;
-    font-weight: normal;
-    color: #F2C6D5;
-    margin: 0 0 20px;
-  }
+.hero-logo {
+  text-align: center;
+}
 
-  header p {
-    max-width: 720px;
-    margin: 0 auto 24px;
-    font-size: 20px;
-  }
+.hero-logo img {
+  max-width: 360px;
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(3,3,3,0.10);
+}
 
-  nav {
-    background: #F2C6D5;
-    padding: 16px;
-    text-align: center;
-    border-bottom: 2px solid #E46FA1;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+.hero-text {
+  text-align: left;
+}
 
-  nav a {
-    color: #030303;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 12px;
-  }
+.eyebrow {
+  color: #6A747E;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
 
-  nav a:hover {
-    color: #6A747E;
-  }
+header h1 {
+  font-size: 56px;
+  margin: 0 0 16px;
+  color: #030303;
+}
 
-  section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 64px 24px;
-  }
+header h2 {
+  font-size: 24px;
+  font-weight: normal;
+  color: #E46FA1;
+  margin: 0 0 20px;
+}
 
-  h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #030303;
-  }
+header p {
+  max-width: 720px;
+  margin: 0 0 24px;
+  font-size: 20px;
+}
 
-  h3 {
-    font-size: 24px;
-    margin-top: 0;
-    color: #030303;
-  }
+.button {
+  display: inline-block;
+  background: #E46FA1;
+  color: #030303;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 999px;
+  margin: 8px 8px 8px 0;
+  border: 2px solid #F2C6D5;
+}
 
-  .button {
-    display: inline-block;
-    background: #E46FA1;
-    color: #030303;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 12px 20px;
-    border-radius: 999px;
-    margin: 8px;
-    border: 2px solid #F2C6D5;
-  }
-
-  .button:hover {
-    background: #F2C6D5;
-  }
+.button:hover {
+  background: #F2C6D5;
+}
 
   .split {
     display: grid;
@@ -141,33 +134,53 @@
   }
 
   @media (max-width: 800px) {
-    header h1 {
-      font-size: 36px;
-    }
-
-    .split {
-      grid-template-columns: 1fr;
-    }
-
-    nav a {
-      display: inline-block;
-      margin: 6px;
-    }
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 40px;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px;
+  }
+}
 </style>
 </head>
 
 <body>
 
   <header>
-    <h1>Amber Largent</h1>
-    <h2>Instructional Designer + Project Manager</h2>
-    <p>I design learning systems and manage the work that brings them to life.</p>
+  <div class="hero">
+    <div class="hero-logo">
+      <img src="logo.jpeg" alt="Amber Largent Designing Excellence logo">
+    </div>
 
-    <a class="button" href="#instructional-design">View ID Work</a>
-    <a class="button" href="#project-management">View PM Work</a>
-    <a class="button" href="#contact">Contact Me</a>
-  </header>
+    <div class="hero-text">
+      <p class="eyebrow">Instructional Designer + Project Manager</p>
+      <h1>Designing Excellence</h1>
+      <p>
+        I design learning systems, organize complex work, and create clear communication
+        that helps teams move forward.
+      </p>
+
+      <a class="button" href="#instructional-design">View ID Work</a>
+      <a class="button" href="#project-management">View PM Work</a>
+      <a class="button" href="#contact">Contact Me</a>
+    </div>
+  </div>
+</header>
 
   <nav>
     <a href="#about">About</a>
