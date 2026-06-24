@@ -7,325 +7,600 @@
   <title>Amber Largent | Project Manager + Instructional Designer</title>
 
   <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #CFD2B4;
-    color: #030303;
-    line-height: 1.6;
-  }
+    :root {
+      --sage: #CFD2B4;
+      --blush: #F2C6D5;
+      --pink: #E46FA1;
+      --slate: #6A747E;
+      --black: #030303;
+      --white: #fffafc;
+    }
 
- header {
-  background: #CFD2B4;
-  color: #030303;
-  padding: 64px 24px;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.hero {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
-  align-items: center;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.hero-logo {
-  text-align: center;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--sage);
+      color: var(--black);
+      line-height: 1.6;
+    }
 
-.hero-logo img {
-  max-width: 360px;
-  width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 8px 24px rgba(3,3,3,0.10);
-}
+    a {
+      color: inherit;
+    }
 
-.hero-text {
-  text-align: left;
-}
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 250, 252, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
 
-.eyebrow {
-  color: #6A747E;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
 
-header h1 {
-  font-size: 56px;
-  margin: 0 0 16px;
-  color: #030303;
-}
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
 
-header h2 {
-  font-size: 24px;
-  font-weight: normal;
-  color: #E46FA1;
-  margin: 0 0 20px;
-}
+    .brand span {
+      display: block;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
 
-header p {
-  max-width: 720px;
-  margin: 0 0 24px;
-  font-size: 20px;
-}
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
-.button {
-  display: inline-block;
-  background: #E46FA1;
-  color: #030303;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 12px 20px;
-  border-radius: 999px;
-  margin: 8px 8px 8px 0;
-  border: 2px solid #F2C6D5;
-}
+    .nav-links a {
+      text-decoration: none;
+      color: var(--black);
+    }
 
-.button:hover {
-  background: #F2C6D5;
-}
+    .nav-links a:hover {
+      color: var(--pink);
+    }
 
-  .split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
+    header {
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(242, 198, 213, 0.8), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(228, 111, 161, 0.28), transparent 28%),
+        var(--sage);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
 
-  .card {
-    background: #fffafc;
-    padding: 28px;
-    border-radius: 18px;
-    border: 2px solid #F2C6D5;
-    box-shadow: 0 8px 24px rgba(3,3,3,0.12);
-  }
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
 
-  .card p {
-    color: #030303;
-  }
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255, 250, 252, 0.72);
+      border: 1px solid rgba(228, 111, 161, 0.35);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-  .card ul {
-    color: #030303;
-  }
+    h1 {
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      margin: 0 0 24px;
+      max-width: 820px;
+    }
 
-  .tag {
-    display: inline-block;
-    background: #F2C6D5;
-    color: #030303;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 4px 4px 4px 0;
-    border: 1px solid #E46FA1;
-  }
+    .lead {
+      font-size: 21px;
+      max-width: 720px;
+      margin: 0 0 30px;
+      color: #1c1c1c;
+    }
 
-  footer {
-    background: #030303;
-    color: white;
-    text-align: center;
-    padding: 40px 24px;
-  }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 42px;
+    }
 
-  footer p {
-    color: #F2C6D5;
-  }
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--black);
+      background: var(--pink);
+      color: var(--black);
+      box-shadow: 0 6px 0 var(--black);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
 
-  @media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+    .button:hover {
+      transform: translateY(2px);
+      box-shadow: 0 4px 0 var(--black);
+    }
 
-  .hero-text {
-    text-align: center;
-  }
+    .button.secondary {
+      background: var(--white);
+    }
 
-  header h1 {
-    font-size: 40px;
-  }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      max-width: 780px;
+    }
 
-  .split {
-    grid-template-columns: 1fr;
-  }
+    .stat {
+      border-top: 2px solid rgba(3, 3, 3, 0.18);
+      padding-top: 14px;
+    }
 
-  nav a {
-    display: inline-block;
-    margin: 6px;
-  }
-}
-</style>
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--slate);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-panel {
+      background: rgba(255, 250, 252, 0.45);
+      border: 1px solid rgba(255, 250, 252, 0.8);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(3, 3, 3, 0.12);
+    }
+
+    .logo-panel img {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 86px 24px;
+    }
+
+    .section-kicker {
+      color: var(--pink);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 22px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      font-size: 19px;
+      color: #202020;
+      margin-bottom: 34px;
+    }
+
+    .card {
+      background: rgba(255, 250, 252, 0.82);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0 0 14px;
+    }
+
+    .card ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .pm-card {
+      border-top: 6px solid var(--pink);
+    }
+
+    .id-card {
+      border-top: 6px solid var(--slate);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      background: var(--blush);
+      border: 1px solid rgba(228, 111, 161, 0.5);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    footer {
+      padding: 34px 24px;
+      text-align: center;
+      background: var(--black);
+      color: var(--blush);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-2,
+      .grid-3,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        min-height: auto;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        Amber Largent
+        <span>Project Manager + Instructional Designer</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#project-management">PM Work</a>
+        <a href="#instructional-design">ID Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <header>
-  <div class="hero">
-    <div class="hero-logo">
-      <img src="logo.png" alt="Amber Largent Designing Excellence logo">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Project Management • Workflow Design • Readiness</div>
+
+        <h1>Project manager who makes complex work usable.</h1>
+
+        <p class="lead">
+          I bring structure to messy, cross-functional work by aligning people,
+          timelines, risks, communication, and process. My instructional design
+          background helps me make the work easier to understand, adopt, and sustain.
+        </p>
+
+        <div class="button-row">
+          <a class="button" href="#project-management">View PM Work</a>
+          <a class="button secondary" href="#instructional-design">View ID Work</a>
+          <a class="button secondary" href="#contact">Contact Me</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>12+</strong>
+            <span>Years at Apple</span>
+          </div>
+
+          <div class="stat">
+            <strong>PM</strong>
+            <span>Planning + Delivery</span>
+          </div>
+
+          <div class="stat">
+            <strong>ID</strong>
+            <span>Learning + Adoption</span>
+          </div>
+
+          <div class="stat">
+            <strong>AI</strong>
+            <span>Workflow Support</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="logo-panel">
+        <img src="logo.png" alt="Amber Largent Designing Excellence logo">
+      </div>
     </div>
-
-    <div class="hero-text">
-      <p class="eyebrow">Project Manager + Instructional Designer</p>
-      <h1>Driving clarity from idea to launch.</h1>
-      <p>
-        I lead complex work by organizing people, process, timelines, risks, and communication.
-        My instructional design background helps me make the work easier to understand,
-        adopt, and sustain.
-      </p>
-
-      <a class="button" href="#project-management">View PM Work</a>
-      <a class="button" href="#instructional-design">View ID Work</a>
-      <a class="button" href="#contact">Contact Me</a>
-    </div>
-  </div>
-</header>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#project-management">Project Management</a>
-  <a href="#instructional-design">Instructional Design</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
+  </header>
 
   <section id="about">
-    <h2>About</h2>
+    <div class="section-kicker">About</div>
+    <h2>Structure, clarity, and follow-through.</h2>
+
+    <p class="section-intro">
+      I am a project manager, instructional designer, and communications specialist.
+      My work sits at the intersection of people, process, and technology.
+    </p>
+
     <div class="card">
-     <p>
-  I am a project manager, instructional designer, and communications specialist.
-  My work sits at the intersection of people, process, and technology.
-</p>
+      <p>
+        I help teams turn scattered information into clear plans, usable workflows,
+        steady communication, and better follow-through.
+      </p>
 
-<p>
-  I bring structure to complex work, improve visibility, align stakeholders,
-  and create clear communication that helps teams move forward.
-</p>
+      <p>
+        I am strongest in spaces where priorities are shifting, stakeholders need
+        alignment, and the work needs a system that people can actually use.
+      </p>
 
-<p>
-  My instructional design background gives me an edge: I know how to make
-  information clear, usable, and easier to adopt.
-</p>
+      <p>
+        My instructional design background is an advantage. It helps me build project
+        systems that are not only organized, but understandable and sustainable.
+      </p>
     </div>
   </section>
 
-  <section>
-    <h2>Project Management, Strengthened by Learning Design</h2>
+  <section id="project-management">
+    <div class="section-kicker">PM Portfolio</div>
+    <h2>Project management work</h2>
 
-    <div class="split">
-      <section>
-  <h2>Project Management, Strengthened by Learning Design</h2>
+    <p class="section-intro">
+      My PM work focuses on project structure, visibility, readiness, communication,
+      and cross-functional alignment.
+    </p>
 
-  <div class="split">
-    <div class="card" id="project-management">
-      <h3>Project Management</h3>
-      <p>
-        I organize complex work, align stakeholders, track risk, improve visibility,
-        and help teams deliver with less chaos.
-      </p>
+    <div class="grid-2">
+      <div class="card pm-card">
+        <h3>Project Operating Rhythm</h3>
+        <p>
+          Built repeatable structures for planning, tracking, status updates,
+          and stakeholder visibility.
+        </p>
+        <ul>
+          <li>Project plans and milestones</li>
+          <li>Weekly status rhythms</li>
+          <li>Action item tracking</li>
+          <li>Decision and dependency visibility</li>
+        </ul>
+      </div>
 
-      <ul>
-        <li>Project planning</li>
-        <li>Timeline and milestone tracking</li>
-        <li>Wrike structure and reporting</li>
-        <li>Status updates and executive summaries</li>
-        <li>Risk, issue, and dependency tracking</li>
-        <li>Stakeholder alignment</li>
-        <li>Launch readiness</li>
-      </ul>
-    </div>
+      <div class="card pm-card">
+        <h3>Readiness + Launch Support</h3>
+        <p>
+          Supported work moving from planning into execution by clarifying owners,
+          timelines, risks, and launch needs.
+        </p>
+        <ul>
+          <li>Readiness checklists</li>
+          <li>Stakeholder alignment</li>
+          <li>Launch communications</li>
+          <li>Risk and issue tracking</li>
+        </ul>
+      </div>
 
-    <div class="card" id="instructional-design">
-      <h3>Instructional Design</h3>
-      <p>
-        I use learning design to make complex information easier to understand,
-        apply, and sustain.
-      </p>
+      <div class="card pm-card">
+        <h3>Reporting + Executive Communication</h3>
+        <p>
+          Created clear updates that helped leaders understand status, risk,
+          decisions needed, and next steps.
+        </p>
+        <ul>
+          <li>Executive summaries</li>
+          <li>Project health reporting</li>
+          <li>Clear escalation points</li>
+          <li>Concise written updates</li>
+        </ul>
+      </div>
 
-      <ul>
-        <li>Learning strategy</li>
-        <li>Job aids and support resources</li>
-        <li>Process documentation</li>
-        <li>Facilitation support</li>
-        <li>Knowledge checks and learner practice</li>
-        <li>Clear objectives and structured content</li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <div class="card pm-card">
+        <h3>Workflow + Process Improvement</h3>
+        <p>
+          Improved how work was organized so teams could reduce confusion,
+          repeat less work, and move with more confidence.
+        </p>
+        <ul>
+          <li>Wrike structure</li>
+          <li>Reusable templates</li>
+          <li>Process documentation</li>
+          <li>AI-assisted workflow support</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section>
-   <section>
-  <h2>How I Work</h2>
+  <section id="instructional-design">
+    <div class="section-kicker">ID Portfolio</div>
+    <h2>Instructional design work</h2>
 
-  <div class="card">
-    <p>
-      I do my best work in messy, cross-functional spaces where information,
-      timelines, people, and priorities need structure.
+    <p class="section-intro">
+      My ID background helps me design resources that support adoption, learning,
+      behavior change, and long-term use.
     </p>
 
-    <p>
-      I help teams turn scattered work into clear plans, usable systems,
-      steady communication, and better follow-through.
-    </p>
+    <div class="grid-3">
+      <div class="card id-card">
+        <h3>Learning Strategy</h3>
+        <p>
+          Designed learning plans that connect business goals to learner needs,
+          practice, and performance.
+        </p>
+      </div>
 
-    <p>
-      My ID background helps me think beyond task completion. I focus on whether
-      people can understand the work, use the process, and keep it going after launch.
-    </p>
-  </div>
-</section>
+      <div class="card id-card">
+        <h3>Job Aids + Support Tools</h3>
+        <p>
+          Created practical resources that help people complete tasks with less
+          confusion and fewer repeated questions.
+        </p>
+      </div>
+
+      <div class="card id-card">
+        <h3>Communication + Adoption</h3>
+        <p>
+          Built clear messaging and support content to help teams understand
+          what changed, why it matters, and what to do next.
+        </p>
+      </div>
+    </div>
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
+    <div class="section-kicker">Skills</div>
+    <h2>Core strengths</h2>
 
-    <div class="split">
+    <div class="grid-3">
       <div class="card">
-        <h3>Instructional Design Skills</h3>
-        <span class="tag">ADDIE</span>
-        <span class="tag">Bloom's Taxonomy</span>
-        <span class="tag">Adult Learning</span>
-        <span class="tag">Curriculum Design</span>
-        <span class="tag">Job Aids</span>
-        <span class="tag">Learning Objectives</span>
+        <h3>Project Management</h3>
+        <div class="tag-list">
+          <span class="tag">Project Planning</span>
+          <span class="tag">Wrike</span>
+          <span class="tag">Status Reporting</span>
+          <span class="tag">Risk Tracking</span>
+          <span class="tag">Stakeholder Updates</span>
+          <span class="tag">Launch Readiness</span>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Project Management Skills</h3>
-        <span class="tag">Wrike</span>
-        <span class="tag">Project Planning</span>
-        <span class="tag">Risk Tracking</span>
-        <span class="tag">Status Reporting</span>
-        <span class="tag">Stakeholder Updates</span>
-        <span class="tag">Process Improvement</span>
+        <h3>Instructional Design</h3>
+        <div class="tag-list">
+          <span class="tag">ADDIE</span>
+          <span class="tag">Bloom's Taxonomy</span>
+          <span class="tag">Adult Learning</span>
+          <span class="tag">Job Aids</span>
+          <span class="tag">Learning Objectives</span>
+          <span class="tag">Facilitation Support</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Communication</h3>
+        <div class="tag-list">
+          <span class="tag">Executive Summaries</span>
+          <span class="tag">Process Docs</span>
+          <span class="tag">Clear Messaging</span>
+          <span class="tag">AI Workflows</span>
+          <span class="tag">Stakeholder Alignment</span>
+          <span class="tag">Change Support</span>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
-  <h2>Contact</h2>
+    <div class="section-kicker">Contact</div>
+    <h2>Let’s connect</h2>
 
-  <div class="card">
-    <h3>Let’s Connect</h3>
+    <div class="card contact-card">
+      <div>
+        <h3>Current contact details</h3>
+        <p>
+          My digital contact card includes my current email, LinkedIn, resume link,
+          and portfolio details.
+        </p>
+      </div>
 
-    <p>
-      The easiest way to reach me is through my digital contact card.
-      You’ll find my current email, LinkedIn, resume link, and portfolio details there.
-    </p>
-
-    <a class="button" href="https://poplme.co/hash/FR1OYUIb/1/dash" target="_blank" rel="noopener noreferrer">
-      Open My Contact Card
-    </a>
-  </div>
-</section>
+      <div>
+        <a class="button" href="https://poplme.co/hash/FR1OYUIb/1/dash" target="_blank" rel="noopener noreferrer">
+          Open Contact Card
+        </a>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2026 Amber Largent</p>
+    <p>© 2026 Amber Largent · Project Manager + Instructional Designer</p>
   </footer>
 
 </body>
