@@ -7,128 +7,154 @@
   <title>Amber Largent | Instructional Designer + Project Manager</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f3ed;
-      color: #1f2933;
-      line-height: 1.6;
-    }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #CFD2B4;
+    color: #030303;
+    line-height: 1.6;
+  }
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 80px 24px;
-      text-align: center;
-    }
+  header {
+    background: #030303;
+    color: white;
+    padding: 80px 24px;
+    text-align: center;
+  }
 
+  header h1 {
+    font-size: 48px;
+    margin: 0 0 12px;
+  }
+
+  header h2 {
+    font-size: 24px;
+    font-weight: normal;
+    color: #F2C6D5;
+    margin: 0 0 20px;
+  }
+
+  header p {
+    max-width: 720px;
+    margin: 0 auto 24px;
+    font-size: 20px;
+  }
+
+  nav {
+    background: #F2C6D5;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 2px solid #E46FA1;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  nav a {
+    color: #030303;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 12px;
+  }
+
+  nav a:hover {
+    color: #6A747E;
+  }
+
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #030303;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin-top: 0;
+    color: #030303;
+  }
+
+  .button {
+    display: inline-block;
+    background: #E46FA1;
+    color: #030303;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 999px;
+    margin: 8px;
+    border: 2px solid #F2C6D5;
+  }
+
+  .button:hover {
+    background: #F2C6D5;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .card {
+    background: #fffafc;
+    padding: 28px;
+    border-radius: 18px;
+    border: 2px solid #F2C6D5;
+    box-shadow: 0 8px 24px rgba(3,3,3,0.12);
+  }
+
+  .card p {
+    color: #030303;
+  }
+
+  .card ul {
+    color: #030303;
+  }
+
+  .tag {
+    display: inline-block;
+    background: #F2C6D5;
+    color: #030303;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 4px 4px 4px 0;
+    border: 1px solid #E46FA1;
+  }
+
+  footer {
+    background: #030303;
+    color: white;
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  footer p {
+    color: #F2C6D5;
+  }
+
+  @media (max-width: 800px) {
     header h1 {
-      font-size: 48px;
-      margin: 0 0 12px;
-    }
-
-    header h2 {
-      font-size: 24px;
-      font-weight: normal;
-      margin: 0 0 20px;
-    }
-
-    header p {
-      max-width: 720px;
-      margin: 0 auto 24px;
-      font-size: 20px;
-    }
-
-    nav {
-      background: white;
-      padding: 16px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav a {
-      color: #111827;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 12px;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 64px 24px;
-    }
-
-    h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    h3 {
-      font-size: 24px;
-      margin-top: 0;
-    }
-
-    .button {
-      display: inline-block;
-      background: #ffffff;
-      color: #111827;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 12px 20px;
-      border-radius: 999px;
-      margin: 8px;
+      font-size: 36px;
     }
 
     .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: 1fr;
     }
 
-    .card {
-      background: white;
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    .tag {
+    nav a {
       display: inline-block;
-      background: #e8eef7;
-      color: #1f2937;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: bold;
-      margin: 4px 4px 4px 0;
+      margin: 6px;
     }
-
-    footer {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 40px 24px;
-    }
-
-    @media (max-width: 800px) {
-      header h1 {
-        font-size: 36px;
-      }
-
-      .split {
-        grid-template-columns: 1fr;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 6px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 
 <body>
