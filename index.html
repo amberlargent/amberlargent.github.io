@@ -1,1 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Amber Largent | Instructional Designer + Project Manager</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f3ed;
+      color: #1f2933;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 0 0 12px;
+    }
+
+    header h2 {
+      font-size: 24px;
+      font-weight: normal;
+      margin: 0 0 20px;
+    }
+
+    header p {
+      max-width: 720px;
+      margin: 0 auto 24px;
+      font-size: 20px;
+    }
+
+    nav {
+      background: white;
+      padding: 16px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #111827;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 12px;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    .button {
+      display: inline-block;
+      background: #ffffff;
+      color: #111827;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 999px;
+      margin: 8px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8eef7;
+      color: #1f2937;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 4px 4px 4px 0;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    @media (max-width: 800px) {
+      header h1 {
+        font-size: 36px;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Amber Largent</h1>
+    <h2>Instructional Designer + Project Manager</h2>
+    <p>I design learning systems and manage the work that brings them to life.</p>
+
+    <a class="button" href="#instructional-design">View ID Work</a>
+    <a class="button" href="#project-management">View PM Work</a>
+    <a class="button" href="#contact">Contact Me</a>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#instructional-design">Instructional Design</a>
+    <a href="#project-management">Project Management</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="card">
+      <p>
+        I am an instructional designer, project manager, and communications specialist.
+        My work sits at the intersection of people, process, and technology.
+      </p>
+
+      <p>
+        I turn scattered information into clear learning paths, usable tools,
+        organized workflows, and communication that helps teams move forward.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Two Connected Lanes</h2>
+
+    <div class="split">
+      <div class="card" id="instructional-design">
+        <h3>Instructional Design</h3>
+        <p>
+          I design clear, useful learning experiences, job aids, communications,
+          and support resources that help people learn, apply, and perform.
+        </p>
+
+        <ul>
+          <li>Learning strategy</li>
+          <li>Curriculum design</li>
+          <li>Job aids and support resources</li>
+          <li>Facilitation support</li>
+          <li>Knowledge checks and learner practice</li>
+        </ul>
+      </div>
+
+      <div class="card" id="project-management">
+        <h3>Project Management</h3>
+        <p>
+          I organize complex work, align stakeholders, track risk, improve visibility,
+          and help teams deliver with less chaos.
+        </p>
+
+        <ul>
+          <li>Project planning</li>
+          <li>Wrike structure and reporting</li>
+          <li>Status updates</li>
+          <li>Stakeholder alignment</li>
+          <li>Launch readiness</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where ID and PM Meet</h2>
+
+    <div class="card">
+      <p>
+        The best learning work needs strong project structure.
+        The best project work needs clear communication and human-centered design.
+      </p>
+
+      <p>
+        That is where I do my best work: turning complex information into clear systems
+        people can actually use.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+
+    <div class="split">
+      <div class="card">
+        <h3>Instructional Design Skills</h3>
+        <span class="tag">ADDIE</span>
+        <span class="tag">Bloom's Taxonomy</span>
+        <span class="tag">Adult Learning</span>
+        <span class="tag">Curriculum Design</span>
+        <span class="tag">Job Aids</span>
+        <span class="tag">Learning Objectives</span>
+      </div>
+
+      <div class="card">
+        <h3>Project Management Skills</h3>
+        <span class="tag">Wrike</span>
+        <span class="tag">Project Planning</span>
+        <span class="tag">Risk Tracking</span>
+        <span class="tag">Status Reporting</span>
+        <span class="tag">Stakeholder Updates</span>
+        <span class="tag">Process Improvement</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+
+    <div class="card">
+      <p>
+        Want to connect? Add your email, LinkedIn, resume, or portfolio links here.
+      </p>
+
+      <p><strong>Email:</strong> coming soon</p>
+      <p><strong>LinkedIn:</strong> coming soon</p>
+      <p><strong>Resume:</strong> coming soon</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Amber Largent</p>
+  </footer>
+
+</body>
+</html>
