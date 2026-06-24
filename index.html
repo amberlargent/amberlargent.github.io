@@ -142,26 +142,34 @@
     }
 
     .button {
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 900;
-      padding: 13px 20px;
-      border-radius: 999px;
-      border: 2px solid var(--black);
-      background: var(--pink);
-      color: var(--black);
-      box-shadow: 0 6px 0 var(--black);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  padding: 13px 20px;
+  border-radius: 999px;
+  border: 2px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 6px 0 var(--black);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
 
-    .button:hover {
-      transform: translateY(2px);
-      box-shadow: 0 4px 0 var(--black);
-    }
+.button:hover {
+  background: var(--pink);
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 var(--black);
+}
 
-    .button.secondary {
-      background: var(--white);
-    }
+.button.secondary {
+  background: var(--white);
+}
+
+.button.secondary:hover {
+  background: var(--pink);
+}
 
     .stats {
       display: grid;
