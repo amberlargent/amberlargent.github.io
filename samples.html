@@ -280,13 +280,25 @@
       border-color: var(--pink);
     }
 
-    .sample-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
+.sample-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+  align-items: flex-start;
+}
 
+.sample-actions .button {
+  width: auto;
+  min-width: 0;
+  height: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+    
     .sample-callout {
       background: rgba(207, 210, 180, 0.55);
       border-left: 5px solid var(--slate);
@@ -578,24 +590,25 @@
       </div>
     </div>
 
-    <div class="card id-card article-content">
-      <h3>View the full devotional</h3>
+<div class="card id-card article-content">
+  <h3>Full sample PDF</h3>
 
-      <p>
-        The full devotional is hosted as a PDF so the complete sample can be viewed
-        without relying on the old Wix site.
-      </p>
+  <p>
+    The complete devotional is hosted as a PDF so the full learning sample can be reviewed
+    directly from this portfolio.
+  </p>
 
-      <p>
-        This keeps the sample portable, preserves the original work, and gives viewers
-        a clear way to review the full resource.
-      </p>
+  <p>
+    This preserves the original resource and gives viewers a complete look at the devotional
+    structure, reflection prompts, and multi-week learning experience.
+  </p>
 
-      <div class="sample-actions">
-        <a class="button" href="Living%20Our%20Faith%20At%20Work.pdf" target="_blank" rel="noopener noreferrer">
-          Open Full PDF
-        </a>
-      </div>
+  <div class="sample-actions">
+    <a class="button" href="Living%20Our%20Faith%20At%20Work.pdf" target="_blank" rel="noopener noreferrer">
+      Open Full PDF
+    </a>
+  </div>
+</div>
     </div>
   </div>
 
