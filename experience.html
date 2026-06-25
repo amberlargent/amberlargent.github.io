@@ -16,6 +16,28 @@
       --white: #fffafc;
     }
 
+a:focus-visible,
+.button:focus-visible {
+  outline: 4px solid var(--pink);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  background: var(--black);
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 900;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+    
     * {
       box-sizing: border-box;
     }
@@ -342,6 +364,8 @@
 
 <body>
 
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <nav class="site-nav">
     <div class="nav-inner">
       <div class="brand">
@@ -350,323 +374,327 @@
       </div>
 
       <div class="nav-links">
-<a href="index.html">Home</a>
-<a href="#rss">RSS Work</a>
-<a href="#training">Training</a>
-<a href="#credentials">Credentials</a>
-<a href="samples.html">Work Samples</a>
-<a href="index.html#contact">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="#rss">RSS Work</a>
+        <a href="#training">Training</a>
+        <a href="#credentials">Credentials</a>
+        <a href="samples.html">Work Samples</a>
+        <a href="index.html#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <header>
-    <div class="hero">
-      <div class="eyebrow">Training • Enablement • Experience</div>
+  <main id="main">
 
-<h1>The deeper proof behind the portfolio.</h1>
+    <header>
+      <div class="hero">
+        <div class="eyebrow">Training • Enablement • Experience</div>
 
-<p class="lead">
-  This is the deeper proof layer behind my portfolio: RSS Senior Specialist work,
-  training and enablement projects, continued learning, and credentials that show how I build clarity,
-  support adoption, and help complex work move forward.
-</p>
+        <h1>The deeper proof behind the portfolio.</h1>
 
-      <div class="button-row">
-        <a class="button" href="index.html">Back to Main Portfolio</a>
-        <a class="button" href="#credentials">View Credentials</a>
-      </div>
-    </div>
-  </header>
-
-  <section id="rss">
-    <div class="section-kicker">RSS Senior Specialist</div>
-    <h2>Regional Support Services work</h2>
-
-    <p class="section-intro">
-      My RSS Senior Specialist work gave me a wide base in support operations, readiness,
-      stakeholder communication, process improvement, reporting, and scalable enablement.
-    </p>
-
-    <div class="grid-2">
-      <div class="card pm-card">
-        <h3>Readiness + Process Support</h3>
-
-        <p>
-          <strong>Challenge:</strong> Teams needed clear support during process changes,
-          tool updates, and shifting operational needs.
+        <p class="lead">
+          This is the deeper proof layer behind my portfolio: RSS Senior Specialist work,
+          training and enablement projects, continued learning, and credentials that show how I build clarity,
+          support adoption, and help complex work move forward.
         </p>
 
-        <p>
-          <strong>Action:</strong> Created documentation, readiness support, communications,
-          and practical guidance to help teams understand changes and apply them in their work.
-        </p>
-
-        <p>
-          <strong>Result:</strong> Helped reduce confusion, improve clarity, and support
-          more consistent adoption across teams.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Readiness</span>
-          <span class="tag">Process Support</span>
-          <span class="tag">Communication</span>
-          <span class="tag">Adoption</span>
+        <div class="button-row">
+          <a class="button" href="index.html">Back to Main Portfolio</a>
+          <a class="button" href="#credentials">View Credentials</a>
         </div>
       </div>
+    </header>
 
-      <div class="card pm-card">
-        <h3>Workflow + Tool Enablement</h3>
+    <section id="rss">
+      <div class="section-kicker">RSS Senior Specialist</div>
+      <h2>Regional Support Services work</h2>
 
-        <p>
-          <strong>Challenge:</strong> Enterprise tools and workflows needed support that was
-          clear, practical, and easy to sustain.
-        </p>
+      <p class="section-intro">
+        My RSS Senior Specialist work gave me a wide base in support operations, readiness,
+        stakeholder communication, process improvement, reporting, and scalable enablement.
+      </p>
 
-        <p>
-          <strong>Action:</strong> Built guidance, workshops, support materials, and workflow
-          documentation for tools and processes used across support work.
-        </p>
+      <div class="grid-2">
+        <div class="card pm-card">
+          <h3>Readiness + Process Support</h3>
 
-        <p>
-          <strong>Result:</strong> Helped teams use tools more confidently and reduced the need
-          for repeated one-off support.
-        </p>
+          <p>
+            <strong>Challenge:</strong> Teams needed clear support during process changes,
+            tool updates, and shifting operational needs.
+          </p>
 
-        <div class="tag-list">
-          <span class="tag">Wrike</span>
-          <span class="tag">Chorus</span>
-          <span class="tag">Workflow Design</span>
-          <span class="tag">Enablement</span>
-        </div>
-      </div>
+          <p>
+            <strong>Action:</strong> Created documentation, readiness support, communications,
+            and practical guidance to help teams understand changes and apply them in their work.
+          </p>
 
-      <div class="card pm-card">
-        <h3>Reporting + Visibility</h3>
+          <p>
+            <strong>Result:</strong> Helped reduce confusion, improve clarity, and support
+            more consistent adoption across teams.
+          </p>
 
-        <p>
-          <strong>Challenge:</strong> Leaders and managers needed clearer ways to understand
-          status, trends, follow-up needs, and project health.
-        </p>
-
-        <p>
-          <strong>Action:</strong> Built reporting and visibility tools, including audit workflows,
-          weekly reporting, dashboards, and manager-facing data views.
-        </p>
-
-        <p>
-          <strong>Result:</strong> Improved status tracking, follow-up, and decision support.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Reporting</span>
-          <span class="tag">Dashboards</span>
-          <span class="tag">Manager Support</span>
-          <span class="tag">Follow-through</span>
-        </div>
-      </div>
-
-      <div class="card pm-card">
-        <h3>Cross-functional Execution</h3>
-
-        <p>
-          <strong>Challenge:</strong> Work often moved across teams, tools, timelines, and
-          priorities that needed structure.
-        </p>
-
-        <p>
-          <strong>Action:</strong> Supported planning, stakeholder alignment, action tracking,
-          communications, and follow-up across cross-functional work.
-        </p>
-
-        <p>
-          <strong>Result:</strong> Helped teams stay aligned, make decisions, and move work forward.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Stakeholder Alignment</span>
-          <span class="tag">Project Support</span>
-          <span class="tag">Action Tracking</span>
-          <span class="tag">Execution</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="training">
-    <div class="section-kicker">Training + Enablement</div>
-    <h2>Learning work that scales</h2>
-
-    <p class="section-intro">
-      My training work connects learning design, tool adoption, communication, and performance support.
-      I focus on resources people can understand, apply, and keep using after launch.
-    </p>
-
-    <div class="grid-2">
-      <div class="card id-card">
-        <h3>Personalized Learning Journey</h3>
-
-        <p>
-          Designed and supported learning work that connected learner needs, business goals,
-          performance signals, and cross-functional coordination.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Learning Strategy</span>
-          <span class="tag">Performance Support</span>
-          <span class="tag">Cross-functional Work</span>
-          <span class="tag">Measurement</span>
-        </div>
-      </div>
-
-      <div class="card id-card">
-        <h3>Discovery Series</h3>
-
-        <p>
-          Designed scalable, modular training and support resources for tools, workflows,
-          and adoption needs.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Microlearning</span>
-          <span class="tag">Tool Training</span>
-          <span class="tag">Workflow Support</span>
-          <span class="tag">Reusable Model</span>
-        </div>
-      </div>
-
-      <div class="card id-card">
-        <h3>Media Development Enablement</h3>
-
-        <p>
-          Helped build training, process documentation, standards, and support systems
-          for contributors creating learning and support content.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Team Enablement</span>
-          <span class="tag">Standards</span>
-          <span class="tag">Process Docs</span>
-          <span class="tag">Content Development</span>
-        </div>
-      </div>
-
-      <div class="card id-card">
-        <h3>Facilitation + Workshops</h3>
-
-        <p>
-          Created and delivered instructor-led sessions, workshops, and practical support
-          experiences to help learners build confidence and apply new skills.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">ILT</span>
-          <span class="tag">Workshops</span>
-          <span class="tag">Facilitation</span>
-          <span class="tag">Learner Support</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="credentials">
-    <div class="section-kicker">Additional Credentials</div>
-    <h2>Training, certifications, and continued learning</h2>
-
-    <p class="section-intro">
-      This is the fuller learning record behind the shorter credentials section on my main portfolio.
-    </p>
-
-    <div class="grid-3">
-      <div class="card pm-card">
-        <h3>Project + Agile</h3>
-
-        <div class="credential-list">
-          <div class="credential-item">
-            <strong>Certified Scrum Product Owner</strong>
-            <span>Scrum Alliance</span>
+          <div class="tag-list">
+            <span class="tag">Readiness</span>
+            <span class="tag">Process Support</span>
+            <span class="tag">Communication</span>
+            <span class="tag">Adoption</span>
           </div>
+        </div>
 
-          <div class="credential-item">
-            <strong>Certified ScrumMaster</strong>
-            <span>Scrum Alliance</span>
+        <div class="card pm-card">
+          <h3>Workflow + Tool Enablement</h3>
+
+          <p>
+            <strong>Challenge:</strong> Enterprise tools and workflows needed support that was
+            clear, practical, and easy to sustain.
+          </p>
+
+          <p>
+            <strong>Action:</strong> Built guidance, workshops, support materials, and workflow
+            documentation for tools and processes used across support work.
+          </p>
+
+          <p>
+            <strong>Result:</strong> Helped teams use tools more confidently and reduced the need
+            for repeated one-off support.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Wrike</span>
+            <span class="tag">Chorus</span>
+            <span class="tag">Workflow Design</span>
+            <span class="tag">Enablement</span>
           </div>
+        </div>
 
-          <div class="credential-item">
-            <strong>CompTIA Project+</strong>
-            <span>CompTIA</span>
+        <div class="card pm-card">
+          <h3>Reporting + Visibility</h3>
+
+          <p>
+            <strong>Challenge:</strong> Leaders and managers needed clearer ways to understand
+            status, trends, follow-up needs, and project health.
+          </p>
+
+          <p>
+            <strong>Action:</strong> Built reporting and visibility tools, including audit workflows,
+            weekly reporting, dashboards, and manager-facing data views.
+          </p>
+
+          <p>
+            <strong>Result:</strong> Improved status tracking, follow-up, and decision support.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Reporting</span>
+            <span class="tag">Dashboards</span>
+            <span class="tag">Manager Support</span>
+            <span class="tag">Follow-through</span>
           </div>
+        </div>
 
-          <div class="credential-item">
-            <strong>Foundations of Project Management</strong>
-            <span>Google / Coursera</span>
-          </div>
+        <div class="card pm-card">
+          <h3>Cross-functional Execution</h3>
 
-          <div class="credential-item">
-            <strong>Project Management Foundations and Project Planning</strong>
-            <span>Wiley / Coursera</span>
+          <p>
+            <strong>Challenge:</strong> Work often moved across teams, tools, timelines, and
+            priorities that needed structure.
+          </p>
+
+          <p>
+            <strong>Action:</strong> Supported planning, stakeholder alignment, action tracking,
+            communications, and follow-up across cross-functional work.
+          </p>
+
+          <p>
+            <strong>Result:</strong> Helped teams stay aligned, make decisions, and move work forward.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Stakeholder Alignment</span>
+            <span class="tag">Project Support</span>
+            <span class="tag">Action Tracking</span>
+            <span class="tag">Execution</span>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="card pm-card">
-        <h3>AI + Workflow</h3>
+    <section id="training">
+      <div class="section-kicker">Training + Enablement</div>
+      <h2>Learning work that scales</h2>
 
-        <div class="credential-list">
-          <div class="credential-item">
-            <strong>Generative AI for Project Managers</strong>
-            <span>Coursera Specialization</span>
+      <p class="section-intro">
+        My training work connects learning design, tool adoption, communication, and performance support.
+        I focus on resources people can understand, apply, and keep using after launch.
+      </p>
+
+      <div class="grid-2">
+        <div class="card id-card">
+          <h3>Personalized Learning Journey</h3>
+
+          <p>
+            Designed and supported learning work that connected learner needs, business goals,
+            performance signals, and cross-functional coordination.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Learning Strategy</span>
+            <span class="tag">Performance Support</span>
+            <span class="tag">Cross-functional Work</span>
+            <span class="tag">Measurement</span>
           </div>
+        </div>
 
-          <div class="credential-item">
-            <strong>Generative AI: Introduction and Applications</strong>
-            <span>IBM / Coursera</span>
+        <div class="card id-card">
+          <h3>Discovery Series</h3>
+
+          <p>
+            Designed scalable, modular training and support resources for tools, workflows,
+            and adoption needs.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Microlearning</span>
+            <span class="tag">Tool Training</span>
+            <span class="tag">Workflow Support</span>
+            <span class="tag">Reusable Model</span>
           </div>
+        </div>
 
-          <div class="credential-item">
-            <strong>Generative AI: Prompt Engineering Basics</strong>
-            <span>IBM / Coursera</span>
+        <div class="card id-card">
+          <h3>Media Development Enablement</h3>
+
+          <p>
+            Helped build training, process documentation, standards, and support systems
+            for contributors creating learning and support content.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Team Enablement</span>
+            <span class="tag">Standards</span>
+            <span class="tag">Process Docs</span>
+            <span class="tag">Content Development</span>
           </div>
+        </div>
 
-          <div class="credential-item">
-            <strong>Prompt Engineering for ChatGPT</strong>
-            <span>Vanderbilt University / Coursera</span>
-          </div>
+        <div class="card id-card">
+          <h3>Facilitation + Workshops</h3>
 
-          <div class="credential-item">
-            <strong>Generative AI Essentials: Overview and Impact</strong>
-            <span>University of Michigan / Coursera</span>
+          <p>
+            Created and delivered instructor-led sessions, workshops, and practical support
+            experiences to help learners build confidence and apply new skills.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">ILT</span>
+            <span class="tag">Workshops</span>
+            <span class="tag">Facilitation</span>
+            <span class="tag">Learner Support</span>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="card neutral-card">
-        <h3>Technical + Apple</h3>
+    <section id="credentials">
+      <div class="section-kicker">Additional Credentials</div>
+      <h2>Training, certifications, and continued learning</h2>
 
-        <div class="credential-list">
-          <div class="credential-item">
-            <strong>CompTIA A+</strong>
-            <span>CompTIA</span>
+      <p class="section-intro">
+        This is the fuller learning record behind the shorter credentials section on my main portfolio.
+      </p>
+
+      <div class="grid-3">
+        <div class="card pm-card">
+          <h3>Project + Agile</h3>
+
+          <div class="credential-list">
+            <div class="credential-item">
+              <strong>Certified Scrum Product Owner</strong>
+              <span>Scrum Alliance</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Certified ScrumMaster</strong>
+              <span>Scrum Alliance</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>CompTIA Project+</strong>
+              <span>CompTIA</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Foundations of Project Management</strong>
+              <span>Google / Coursera</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Project Management Foundations and Project Planning</strong>
+              <span>Wiley / Coursera</span>
+            </div>
           </div>
+        </div>
 
-          <div class="credential-item">
-            <strong>Apple Certified Support Professional</strong>
-            <span>Apple</span>
+        <div class="card pm-card">
+          <h3>AI + Workflow</h3>
+
+          <div class="credential-list">
+            <div class="credential-item">
+              <strong>Generative AI for Project Managers</strong>
+              <span>Coursera Specialization</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Generative AI: Introduction and Applications</strong>
+              <span>IBM / Coursera</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Generative AI: Prompt Engineering Basics</strong>
+              <span>IBM / Coursera</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Prompt Engineering for ChatGPT</strong>
+              <span>Vanderbilt University / Coursera</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Generative AI Essentials: Overview and Impact</strong>
+              <span>University of Michigan / Coursera</span>
+            </div>
           </div>
+        </div>
 
-          <div class="credential-item">
-            <strong>Apple Certified iOS Technician</strong>
-            <span>Apple</span>
-          </div>
+        <div class="card neutral-card">
+          <h3>Technical + Apple</h3>
 
-          <div class="credential-item">
-            <strong>Apple Certified Associate in Mac Integration</strong>
-            <span>Apple</span>
+          <div class="credential-list">
+            <div class="credential-item">
+              <strong>CompTIA A+</strong>
+              <span>CompTIA</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Apple Certified Support Professional</strong>
+              <span>Apple</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Apple Certified iOS Technician</strong>
+              <span>Apple</span>
+            </div>
+
+            <div class="credential-item">
+              <strong>Apple Certified Associate in Mac Integration</strong>
+              <span>Apple</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <footer>
     <p>© 2026 Amber Largent · Training + Experience</p>
