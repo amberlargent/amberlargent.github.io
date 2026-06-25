@@ -16,6 +16,28 @@
       --white: #fffafc;
     }
 
+a:focus-visible,
+.button:focus-visible {
+  outline: 4px solid var(--pink);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  background: var(--black);
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 900;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+    
     * {
       box-sizing: border-box;
     }
@@ -374,8 +396,8 @@
   </style>
 </head>
 
-<body>
-
+<body> 
+  <a class="skip-link" href="#main">Skip to main content</a> 
   <nav class="site-nav">
     <div class="nav-inner">
       <div class="brand">
@@ -391,6 +413,8 @@
       </div>
     </div>
   </nav>
+
+  <main id="main">
 
   <header>
     <div class="hero">
@@ -635,6 +659,8 @@
       <a class="button" href="experience.html">Training + Experience</a>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <p>© 2026 Amber Largent · Selected Work Samples</p>
