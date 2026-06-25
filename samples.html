@@ -1,0 +1,553 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Amber Largent | Selected Work Samples</title>
+
+  <style>
+    :root {
+      --sage: #CFD2B4;
+      --blush: #F2C6D5;
+      --pink: #E46FA1;
+      --slate: #6A747E;
+      --black: #030303;
+      --white: #fffafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--sage);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 250, 252, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--black);
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+
+    header {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(242, 198, 213, 0.85), transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(228, 111, 161, 0.24), transparent 30%),
+        var(--sage);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 86px 24px 72px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255, 250, 252, 0.78);
+      border: 1px solid rgba(228, 111, 161, 0.4);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin: 0 0 24px;
+      max-width: 940px;
+    }
+
+    .lead {
+      font-size: 21px;
+      max-width: 820px;
+      margin: 0 0 30px;
+      color: #1c1c1c;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      box-shadow: 0 6px 0 var(--black);
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .button:hover {
+      background: var(--pink);
+      transform: translateY(2px);
+      box-shadow: 0 4px 0 var(--black);
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 48px auto;
+      padding: 56px 32px;
+      background: rgba(255, 250, 252, 0.42);
+      border: 1px solid rgba(255, 250, 252, 0.7);
+      border-radius: 32px;
+      box-shadow: 0 18px 50px rgba(3, 3, 3, 0.10);
+    }
+
+    .section-kicker {
+      color: var(--pink);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 22px;
+    }
+
+    .section-intro {
+      max-width: 820px;
+      font-size: 19px;
+      color: #202020;
+      margin-bottom: 34px;
+    }
+
+    .card {
+      background: rgba(255, 250, 252, 0.86);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-top: 6px solid var(--pink);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 46px rgba(3, 3, 3, 0.14);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0 0 14px;
+    }
+
+    .pm-card {
+      border-top-color: var(--pink);
+    }
+
+    .id-card {
+      border-top-color: var(--slate);
+    }
+
+    .neutral-card {
+      border-top-color: var(--blush);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .sample-card {
+      display: grid;
+      gap: 16px;
+    }
+
+    .sample-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      background: var(--blush);
+      border: 1px solid rgba(228, 111, 161, 0.5);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 900;
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+    }
+
+    .tag:hover {
+      transform: translateY(-2px);
+      background: var(--blush);
+      border-color: var(--pink);
+    }
+
+    .sample-note {
+      background: rgba(207, 210, 180, 0.55);
+      border-left: 5px solid var(--slate);
+      border-radius: 16px;
+      padding: 18px;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 34px 24px;
+      text-align: center;
+      background: var(--black);
+      color: var(--blush);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        margin: 28px 14px;
+        padding: 40px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button,
+      .card,
+      .tag {
+        transition: none;
+      }
+
+      .button:hover,
+      .card:hover,
+      .tag:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        Amber Largent
+        <span>Selected Work Samples</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="experience.html">Experience</a>
+        <a href="#writing">Writing</a>
+        <a href="#learning">Learning</a>
+        <a href="#facilitation">Facilitation</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="hero">
+      <div class="eyebrow">Writing • Learning • Facilitation</div>
+
+      <h1>Selected work samples.</h1>
+
+      <p class="lead">
+        A closer look at writing, facilitation, learning design, and collaboration samples
+        that show how I turn ideas into clear resources, structured conversations, and useful support.
+      </p>
+
+      <div class="button-row">
+        <a class="button" href="index.html">Back to Main Portfolio</a>
+        <a class="button" href="experience.html">View Training + Experience</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="writing">
+    <div class="section-kicker">Writing + Communication</div>
+    <h2>Making Global Work...Work</h2>
+
+    <p class="section-intro">
+      A practical communication sample focused on helping global teams collaborate with more clarity,
+      care, and consistency across time zones, locations, cultures, and working styles.
+    </p>
+
+    <div class="grid-2">
+      <div class="card neutral-card sample-card">
+        <h3>What it shows</h3>
+
+        <p>
+          This sample demonstrates how I translate common workplace friction into practical,
+          people-centered guidance teams can actually use.
+        </p>
+
+        <p>
+          It focuses on async input, clear agendas, inclusive meeting habits,
+          plain language, and realistic support for global collaboration.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">Global Collaboration</span>
+          <span class="tag">Inclusive Communication</span>
+          <span class="tag">Async Work</span>
+          <span class="tag">Writing Sample</span>
+        </div>
+      </div>
+
+      <div class="card neutral-card sample-card">
+        <h3>Portfolio framing</h3>
+
+        <p>
+          <strong>Challenge:</strong> Global teams need more than good intentions.
+          They need clear practices that help people contribute across distance, time zones,
+          and different communication norms.
+        </p>
+
+        <p>
+          <strong>Action:</strong> Created practical guidance that breaks global collaboration
+          into clear behaviors and repeatable team habits.
+        </p>
+
+        <p>
+          <strong>Result:</strong> Provided a usable resource for better alignment,
+          stronger participation, and more respectful cross-regional work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="learning">
+    <div class="section-kicker">Community Learning Design</div>
+    <h2>Living Our Faith At Work</h2>
+
+    <p class="section-intro">
+      A learning and reflection experience designed for private study, asynchronous discussion,
+      and live conversation. This sample shows my ability to design thoughtful, values-based learning
+      while supporting structure, participation, and connection.
+    </p>
+
+    <div class="grid-2">
+      <div class="card id-card sample-card">
+        <h3>What it shows</h3>
+
+        <p>
+          This sample highlights program design, reflection questions, community learning,
+          discussion planning, and facilitation structure.
+        </p>
+
+        <p>
+          It also shows how I design for different participation needs: private reflection,
+          async conversation, and live group engagement.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">Program Design</span>
+          <span class="tag">Reflection Questions</span>
+          <span class="tag">Community Learning</span>
+          <span class="tag">Global Sessions</span>
+        </div>
+      </div>
+
+      <div class="card id-card sample-card">
+        <h3>Portfolio framing</h3>
+
+        <p>
+          <strong>Challenge:</strong> A global audience needed a meaningful way to connect,
+          reflect, and participate without requiring one single format or time zone.
+        </p>
+
+        <p>
+          <strong>Action:</strong> Designed a structured experience that supported self-paced
+          reflection, async discussion, and live conversation.
+        </p>
+
+        <p>
+          <strong>Result:</strong> Created a flexible learning experience that supported
+          connection, reflection, and practical workplace application.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="facilitation">
+    <div class="section-kicker">Facilitation + Collaboration</div>
+    <h2>Miro Retrospective Brainstorming Project</h2>
+
+    <p class="section-intro">
+      A collaboration and facilitation sample focused on gathering input, supporting discussion,
+      organizing ideas, and helping teams move from feedback to next steps.
+    </p>
+
+    <div class="grid-2">
+      <div class="card pm-card sample-card">
+        <h3>What it shows</h3>
+
+        <p>
+          This sample demonstrates my ability to design a collaborative space that works for
+          both live participation and asynchronous input.
+        </p>
+
+        <p>
+          It also shows facilitation planning, leadership insight gathering,
+          stakeholder input, and structured collaboration.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">Miro</span>
+          <span class="tag">Retrospective</span>
+          <span class="tag">Change Support</span>
+          <span class="tag">Stakeholder Input</span>
+        </div>
+      </div>
+
+      <div class="card pm-card sample-card">
+        <h3>Portfolio framing</h3>
+
+        <p>
+          <strong>Challenge:</strong> A team needed a clear way to gather ideas,
+          support conversation, and create shared visibility around feedback.
+        </p>
+
+        <p>
+          <strong>Action:</strong> Built a Miro-based collaboration experience that supported
+          synchronous discussion, asynchronous brainstorming, leadership review, and follow-up.
+        </p>
+
+        <p>
+          <strong>Result:</strong> Helped create clearer alignment, stronger input,
+          and a more useful path from discussion to action.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="section-kicker">Connected Portfolio</div>
+    <h2>How these samples connect to the work.</h2>
+
+    <p class="section-intro">
+      These samples sit at the intersection of instructional design, communication,
+      facilitation, and project management. They show how I build structure around people,
+      not just process.
+    </p>
+
+    <div class="sample-note">
+      The throughline: make the work clear, make participation easier, and help teams move forward
+      with shared understanding.
+    </div>
+
+    <div class="button-row" style="margin-top: 28px;">
+      <a class="button" href="index.html">Main Portfolio</a>
+      <a class="button" href="experience.html">Training + Experience</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Amber Largent · Selected Work Samples</p>
+  </footer>
+
+</body>
+</html>
+```
