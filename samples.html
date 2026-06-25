@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -247,6 +246,40 @@
       gap: 8px;
       margin-top: 6px;
     }
+    
+.article-content {
+  display: grid;
+  gap: 18px;
+}
+
+.article-content h3 {
+  margin-top: 22px;
+}
+
+.article-content ul,
+.article-content ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.article-content li {
+  margin-bottom: 10px;
+}
+
+.sample-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.sample-callout {
+  background: rgba(207, 210, 180, 0.55);
+  border-left: 5px solid var(--slate);
+  border-radius: 16px;
+  padding: 18px;
+  font-weight: 700;
+}
 
     .tag-list {
       display: flex;
@@ -365,58 +398,230 @@
     </div>
   </header>
 
-  <section id="writing">
-    <div class="section-kicker">Writing + Communication</div>
-    <h2>Making Global Work...Work</h2>
+<section id="writing">
+  <div class="section-kicker">Writing + Communication</div>
+  <h2>Making Global Work...Work</h2>
 
-    <p class="section-intro">
-      A practical communication sample focused on helping global teams collaborate with more clarity,
-      care, and consistency across time zones, locations, cultures, and working styles.
+  <p class="section-intro">
+    A practical writing sample focused on helping global and cross-functional teams collaborate
+    with more clarity, care, and consistency across time zones, locations, cultures, and working styles.
+  </p>
+
+  <div class="card neutral-card article-content">
+    <h3>Tips and actionable strategies for inclusive collaboration</h3>
+
+    <p>
+      In global and cross-functional work, inclusion is essential for effective collaboration.
+      Whether teams are navigating time zones, cultural differences, communication styles, or
+      regional working norms, small adjustments can make a big impact.
     </p>
 
-    <div class="grid-2">
-      <div class="card neutral-card sample-card">
-        <h3>What it shows</h3>
+    <p>
+      The goal is simple: help every person contribute fully, even when the team is spread
+      across locations, schedules, and communication preferences.
+    </p>
 
-        <p>
-          This sample demonstrates how I translate common workplace friction into practical,
-          people-centered guidance teams can actually use.
-        </p>
+    <h3>Time zones: fair for everyone</h3>
 
-        <p>
-          It focuses on async input, clear agendas, inclusive meeting habits,
-          plain language, and realistic support for global collaboration.
-        </p>
+    <p>
+      Cross-functional teams work best when all voices are included, regardless of location.
+      A meeting time that is convenient for one region may consistently exclude another.
+      Inclusive planning means sharing the inconvenience and creating other ways to contribute.
+    </p>
 
-        <div class="tag-list">
-          <span class="tag">Global Collaboration</span>
-          <span class="tag">Inclusive Communication</span>
-          <span class="tag">Async Work</span>
-          <span class="tag">Writing Sample</span>
-        </div>
+    <ul>
+      <li>Rotate meeting times when a recurring meeting includes multiple regions.</li>
+      <li>Use regional representatives when one global meeting does not work for everyone.</li>
+      <li>Summarize key decisions, action items, and open questions in meeting notes.</li>
+      <li>Use asynchronous tools, shared documents, and Slack updates to capture input.</li>
+      <li>Share structured agendas in advance so team members can prepare.</li>
+    </ul>
+
+    <p>
+      Instead of scheduling every recurring meeting for the same region’s convenience, rotate
+      meeting times or ask a regional lead to run a second session using the same materials
+      and shared notes.
+    </p>
+
+    <h3>Cultural inclusion: clarity, respect, and real feedback</h3>
+
+    <p>
+      When people work across cultures, clear communication and respect build stronger teams.
+      Inclusive collaboration is not about guessing what everyone needs. It is about creating
+      habits that make participation easier and reduce unnecessary confusion.
+    </p>
+
+    <ul>
+      <li>Be mindful of regional holidays and observances when setting deadlines or meetings.</li>
+      <li>Use clear, precise language and avoid idioms that may not translate well.</li>
+      <li>Invite feedback from all regions so decisions do not reflect only one perspective.</li>
+      <li>Assume positive intent when tone, phrasing, or response time feels different.</li>
+      <li>Pause before responding so people have time to process and contribute.</li>
+    </ul>
+
+    <p>
+      For example, instead of saying, “Let’s touch base later,” say, “Let’s meet again on Friday
+      at 10 AM PT.” Clear language helps everyone understand the same next step.
+    </p>
+
+    <h3>Inclusion in action: advocate, do not just participate</h3>
+
+    <p>
+      Inclusion becomes part of team culture when people model it, name gaps, and build better
+      systems. It is not only a meeting guideline. It is a practical way to help the whole team
+      do better work.
+    </p>
+
+    <ul>
+      <li>Model inclusive behaviors through agendas, rotating meetings, and global input.</li>
+      <li>Speak up when meeting times or workflows consistently exclude certain regions.</li>
+      <li>Ask whether the format is working for the team and adjust when needed.</li>
+      <li>Share resources and encourage continuous learning around inclusive communication.</li>
+    </ul>
+
+    <h3>Making inclusion an everyday practice</h3>
+
+    <p>
+      Inclusion helps ensure that everyone, regardless of location or background, can contribute
+      fully. Small shifts in meeting design, language, timing, and follow-up can create stronger
+      collaboration, better engagement, and clearer outcomes.
+    </p>
+
+    <div class="tag-list">
+      <span class="tag">Global Collaboration</span>
+      <span class="tag">Inclusive Communication</span>
+      <span class="tag">Async Work</span>
+      <span class="tag">Writing Sample</span>
+    </div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="section-kicker">Community Learning Design</div>
+  <h2>Living Our Faith At Work</h2>
+
+  <p class="section-intro">
+    A 42-day devotional learning experience designed for private reflection,
+    asynchronous discussion, and live global conversation.
+  </p>
+
+  <div class="grid-2">
+    <div class="card id-card article-content">
+      <h3>Sample overview</h3>
+
+      <p>
+        This project was created for a Christian affinity group’s Lenten heritage month.
+        The goal was to support spiritual growth, workplace connection, and professional
+        reflection through a structured devotional experience.
+      </p>
+
+      <p>
+        The resource was designed to work across three participation paths so people could
+        engage in the way that best fit their schedule, comfort level, and region.
+      </p>
+
+      <ol>
+        <li>
+          <strong>Private study:</strong> Devotions were emailed weekly, with seven daily
+          reflections and personal reflection prompts.
+        </li>
+        <li>
+          <strong>Asynchronous study:</strong> A Slack thread was created for each day so
+          participants could discuss the devotion when they wanted to.
+        </li>
+        <li>
+          <strong>Synchronous conversation:</strong> Three WebEx sessions were scheduled each
+          week to support a global audience and allow live discussion.
+        </li>
+      </ol>
+
+      <div class="sample-callout">
+        This sample shows values-based learning design, reflection-question writing,
+        community learning, global session planning, and multi-format engagement.
       </div>
 
-      <div class="card neutral-card sample-card">
-        <h3>Portfolio framing</h3>
-
-        <p>
-          <strong>Challenge:</strong> Global teams need more than good intentions.
-          They need clear practices that help people contribute across distance, time zones,
-          and different communication norms.
-        </p>
-
-        <p>
-          <strong>Action:</strong> Created practical guidance that breaks global collaboration
-          into clear behaviors and repeatable team habits.
-        </p>
-
-        <p>
-          <strong>Result:</strong> Provided a usable resource for better alignment,
-          stronger participation, and more respectful cross-regional work.
-        </p>
+      <div class="tag-list">
+        <span class="tag">Program Design</span>
+        <span class="tag">Reflection Questions</span>
+        <span class="tag">Community Learning</span>
+        <span class="tag">Global Sessions</span>
       </div>
     </div>
-  </section>
+
+    <div class="card id-card article-content">
+      <h3>View the full devotional</h3>
+
+      <p>
+        The full devotional is hosted as a PDF so the complete sample can be viewed
+        without relying on the old Wix site.
+      </p>
+
+      <p>
+        This keeps the sample portable, preserves the original work, and gives viewers
+        a clear way to review the full resource.
+      </p>
+
+      <div class="sample-actions">
+        <a class="button" href="Living Our Faith At Work.pdf" target="_blank" rel="noopener noreferrer">
+          Open Full PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="facilitation">
+  <div class="section-kicker">Facilitation + Collaboration</div>
+  <h2>Miro Retrospective Brainstorming Project</h2>
+
+  <p class="section-intro">
+    A collaboration and facilitation sample focused on gathering input, supporting discussion,
+    organizing ideas, and helping teams move from feedback to next steps.
+  </p>
+
+  <div class="card pm-card article-content">
+    <h3>Project write-up</h3>
+
+    <p>
+      I was asked to create a Miro board for three regions to ideate and develop actionable
+      initiatives aligned with the organization’s vision and strategy pillars.
+    </p>
+
+    <p>
+      The board was designed to support multiple working needs:
+    </p>
+
+    <ul>
+      <li>Enable presentation mode for synchronous sessions.</li>
+      <li>Support asynchronous collaboration and idea-sharing.</li>
+      <li>Allow leadership to gather insights and feedback after discussions.</li>
+      <li>Create a shared space for teams to express concerns, identify themes, and align on next steps.</li>
+    </ul>
+
+    <h3>Change management purpose</h3>
+
+    <p>
+      From a change management perspective, the goal was to engage end users across
+      international teams, foster buy-in, and support a smoother implementation of the vision.
+      The board created a constructive space for feedback, transparency, and alignment.
+    </p>
+
+    <h3>What this sample shows</h3>
+
+    <p>
+      This project demonstrates facilitation planning, async collaboration design, leadership
+      insight gathering, stakeholder input, and structured follow-through.
+    </p>
+
+    <div class="tag-list">
+      <span class="tag">Miro</span>
+      <span class="tag">Retrospective</span>
+      <span class="tag">Change Support</span>
+      <span class="tag">Stakeholder Input</span>
+      <span class="tag">Async Collaboration</span>
+    </div>
+  </div>
+</section>
 
   <section id="learning">
     <div class="section-kicker">Community Learning Design</div>
@@ -550,4 +755,3 @@
 
 </body>
 </html>
-```
