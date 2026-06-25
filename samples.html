@@ -69,6 +69,7 @@
 
     .nav-links {
       display: flex;
+      flex-wrap: wrap;
       gap: 22px;
       font-size: 14px;
       font-weight: 800;
@@ -195,94 +196,80 @@
       margin-bottom: 34px;
     }
 
-    .card {
-      background: rgba(255, 250, 252, 0.86);
-      border: 1px solid rgba(228, 111, 161, 0.34);
-      border-top: 6px solid var(--pink);
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        border-color 0.18s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 46px rgba(3, 3, 3, 0.14);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 24px;
-      letter-spacing: -0.02em;
-    }
-
-    .card p {
-      margin: 0 0 14px;
-    }
-
-    .card ul,
-    .card ol {
-      margin: 0;
-      padding-left: 22px;
-    }
-
-    .card li {
-      margin-bottom: 10px;
-    }
-
-    .pm-card {
-      border-top-color: var(--pink);
-    }
-
-    .id-card {
-      border-top-color: var(--slate);
-    }
-
-    .neutral-card {
-      border-top-color: var(--blush);
-    }
-
-    .framing-card {
-      border-top-color: var(--slate);
-    }
-
-    .grid-2 {
+    .samples-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
       align-items: start;
     }
 
-    .article-content {
+    .sample-card {
+      background: rgba(255, 250, 252, 0.88);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-top: 6px solid var(--pink);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
       display: grid;
       gap: 16px;
       align-content: start;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
     }
 
-    .article-content h3 {
-      margin-top: 20px;
+    .sample-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 46px rgba(3, 3, 3, 0.14);
     }
 
-    .article-content h3:first-child {
-      margin-top: 0;
+    .sample-card h3 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
     }
 
-    .framing-grid {
-      margin-top: 22px;
+    .sample-card h4 {
+      margin: 12px 0 0;
+      font-size: 17px;
+      letter-spacing: -0.01em;
     }
 
-    .compact-card {
-      align-self: start;
+    .sample-card p {
+      margin: 0;
+    }
+
+    .sample-card .category {
+      color: var(--pink);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .communication-card {
+      border-top-color: var(--blush);
+    }
+
+    .evaluation-card {
+      border-top-color: var(--pink);
+    }
+
+    .technology-card {
+      border-top-color: var(--slate);
+    }
+
+    .learning-card {
+      border-top-color: var(--slate);
     }
 
     .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 14px;
+      margin-top: 4px;
     }
 
     .tag {
@@ -304,31 +291,38 @@
       border-color: var(--pink);
     }
 
+    .approach {
+      background: rgba(207, 210, 180, 0.45);
+      border-left: 5px solid var(--slate);
+      border-radius: 16px;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .approach p {
+      margin: 0;
+    }
+
     .sample-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 4px;
       align-items: flex-start;
     }
 
     .sample-actions .button {
-      width: auto;
-      min-width: 0;
-      height: auto;
       align-self: flex-start;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
     }
 
-    .sample-callout {
+    .note-card {
       background: rgba(207, 210, 180, 0.55);
       border-left: 5px solid var(--slate);
       border-radius: 16px;
       padding: 18px;
       font-weight: 700;
+      max-width: 860px;
     }
 
     footer {
@@ -346,11 +340,10 @@
       }
 
       .nav-links {
-        flex-wrap: wrap;
         gap: 14px;
       }
 
-      .grid-2 {
+      .samples-grid {
         grid-template-columns: 1fr;
       }
 
@@ -367,13 +360,13 @@
 
     @media (prefers-reduced-motion: reduce) {
       .button,
-      .card,
+      .sample-card,
       .tag {
         transition: none;
       }
 
       .button:hover,
-      .card:hover,
+      .sample-card:hover,
       .tag:hover {
         transform: none;
       }
@@ -393,8 +386,7 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="experience.html">Experience</a>
-        <a href="#writing">Writing</a>
-        <a href="#learning">Learning</a>
+        <a href="#samples">Samples</a>
         <a href="index.html#contact">Contact</a>
       </div>
     </div>
@@ -402,13 +394,13 @@
 
   <header>
     <div class="hero">
-      <div class="eyebrow">Writing • Learning • Communication</div>
+      <div class="eyebrow">Writing • Evaluation • Learning Design</div>
 
       <h1>Selected work samples.</h1>
 
       <p class="lead">
-        A closer look at writing, learning design, and communication samples that show
-        how I turn ideas into clear resources, structured experiences, and useful support.
+        A curated set of writing, learning design, evaluation, and communication samples.
+        Each sample includes a short portfolio framing note and a full PDF.
       </p>
 
       <div class="button-row">
@@ -418,115 +410,32 @@
     </div>
   </header>
 
-  <section id="writing">
-    <div class="section-kicker">Writing + Communication</div>
-    <h2>Making Global Work...Work</h2>
+  <section id="samples">
+    <div class="section-kicker">Selected Samples</div>
+    <h2>Writing, learning, and evaluation work</h2>
 
     <p class="section-intro">
-      A practical writing sample focused on helping global and cross-functional teams collaborate
-      with more clarity, care, and consistency across time zones, locations, cultures, and working styles.
+      These samples show how I build clarity around complex work, support different ways
+      people participate, and connect learning or communication efforts to practical outcomes.
     </p>
 
-    <div class="card neutral-card article-content">
-      <h3>Tips and actionable strategies for inclusive collaboration</h3>
+    <div class="samples-grid">
 
-      <p>
-        In global and cross-functional work, inclusion is essential for effective collaboration.
-        Whether teams are navigating time zones, cultural differences, communication styles, or
-        regional working norms, small adjustments can make a big impact.
-      </p>
+      <article class="sample-card communication-card">
+        <div class="category">Writing + Communication</div>
 
-      <p>
-        The goal is simple: help every person contribute fully, even when the team is spread
-        across locations, schedules, and communication preferences.
-      </p>
-
-      <h3>Time zones: fair for everyone</h3>
-
-      <p>
-        Cross-functional teams work best when all voices are included, regardless of location.
-        A meeting time that is convenient for one region may consistently exclude another.
-        Inclusive planning means sharing the inconvenience and creating other ways to contribute.
-      </p>
-
-      <ul>
-        <li>Rotate meeting times when a recurring meeting includes multiple regions.</li>
-        <li>Use regional representatives when one global meeting does not work for everyone.</li>
-        <li>Summarize key decisions, action items, and open questions in meeting notes.</li>
-        <li>Use asynchronous tools, shared documents, and Slack updates to capture input.</li>
-        <li>Share structured agendas in advance so team members can prepare.</li>
-      </ul>
-
-      <p>
-        Instead of scheduling every recurring meeting for the same region’s convenience, rotate
-        meeting times or ask a regional lead to run a second session using the same materials
-        and shared notes.
-      </p>
-
-      <h3>Cultural inclusion: clarity, respect, and real feedback</h3>
-
-      <p>
-        When people work across cultures, clear communication and respect build stronger teams.
-        Inclusive collaboration is not about guessing what everyone needs. It is about creating
-        habits that make participation easier and reduce unnecessary confusion.
-      </p>
-
-      <ul>
-        <li>Be mindful of regional holidays and observances when setting deadlines or meetings.</li>
-        <li>Use clear, precise language and avoid idioms that may not translate well.</li>
-        <li>Invite feedback from all regions so decisions do not reflect only one perspective.</li>
-        <li>Assume positive intent when tone, phrasing, or response time feels different.</li>
-        <li>Pause before responding so people have time to process and contribute.</li>
-      </ul>
-
-      <p>
-        For example, instead of saying, “Let’s touch base later,” say, “Let’s meet again on Friday
-        at 10 AM PT.” Clear language helps everyone understand the same next step.
-      </p>
-
-      <h3>Inclusion in action: advocate, do not just participate</h3>
-
-      <p>
-        Inclusion becomes part of team culture when people model it, name gaps, and build better
-        systems. It is not only a meeting guideline. It is a practical way to help the whole team
-        do better work.
-      </p>
-
-      <ul>
-        <li>Model inclusive behaviors through agendas, rotating meetings, and global input.</li>
-        <li>Speak up when meeting times or workflows consistently exclude certain regions.</li>
-        <li>Ask whether the format is working for the team and adjust when needed.</li>
-        <li>Share resources and encourage continuous learning around inclusive communication.</li>
-      </ul>
-
-      <h3>Making inclusion an everyday practice</h3>
-
-      <p>
-        Inclusion helps ensure that everyone, regardless of location or background, can contribute
-        fully. Small shifts in meeting design, language, timing, and follow-up can create stronger
-        collaboration, better engagement, and clearer outcomes.
-      </p>
-
-      <div class="tag-list">
-        <span class="tag">Global Collaboration</span>
-        <span class="tag">Inclusive Communication</span>
-        <span class="tag">Async Work</span>
-        <span class="tag">Writing Sample</span>
-      </div>
-    </div>
-
-    <div class="grid-2 framing-grid">
-      <div class="card framing-card">
-        <h3>Skills demonstrated</h3>
+        <h3>Making Global Work...Work</h3>
 
         <p>
-          This sample highlights practical communication, global collaboration support,
-          inclusive meeting design, async work planning, and clear workplace writing.
+          A practical writing sample focused on helping global and cross-functional teams collaborate
+          with more clarity, care, and consistency across time zones, locations, cultures, and working styles.
         </p>
 
+        <h4>Skills demonstrated</h4>
+
         <p>
-          It also shows how I turn common team friction into clear guidance that helps people
-          work together with more clarity, respect, and consistency.
+          Practical communication, global collaboration support, inclusive meeting design,
+          asynchronous work planning, and clear workplace writing.
         </p>
 
         <div class="tag-list">
@@ -535,138 +444,175 @@
           <span class="tag">Inclusive Practices</span>
           <span class="tag">Team Enablement</span>
         </div>
-      </div>
 
-      <div class="card framing-card">
-        <h3>Approach + value</h3>
+        <div class="approach">
+          <p>
+            <strong>Challenge:</strong> Global teams needed practical ways to collaborate across
+            time zones, locations, working styles, and communication norms.
+          </p>
 
-        <p>
-          <strong>Challenge:</strong> Global teams needed practical ways to collaborate across
-          time zones, locations, working styles, and communication norms.
-        </p>
+          <p>
+            <strong>Action:</strong> Created a behavior-based guide with actionable strategies
+            for meeting design, async input, cultural clarity, and follow-up.
+          </p>
 
-        <p>
-          <strong>Action:</strong> Created a clear, behavior-based guide with actionable strategies
-          for meeting design, async input, cultural clarity, and follow-up.
-        </p>
+          <p>
+            <strong>Value:</strong> Supports stronger participation, better alignment, and more
+            inclusive cross-regional work.
+          </p>
+        </div>
 
-        <p>
-          <strong>Result:</strong> Provided a usable resource that supports stronger participation,
-          better alignment, and more inclusive cross-regional work.
-        </p>
-      </div>
-    </div>
-  </section>
+        <div class="sample-actions">
+          <a class="button" href="making-global-work-work.pdf" target="_blank" rel="noopener noreferrer">
+            Open Full PDF
+          </a>
+        </div>
+      </article>
 
-  <section id="learning">
-    <div class="section-kicker">Community Learning Design</div>
-    <h2>Living Our Faith At Work</h2>
+      <article class="sample-card evaluation-card">
+        <div class="category">Training Evaluation + Reporting</div>
 
-    <p class="section-intro">
-      A 42-day DNA devotional learning experience designed for private reflection,
-      asynchronous discussion, and live global conversation.
-    </p>
-
-    <div class="grid-2">
-      <div class="card id-card article-content">
-        <h3>Sample overview</h3>
+        <h3>The Power of Storytelling in Training Evaluation</h3>
 
         <p>
-          This project was created for a Christian DNA group’s Lenten heritage month.
-          The goal was to support spiritual growth, workplace connection, and professional
-          reflection through a structured devotional experience.
+          A long-form writing sample focused on connecting training outcomes to individual growth,
+          organizational goals, and stakeholder-ready reporting.
         </p>
+
+        <h4>Skills demonstrated</h4>
 
         <p>
-          The resource was designed to work across three participation paths so people could
-          engage in the way that best fit their schedule, comfort level, and region.
+          Training evaluation strategy, reporting judgment, business alignment,
+          data storytelling, and instructional design thinking.
         </p>
 
-        <ol>
-          <li>
-            <strong>Private study:</strong> Devotions were emailed weekly, with seven daily
-            reflections and personal reflection prompts.
-          </li>
-          <li>
-            <strong>Asynchronous study:</strong> A Slack thread was created for each day so
-            participants could discuss the devotion when they wanted to.
-          </li>
-          <li>
-            <strong>Synchronous conversation:</strong> Three WebEx sessions were scheduled each
-            week to support a global audience and allow live discussion.
-          </li>
-        </ol>
+        <div class="tag-list">
+          <span class="tag">Evaluation Strategy</span>
+          <span class="tag">Learning Analytics</span>
+          <span class="tag">Stakeholder Reporting</span>
+          <span class="tag">Storytelling With Data</span>
+        </div>
+
+        <div class="approach">
+          <p>
+            <strong>Challenge:</strong> New product training can lack direct historical metrics,
+            making training impact harder to prove.
+          </p>
+
+          <p>
+            <strong>Action:</strong> Framed a practical evaluation approach using performance signals,
+            quality metrics, time to proficiency, engagement, feedback, and storytelling.
+          </p>
+
+          <p>
+            <strong>Value:</strong> Creates a clearer way to communicate training value through
+            both measurable outcomes and human impact.
+          </p>
+        </div>
+
+        <div class="sample-actions">
+          <a class="button" href="training-evaluation-storytelling.pdf" target="_blank" rel="noopener noreferrer">
+            Open Full PDF
+          </a>
+        </div>
+      </article>
+
+      <article class="sample-card technology-card">
+        <div class="category">Instructional Design Philosophy</div>
+
+        <h3>Philosophy of Technology for Education</h3>
+
+        <p>
+          A long-form professional philosophy statement on technology, accessibility, AI,
+          ethics, instructional design, and human-centered learning.
+        </p>
+
+        <h4>Skills demonstrated</h4>
+
+        <p>
+          Long-form instructional design writing, technology analysis, accessibility thinking,
+          AI integration, ethical judgment, and human-centered design.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">AI Literacy</span>
+          <span class="tag">Accessibility</span>
+          <span class="tag">Learning Philosophy</span>
+          <span class="tag">Human-Centered Design</span>
+        </div>
+
+        <div class="approach">
+          <p>
+            <strong>Challenge:</strong> Technology and AI are often treated as either a threat
+            or a cure-all, instead of tools that require purpose, limits, and human judgment.
+          </p>
+
+          <p>
+            <strong>Action:</strong> Built and updated a human-centered philosophy for using
+            technology in education, focused on access, information, connection, and facilitator support.
+          </p>
+
+          <p>
+            <strong>Value:</strong> Supports responsible learning design, practical AI use,
+            accessibility, and learner-centered decision-making.
+          </p>
+        </div>
+
+        <div class="sample-actions">
+          <a class="button" href="philosophy-of-technology-for-education.pdf" target="_blank" rel="noopener noreferrer">
+            Open Full PDF
+          </a>
+        </div>
+      </article>
+
+      <article class="sample-card learning-card">
+        <div class="category">Community Learning Design</div>
+
+        <h3>Living Our Faith At Work</h3>
+
+        <p>
+          A 42-day DNA devotional learning experience designed for private reflection,
+          asynchronous discussion, and live global conversation.
+        </p>
+
+        <h4>Skills demonstrated</h4>
+
+        <p>
+          Program design, reflection-question writing, community learning,
+          discussion planning, facilitation structure, and multi-format engagement.
+        </p>
 
         <div class="tag-list">
           <span class="tag">DNA Project</span>
           <span class="tag">Program Design</span>
           <span class="tag">Reflection Questions</span>
-          <span class="tag">Community Learning</span>
           <span class="tag">Global Sessions</span>
         </div>
-      </div>
 
-      <div class="card id-card article-content compact-card">
-        <h3>Full sample PDF</h3>
+        <div class="approach">
+          <p>
+            <strong>Challenge:</strong> A global audience needed a meaningful way to connect,
+            reflect, and participate without requiring one single format or time zone.
+          </p>
 
-        <p>
-          The complete devotional is hosted as a PDF so the full learning sample can be reviewed
-          directly from this portfolio.
-        </p>
+          <p>
+            <strong>Action:</strong> Designed a structured experience that supported self-paced
+            reflection, asynchronous discussion, and live conversation.
+          </p>
 
-        <p>
-          This preserves the original resource and gives viewers a complete look at the devotional
-          structure, reflection prompts, and multi-week learning experience.
-        </p>
+          <p>
+            <strong>Value:</strong> Created a flexible learning experience that supported connection,
+            reflection, and practical workplace application.
+          </p>
+        </div>
 
         <div class="sample-actions">
           <a class="button" href="Living%20Our%20Faith%20At%20Work.pdf" target="_blank" rel="noopener noreferrer">
             Open Full PDF
           </a>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <div class="grid-2 framing-grid">
-      <div class="card framing-card">
-        <h3>Skills demonstrated</h3>
-
-        <p>
-          This sample highlights program design, reflection-question writing,
-          community learning, discussion planning, and facilitation structure.
-        </p>
-
-        <p>
-          It also shows how I design for different participation needs: private reflection,
-          asynchronous conversation, and live group engagement.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Learning Design</span>
-          <span class="tag">Facilitation Planning</span>
-          <span class="tag">Async Engagement</span>
-          <span class="tag">Participant Support</span>
-        </div>
-      </div>
-
-      <div class="card framing-card">
-        <h3>Approach + value</h3>
-
-        <p>
-          <strong>Challenge:</strong> A global audience needed a meaningful way to connect,
-          reflect, and participate without requiring one single format or time zone.
-        </p>
-
-        <p>
-          <strong>Action:</strong> Designed a structured experience that supported self-paced
-          reflection, asynchronous discussion, and live conversation.
-        </p>
-
-        <p>
-          <strong>Result:</strong> Created a flexible learning experience that supported
-          connection, reflection, and practical workplace application.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -675,11 +621,11 @@
     <h2>How these samples connect to the work.</h2>
 
     <p class="section-intro">
-      These samples show how I use communication and instructional design to make complex work
-      clearer, more accessible, and easier to apply.
+      These samples show how I use communication, evaluation, instructional design, and technology
+      strategy to make complex work clearer, more accessible, and easier to apply.
     </p>
 
-    <div class="sample-callout">
+    <div class="note-card">
       The throughline: make the work clear, support different ways people participate,
       and create resources people can actually use.
     </div>
