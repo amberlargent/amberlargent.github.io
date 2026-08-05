@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   update-homepage:
-    if: contains(github.event.head_commit.message, 'Run homepage core story update')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -25,13 +24,11 @@ jobs:
           path = Path('index.html')
           text = path.read_text(encoding='utf-8')
 
-          old_lead = '''        <p class="lead">
+          text = text.replace('''        <p class="lead">
           I help teams bring structure, clarity, and follow-through to complex work across operations,
           learning, process, tools, and risk-adjacent environments. My instructional design background
           helps me make the work clear, usable, and ready to launch.
-        </p>'''
-
-          new_lead = '''        <p class="lead">
+        </p>''', '''        <p class="lead">
           First, I listen and learn the systems. Then I help teams create structure that makes work
           clearer, not heavier.
         </p>
@@ -40,10 +37,9 @@ jobs:
           I bring equal strength in learning and facilitation, project and process leadership,
           AI enablement, Chorus knowledge systems, and operational visibility to help teams learn,
           align, and move complex work forward.
-        </p>'''
-          text = text.replace(old_lead, new_lead)
+        </p>''')
 
-          old_stats = '''        <div class="stats">
+          text = text.replace('''        <div class="stats">
           <div class="stat">
             <strong>14+</strong>
             <span>Years at Apple</span>
@@ -63,9 +59,7 @@ jobs:
             <strong>Ops</strong>
             <span>Visibility + Signals</span>
           </div>
-        </div>'''
-
-          new_stats = '''        <div class="stats">
+        </div>''', '''        <div class="stats">
           <div class="stat">
             <strong>L&D</strong>
             <span>Learning + Facilitation</span>
@@ -85,11 +79,9 @@ jobs:
             <strong>Chorus</strong>
             <span>Knowledge Systems</span>
           </div>
-        </div>'''
-          text = text.replace(old_stats, new_stats)
+        </div>''')
 
-          about_pattern = r'''    <section id="about">.*?    </section>\n\n    <section id="where-i-create-value">'''
-          new_about_plus_open = '''    <section id="about">
+          text = re.sub(r'''    <section id="about">.*?    </section>\n\n    <section id="where-i-create-value">''', '''    <section id="about">
       <div class="section-kicker">About</div>
       <h2>Listen first. Structure second. Move forward together.</h2>
 
@@ -116,11 +108,9 @@ jobs:
       </div>
     </section>
 
-    <section id="where-i-create-value">'''
-          text = re.sub(about_pattern, new_about_plus_open, text, flags=re.S)
+    <section id="where-i-create-value">''', text, flags=re.S)
 
-          value_pattern = r'''    <section id="where-i-create-value">.*?    </section>\n\n    <section id="featured-project">'''
-          new_value_plus_next = '''    <section id="where-i-create-value">
+          text = re.sub(r'''    <section id="where-i-create-value">.*?    </section>\n\n    <section id="featured-project">''', '''    <section id="where-i-create-value">
       <div class="section-kicker">How I Create Clarity</div>
       <h2>Equal strength across learning, process, AI, knowledge, and operations.</h2>
 
@@ -182,8 +172,7 @@ jobs:
       </div>
     </section>
 
-    <section id="featured-project">'''
-          text = re.sub(value_pattern, new_value_plus_next, text, flags=re.S)
+    <section id="featured-project">''', text, flags=re.S)
 
           text = text.replace('<a href="#where-i-create-value">Value</a>', '<a href="#where-i-create-value">Clarity</a>')
           text = text.replace('<span>Project + Process Leader</span>', '<span>Learning • Process • AI • Knowledge Systems</span>')
