@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Amber Largent | Selected Work Samples</title>
+  <title>Amber Largent | Proof Samples + Supporting Work</title>
 
   <style>
     :root {
@@ -16,28 +16,28 @@
       --white: #fffafc;
     }
 
-a:focus-visible,
-.button:focus-visible {
-  outline: 4px solid var(--pink);
-  outline-offset: 4px;
-}
+    a:focus-visible,
+    .button:focus-visible {
+      outline: 4px solid var(--pink);
+      outline-offset: 4px;
+    }
 
-.skip-link {
-  position: absolute;
-  left: 16px;
-  top: -60px;
-  background: var(--black);
-  color: var(--white);
-  padding: 10px 14px;
-  border-radius: 999px;
-  font-weight: 900;
-  z-index: 100;
-}
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      z-index: 100;
+    }
 
-.skip-link:focus {
-  top: 16px;
-}
-    
+    .skip-link:focus {
+      top: 16px;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -150,11 +150,13 @@ a:focus-visible,
       color: #1c1c1c;
     }
 
-    .button-row {
+    .button-row,
+    .sample-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
       margin-bottom: 12px;
+      align-items: flex-start;
     }
 
     .button {
@@ -218,7 +220,8 @@ a:focus-visible,
       margin-bottom: 34px;
     }
 
-    .samples-grid {
+    .samples-grid,
+    .supporting-samples {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
@@ -271,19 +274,21 @@ a:focus-visible,
       text-transform: uppercase;
     }
 
-    .communication-card {
+    .featured-sample {
+      grid-column: 1 / -1;
+    }
+
+    .communication-card,
+    .compact-sample {
       border-top-color: var(--blush);
     }
 
-    .evaluation-card {
+    .evaluation-card,
+    .learning-card {
       border-top-color: var(--pink);
     }
 
     .technology-card {
-      border-top-color: var(--slate);
-    }
-
-    .learning-card {
       border-top-color: var(--slate);
     }
 
@@ -326,16 +331,8 @@ a:focus-visible,
       margin: 0;
     }
 
-    .sample-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 4px;
-      align-items: flex-start;
-    }
-
-    .sample-actions .button {
-      align-self: flex-start;
+    .compact-sample p {
+      font-size: 15px;
     }
 
     .note-card {
@@ -365,8 +362,13 @@ a:focus-visible,
         gap: 14px;
       }
 
-      .samples-grid {
+      .samples-grid,
+      .supporting-samples {
         grid-template-columns: 1fr;
+      }
+
+      .featured-sample {
+        grid-column: auto;
       }
 
       section {
@@ -396,275 +398,285 @@ a:focus-visible,
   </style>
 </head>
 
-<body> 
-  <a class="skip-link" href="#main">Skip to main content</a> 
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <nav class="site-nav">
     <div class="nav-inner">
       <div class="brand">
         Amber Largent
-        <span>Selected Work Samples</span>
+        <span>Proof Samples + Supporting Work</span>
       </div>
 
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="values.html">Values</a>
+        <a href="values.html">How I Work</a>
         <a href="experience.html">Experience</a>
-        <a href="#samples">Samples</a>
+        <a href="#samples">Proof Samples</a>
+        <a href="#supporting-writing">Supporting Samples</a>
         <a href="index.html#contact">Contact</a>
       </div>
     </div>
   </nav>
 
   <main id="main">
+    <header>
+      <div class="hero">
+        <div class="eyebrow">Projects • Enablement • Supporting Samples</div>
 
-  <header>
-    <div class="hero">
-      <div class="eyebrow">Writing • Evaluation • Learning Design</div>
+        <h1>Proof samples and selected work.</h1>
 
-      <h1>Selected work samples.</h1>
+        <p class="lead">
+          A focused set of proof samples that show launched work, practical enablement,
+          technology judgment, and supporting writing. The strongest examples come first.
+        </p>
 
-      <p class="lead">
-        A curated set of writing, learning design, evaluation, and communication samples.
-        Each sample includes a short portfolio framing note and a full PDF.
+        <div class="button-row">
+          <a class="button" href="index.html">Back to Main Portfolio</a>
+          <a class="button" href="experience.html">View Training + Experience</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="samples">
+      <div class="section-kicker">Proof Samples</div>
+      <h2>Launched work, enablement, and technology judgment</h2>
+
+      <p class="section-intro">
+        These samples are ordered by strength for project, process, operational visibility,
+        readiness, and enablement roles. Older writing samples are still available, but they now sit in a supporting role.
       </p>
 
-      <div class="button-row">
-        <a class="button" href="index.html">Back to Main Portfolio</a>
-        <a class="button" href="experience.html">View Training + Experience</a>
+      <div class="samples-grid">
+        <article class="sample-card featured-sample learning-card">
+          <div class="category">Featured Launch Project</div>
+
+          <h3>Tri-Parish Website Redesign</h3>
+
+          <p>
+            A full-cycle website project taken from concept to launch: audience needs, site structure,
+            content strategy, stakeholder support, GitHub Pages setup, domain coordination, and launch readiness.
+          </p>
+
+          <h4>Skills demonstrated</h4>
+
+          <p>
+            Project execution, content strategy, information architecture, stakeholder communication,
+            technical coordination, launch readiness, and practical follow-through.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Launched Product</span>
+            <span class="tag">Project Management</span>
+            <span class="tag">Content Strategy</span>
+            <span class="tag">GitHub Pages</span>
+            <span class="tag">Domain Setup</span>
+          </div>
+
+          <div class="approach">
+            <p>
+              <strong>Challenge:</strong> A multi-parish community needed a clearer digital front door
+              for visitors, parishioners, families, and people looking for essential information.
+            </p>
+
+            <p>
+              <strong>Action:</strong> Organized the site structure, shaped visitor pathways, wrote clear copy,
+              supported the build, coordinated launch details, and helped move the site from concept to public release.
+            </p>
+
+            <p>
+              <strong>Value:</strong> Delivered a launched product that shows how I turn ambiguous needs
+              into usable systems, clear communication, and practical outcomes.
+            </p>
+          </div>
+
+          <div class="sample-actions">
+            <a class="button" href="triparish.html">View Case Study</a>
+            <a class="button" href="https://triparishok.org/" target="_blank" rel="noopener noreferrer" aria-label="View the live Tri-Parish website">
+              View Live Site
+            </a>
+          </div>
+        </article>
+
+        <article class="sample-card learning-card">
+          <div class="category">Community Learning Design</div>
+
+          <h3>Living Our Faith At Work</h3>
+
+          <p>
+            A 42-day DNA devotional learning experience designed for private reflection,
+            asynchronous discussion, and live global conversation.
+          </p>
+
+          <h4>Skills demonstrated</h4>
+
+          <p>
+            Program design, reflection-question writing, community learning,
+            discussion planning, facilitation structure, and multi-format engagement.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Program Design</span>
+            <span class="tag">Reflection Questions</span>
+            <span class="tag">Facilitation Structure</span>
+            <span class="tag">Global Sessions</span>
+          </div>
+
+          <div class="approach">
+            <p>
+              <strong>Challenge:</strong> A global audience needed a meaningful way to connect,
+              reflect, and participate without requiring one single format or time zone.
+            </p>
+
+            <p>
+              <strong>Action:</strong> Designed a structured experience that supported self-paced
+              reflection, asynchronous discussion, and live conversation.
+            </p>
+
+            <p>
+              <strong>Value:</strong> Created a flexible learning experience that supported connection,
+              reflection, and practical workplace application.
+            </p>
+          </div>
+
+          <div class="sample-actions">
+            <a class="button" href="Living%20Our%20Faith%20At%20Work.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open full PDF for Living Our Faith At Work">
+              Open Full PDF
+            </a>
+          </div>
+        </article>
+
+        <article class="sample-card technology-card">
+          <div class="category">Technology + Learning Philosophy</div>
+
+          <h3>Philosophy of Technology for Education</h3>
+
+          <p>
+            A professional philosophy statement on technology, accessibility, AI,
+            ethics, instructional design, and human-centered learning.
+          </p>
+
+          <h4>Skills demonstrated</h4>
+
+          <p>
+            Technology analysis, accessibility thinking, AI integration, ethical judgment,
+            instructional design writing, and human-centered design.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">AI Literacy</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">Learning Philosophy</span>
+            <span class="tag">Human-Centered Design</span>
+          </div>
+
+          <div class="approach">
+            <p>
+              <strong>Challenge:</strong> Technology and AI are often treated as either a threat
+              or a cure-all, instead of tools that require purpose, limits, and human judgment.
+            </p>
+
+            <p>
+              <strong>Action:</strong> Built and updated a human-centered philosophy for using
+              technology in education, focused on access, information, connection, and facilitator support.
+            </p>
+
+            <p>
+              <strong>Value:</strong> Supports responsible learning design, practical AI use,
+              accessibility, and learner-centered decision-making.
+            </p>
+          </div>
+
+          <div class="sample-actions">
+            <a class="button" href="philosophy-of-technology-for-education-clean.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open full PDF for Philosophy of Technology for Education">
+              Open Full PDF
+            </a>
+          </div>
+        </article>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <section id="samples">
-    <div class="section-kicker">Selected Samples</div>
-    <h2>Writing, learning, and evaluation work</h2>
+    <section id="supporting-writing">
+      <div class="section-kicker">Supporting Writing Samples</div>
+      <h2>Additional writing and evaluation proof</h2>
 
-    <p class="section-intro">
-      These samples show how I build clarity around complex work, support different ways
-      people participate, and connect learning or communication efforts to practical outcomes.
-    </p>
+      <p class="section-intro">
+        These samples stay available for reviewers who want to see more writing depth, global collaboration thinking,
+        and evaluation judgment. They are intentionally minimized so the page leads with stronger SDS-facing proof.
+      </p>
 
-    <div class="samples-grid">
+      <div class="supporting-samples">
+        <article class="sample-card compact-sample">
+          <div class="category">Supporting Writing Sample</div>
 
-      <article class="sample-card communication-card">
-        <div class="category">Writing + Communication</div>
-
-        <h3>Making Global Work...Work</h3>
-
-        <p>
-          A practical writing sample focused on helping global and cross-functional teams collaborate
-          with more clarity, care, and consistency across time zones, locations, cultures, and working styles.
-        </p>
-
-        <h4>Skills demonstrated</h4>
-
-        <p>
-          Practical communication, global collaboration support, inclusive meeting design,
-          asynchronous work planning, and clear workplace writing.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Plain Language</span>
-          <span class="tag">Global Teaming</span>
-          <span class="tag">Inclusive Practices</span>
-          <span class="tag">Team Enablement</span>
-        </div>
-
-        <div class="approach">
-          <p>
-            <strong>Challenge:</strong> Global teams needed practical ways to collaborate across
-            time zones, locations, working styles, and communication norms.
-          </p>
+          <h3>Making Global Work...Work</h3>
 
           <p>
-            <strong>Action:</strong> Created a behavior-based guide with actionable strategies
-            for meeting design, async input, cultural clarity, and follow-up.
+            A concise sample on global collaboration, asynchronous input, inclusive meetings,
+            and clearer cross-regional follow-through.
           </p>
+
+          <div class="tag-list">
+            <span class="tag">Global Teaming</span>
+            <span class="tag">Plain Language</span>
+            <span class="tag">Team Enablement</span>
+          </div>
+
+          <div class="sample-actions">
+            <a class="button" href="making-global-work-work-clean.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open full PDF for Making Global Work...Work">
+              Open PDF
+            </a>
+          </div>
+        </article>
+
+        <article class="sample-card compact-sample">
+          <div class="category">Supporting Evaluation Sample</div>
+
+          <h3>The Power of Storytelling in Training Evaluation</h3>
 
           <p>
-            <strong>Value:</strong> Supports stronger participation, better alignment, and more
-            inclusive cross-regional work.
-          </p>
-        </div>
-
-        <div class="sample-actions">
-          <a class="button" href="making-global-work-work-clean.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open full PDF for Making Global Work...Work">
-  Open Full PDF
-</a>
-        </div>
-      </article>
-
-      <article class="sample-card evaluation-card">
-        <div class="category">Training Evaluation + Reporting</div>
-
-        <h3>The Power of Storytelling in Training Evaluation</h3>
-
-        <p>
-          A long-form writing sample focused on connecting training outcomes to individual growth,
-          organizational goals, and stakeholder-ready reporting.
-        </p>
-
-        <h4>Skills demonstrated</h4>
-
-        <p>
-          Training evaluation strategy, reporting judgment, business alignment,
-          data storytelling, and instructional design thinking.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">Evaluation Strategy</span>
-          <span class="tag">Learning Analytics</span>
-          <span class="tag">Stakeholder Reporting</span>
-          <span class="tag">Storytelling With Data</span>
-        </div>
-
-        <div class="approach">
-          <p>
-            <strong>Challenge:</strong> New product training can lack direct historical metrics,
-            making training impact harder to prove.
+            A supporting sample on training evaluation, stakeholder-ready reporting,
+            performance signals, and explaining learning impact.
           </p>
 
-          <p>
-            <strong>Action:</strong> Framed a practical evaluation approach using performance signals,
-            quality metrics, time to proficiency, engagement, feedback, and storytelling.
-          </p>
+          <div class="tag-list">
+            <span class="tag">Evaluation</span>
+            <span class="tag">Learning Analytics</span>
+            <span class="tag">Reporting</span>
+          </div>
 
-          <p>
-            <strong>Value:</strong> Creates a clearer way to communicate training value through
-            both measurable outcomes and human impact.
-          </p>
-        </div>
+          <div class="sample-actions">
+            <a class="button" href="training-evaluation-storytelling-clean.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open full PDF for The Power of Storytelling in Training Evaluation">
+              Open PDF
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <div class="sample-actions">
-     <a class="button" href="training-evaluation-storytelling-clean.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open full PDF for The Power of Storytelling in Training Evaluation">
-  Open Full PDF
-</a>
-        </div>
-      </article>
+    <section id="next">
+      <div class="section-kicker">Connected Portfolio</div>
+      <h2>How these samples connect to the work.</h2>
 
-      <article class="sample-card technology-card">
-        <div class="category">Instructional Design Philosophy</div>
+      <p class="section-intro">
+        These samples show how I use project structure, communication, evaluation, instructional design,
+        and technology strategy to make complex work clearer, more accessible, and easier to apply.
+      </p>
 
-        <h3>Philosophy of Technology for Education</h3>
+      <div class="note-card">
+        The throughline: make the work clear, support different ways people participate,
+        use evidence thoughtfully, and create resources people can actually use.
+      </div>
 
-        <p>
-          A long-form professional philosophy statement on technology, accessibility, AI,
-          ethics, instructional design, and human-centered learning.
-        </p>
-
-        <h4>Skills demonstrated</h4>
-
-        <p>
-          Long-form instructional design writing, technology analysis, accessibility thinking,
-          AI integration, ethical judgment, and human-centered design.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">AI Literacy</span>
-          <span class="tag">Accessibility</span>
-          <span class="tag">Learning Philosophy</span>
-          <span class="tag">Human-Centered Design</span>
-        </div>
-
-        <div class="approach">
-          <p>
-            <strong>Challenge:</strong> Technology and AI are often treated as either a threat
-            or a cure-all, instead of tools that require purpose, limits, and human judgment.
-          </p>
-
-          <p>
-            <strong>Action:</strong> Built and updated a human-centered philosophy for using
-            technology in education, focused on access, information, connection, and facilitator support.
-          </p>
-
-          <p>
-            <strong>Value:</strong> Supports responsible learning design, practical AI use,
-            accessibility, and learner-centered decision-making.
-          </p>
-        </div>
-
-        <div class="sample-actions">
-        <a class="button" href="philosophy-of-technology-for-education-clean.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open full PDF for Philosophy of Technology for Education">
-  Open Full PDF
-</a>
-        </div>
-      </article>
-
-      <article class="sample-card learning-card">
-        <div class="category">Community Learning Design</div>
-
-        <h3>Living Our Faith At Work</h3>
-
-        <p>
-          A 42-day DNA devotional learning experience designed for private reflection,
-          asynchronous discussion, and live global conversation.
-        </p>
-
-        <h4>Skills demonstrated</h4>
-
-        <p>
-          Program design, reflection-question writing, community learning,
-          discussion planning, facilitation structure, and multi-format engagement.
-        </p>
-
-        <div class="tag-list">
-          <span class="tag">DNA Project</span>
-          <span class="tag">Program Design</span>
-          <span class="tag">Reflection Questions</span>
-          <span class="tag">Global Sessions</span>
-        </div>
-
-        <div class="approach">
-          <p>
-            <strong>Challenge:</strong> A global audience needed a meaningful way to connect,
-            reflect, and participate without requiring one single format or time zone.
-          </p>
-
-          <p>
-            <strong>Action:</strong> Designed a structured experience that supported self-paced
-            reflection, asynchronous discussion, and live conversation.
-          </p>
-
-          <p>
-            <strong>Value:</strong> Created a flexible learning experience that supported connection,
-            reflection, and practical workplace application.
-          </p>
-        </div>
-
-        <div class="sample-actions">
-<a class="button" href="Living%20Our%20Faith%20At%20Work.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open full PDF for Living Our Faith At Work">
-  Open Full PDF
-</a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="next">
-    <div class="section-kicker">Connected Portfolio</div>
-    <h2>How these samples connect to the work.</h2>
-
-    <p class="section-intro">
-      These samples show how I use communication, evaluation, instructional design, and technology
-      strategy to make complex work clearer, more accessible, and easier to apply.
-    </p>
-
-    <div class="note-card">
-      The throughline: make the work clear, support different ways people participate,
-      and create resources people can actually use.
-    </div>
-
-    <div class="button-row" style="margin-top: 28px;">
-      <a class="button" href="index.html">Main Portfolio</a>
-      <a class="button" href="experience.html">Training + Experience</a>
-    </div>
-  </section>
-
+      <div class="button-row" style="margin-top: 28px;">
+        <a class="button" href="index.html">Main Portfolio</a>
+        <a class="button" href="experience.html">Training + Experience</a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>© 2026 Amber Largent · Selected Work Samples</p>
+    <p>© 2026 Amber Largent · Proof Samples + Supporting Work</p>
   </footer>
 
 </body>
