@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Amber Largent | Tri-Parish Website Case Study</title>
+
+  <style>
+    :root {
+      --sage: #CFD2B4;
+      --blush: #F2C6D5;
+      --pink: #E46FA1;
+      --slate: #6A747E;
+      --black: #030303;
+      --white: #fffafc;
+    }
+
+    a:focus-visible,
+    .button:focus-visible {
+      outline: 4px solid var(--pink);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--sage);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 250, 252, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--black);
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+
+    header {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(242, 198, 213, 0.85), transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(228, 111, 161, 0.24), transparent 30%),
+        var(--sage);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 86px 24px 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255, 250, 252, 0.78);
+      border: 1px solid rgba(228, 111, 161, 0.4);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin: 0 0 24px;
+      max-width: 940px;
+    }
+
+    .lead {
+      font-size: 21px;
+      max-width: 820px;
+      margin: 0 0 30px;
+      color: #1c1c1c;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      box-shadow: 0 6px 0 var(--black);
+      white-space: nowrap;
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .button:hover {
+      background: var(--pink);
+      transform: translateY(2px);
+      box-shadow: 0 4px 0 var(--black);
+    }
+
+    .browser-frame {
+      background: var(--white);
+      border: 2px solid var(--black);
+      border-radius: 24px;
+      box-shadow: 0 14px 0 var(--black);
+      overflow: hidden;
+    }
+
+    .browser-bar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(242, 198, 213, 0.72);
+      border-bottom: 2px solid var(--black);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--pink);
+      border: 1px solid var(--black);
+    }
+
+    .browser-url {
+      margin-left: 8px;
+      background: rgba(255, 250, 252, 0.86);
+      border: 1px solid rgba(3, 3, 3, 0.18);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--slate);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .site-visual {
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(207, 210, 180, 0.55), rgba(242, 198, 213, 0.5)),
+        var(--white);
+    }
+
+    .site-visual-header {
+      background: var(--black);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+
+    .site-visual-header strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .site-visual-header span {
+      display: block;
+      margin-top: 8px;
+      color: var(--blush);
+      font-weight: 800;
+    }
+
+    .site-visual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .site-tile {
+      min-height: 72px;
+      border-radius: 16px;
+      background: rgba(255, 250, 252, 0.86);
+      border: 1px solid rgba(3, 3, 3, 0.12);
+      padding: 14px;
+      font-weight: 900;
+      color: var(--black);
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 48px auto;
+      padding: 56px 32px;
+      background: rgba(255, 250, 252, 0.42);
+      border: 1px solid rgba(255, 250, 252, 0.7);
+      border-radius: 32px;
+      box-shadow: 0 18px 50px rgba(3, 3, 3, 0.10);
+    }
+
+    .section-kicker {
+      color: var(--pink);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 22px;
+    }
+
+    .section-intro {
+      max-width: 820px;
+      font-size: 19px;
+      color: #202020;
+      margin-bottom: 34px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .card {
+      background: rgba(255, 250, 252, 0.88);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-top: 6px solid var(--pink);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 46px rgba(3, 3, 3, 0.14);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0 0 14px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .slate-card {
+      border-top-color: var(--slate);
+    }
+
+    .blush-card {
+      border-top-color: var(--blush);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: var(--blush);
+      border: 1px solid rgba(228, 111, 161, 0.5);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .summary-card {
+      background: rgba(255, 250, 252, 0.88);
+      border-left: 7px solid var(--pink);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+    }
+
+    .summary-card p {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.4;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .timeline-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--blush);
+      border: 2px solid var(--black);
+      box-shadow: 0 4px 0 var(--black);
+      font-weight: 900;
+    }
+
+    .timeline-content {
+      background: rgba(255, 250, 252, 0.88);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .timeline-content h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-content p {
+      margin: 0;
+    }
+
+    .deliverables {
+      display: grid;
+      gap: 12px;
+    }
+
+    .deliverable {
+      background: rgba(255, 250, 252, 0.72);
+      border-left: 5px solid var(--slate);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-weight: 800;
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .proof-item {
+      background: rgba(255, 250, 252, 0.82);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-radius: 18px;
+      padding: 18px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .proof-item span {
+      display: block;
+      color: var(--slate);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    footer {
+      padding: 34px 24px;
+      text-align: center;
+      background: var(--black);
+      color: var(--blush);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .proof-strip {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        margin: 28px 14px;
+        padding: 40px 20px;
+      }
+
+      .button {
+        white-space: normal;
+        text-align: center;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button,
+      .card {
+        transition: none;
+      }
+
+      .button:hover,
+      .card:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        Amber Largent
+        <span>Featured Project</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="values.html">How I Work</a>
+        <a href="#story">Story</a>
+        <a href="#process">Process</a>
+        <a href="#outcome">Outcome</a>
+        <a href="experience.html">Experience</a>
+        <a href="samples.html">Work Samples</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <header>
+      <div class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Featured Launch Project</div>
+
+            <h1>Tri-Parish Website Redesign</h1>
+
+            <p class="lead">
+              A launched website project taken from concept to completion: audience needs, site structure,
+              content strategy, build support, domain setup, and launch readiness.
+            </p>
+
+            <div class="button-row">
+              <a class="button" href="https://triparish.org/" target="_blank" rel="noopener noreferrer" aria-label="View the live Tri-Parish website">
+                View Live Site
+              </a>
+              <a class="button" href="index.html">Back to Portfolio</a>
+            </div>
+          </div>
+
+          <div class="browser-frame" aria-label="Visual summary of the Tri-Parish website project">
+            <div class="browser-bar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <div class="browser-url">triparish.org</div>
+            </div>
+            <div class="site-visual">
+              <div class="site-visual-header">
+                <strong>One clear front door for a multi-parish community</strong>
+                <span>Mass • Sacraments • Bulletins • Giving • Visitors</span>
+              </div>
+              <div class="site-visual-grid">
+                <div class="site-tile">New Here</div>
+                <div class="site-tile">Mass + Confession</div>
+                <div class="site-tile">Our Parishes</div>
+                <div class="site-tile">Events + Forms</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="story">
+      <div class="section-kicker">Project Story</div>
+      <h2>From scattered need to launched product</h2>
+
+      <p class="section-intro">
+        The Tri-Parish project was a real-world website redesign for a multi-parish Catholic community.
+        The work required more than a visual refresh. It needed structure, clear content, practical navigation,
+        launch planning, and a site people could actually use.
+      </p>
+
+      <div class="summary-card">
+        <p>
+          I helped turn a complex community communication need into a live website by clarifying the audience,
+          organizing the content, shaping visitor pathways, writing clear copy, supporting technical setup,
+          and preparing the site for launch.
+        </p>
+      </div>
+
+      <div class="proof-strip">
+        <div class="proof-item">Concept<span>Started with need</span></div>
+        <div class="proof-item">Structure<span>Organized the work</span></div>
+        <div class="proof-item">Build<span>Created the site</span></div>
+        <div class="proof-item">Launch<span>Delivered live</span></div>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="section-kicker">Project Overview</div>
+      <h2>What I owned</h2>
+
+      <p class="section-intro">
+        This project shows full-cycle ownership across project management, content strategy,
+        communication, user experience, and technical launch support.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Role</h3>
+          <p>Project lead, content strategist, site organizer, copywriter, and launch support partner.</p>
+        </div>
+
+        <div class="card slate-card">
+          <h3>Scope</h3>
+          <p>Site structure, page planning, visitor pathways, content writing, accessibility-minded review, GitHub Pages setup, domain coordination, and launch readiness.</p>
+        </div>
+
+        <div class="card blush-card">
+          <h3>Status</h3>
+          <p>Launched product. The site moved from concept and planning into a public web experience.</p>
+        </div>
+      </div>
+
+      <div class="tag-list">
+        <span class="tag">Project Management</span>
+        <span class="tag">Website Redesign</span>
+        <span class="tag">Content Strategy</span>
+        <span class="tag">Stakeholder Support</span>
+        <span class="tag">GitHub Pages</span>
+        <span class="tag">Domain Setup</span>
+        <span class="tag">Launch Readiness</span>
+      </div>
+    </section>
+
+    <section id="challenge">
+      <div class="section-kicker">Challenge</div>
+      <h2>The problem to solve</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Visitors needed a clear front door.</h3>
+          <p>The site needed to help new visitors, parishioners, and families quickly find the information they came for, without needing to understand the internal structure first.</p>
+        </div>
+
+        <div class="card slate-card">
+          <h3>The content needed structure.</h3>
+          <p>Multi-parish communication can get complicated quickly. The project needed a clear information architecture so key content could be easy to find, maintain, and update.</p>
+        </div>
+
+        <div class="card blush-card">
+          <h3>The voice needed to be welcoming.</h3>
+          <p>The site needed to feel warm and accessible while still giving practical details clearly. That meant writing for real people, not just organizing pages.</p>
+        </div>
+
+        <div class="card">
+          <h3>The launch needed follow-through.</h3>
+          <p>A live site requires more than finished pages. It also needed file organization, technical setup, domain coordination, link checks, and launch-ready polish.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="section-kicker">Process</div>
+      <h2>How the work moved forward</h2>
+
+      <p class="section-intro">
+        I approached the project like a full launch effort: define the audience, organize the work,
+        build the content, check the experience, and move the site toward release.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-number">1</div>
+          <div class="timeline-content">
+            <h3>Clarified the audience and use cases</h3>
+            <p>Identified the main people the site needed to serve: new visitors, current parishioners, families, ministry participants, and people looking for essential parish information.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">2</div>
+          <div class="timeline-content">
+            <h3>Organized the site structure</h3>
+            <p>Grouped information into clearer pathways so people could find Mass and confession times, parish information, bulletins, events, forms, giving information, and support resources.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">3</div>
+          <div class="timeline-content">
+            <h3>Wrote and refined page copy</h3>
+            <p>Created plain-language, welcoming copy that made the site easier to scan, understand, and act on without losing the warmth of the community.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">4</div>
+          <div class="timeline-content">
+            <h3>Built toward usability</h3>
+            <p>Focused on practical navigation, consistent page patterns, readable content, clear calls to action, mobile-friendly structure, and accessibility-minded design choices.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-number">5</div>
+          <div class="timeline-content">
+            <h3>Supported launch readiness</h3>
+            <p>Checked links, reviewed page flow, supported GitHub Pages and domain setup, and prepared the site to move from draft to public launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="deliverables">
+      <div class="section-kicker">Deliverables</div>
+      <h2>What the project produced</h2>
+
+      <p class="section-intro">
+        The deliverables show the range of the work: planning, writing, structure, build support,
+        technical setup, and launch follow-through.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Site + content deliverables</h3>
+          <div class="deliverables">
+            <div class="deliverable">Homepage structure and visitor pathways</div>
+            <div class="deliverable">New visitor content and page flow</div>
+            <div class="deliverable">Parish information organization</div>
+            <div class="deliverable">Mass, confession, bulletin, event, and form pathways</div>
+            <div class="deliverable">Giving language and support content</div>
+            <div class="deliverable">Warm, plain-language copy</div>
+          </div>
+        </div>
+
+        <div class="card slate-card">
+          <h3>Project + launch deliverables</h3>
+          <div class="deliverables">
+            <div class="deliverable">Project planning and follow-through</div>
+            <div class="deliverable">Stakeholder-ready structure and review support</div>
+            <div class="deliverable">GitHub Pages site organization</div>
+            <div class="deliverable">Domain setup support</div>
+            <div class="deliverable">Link checks and launch readiness review</div>
+            <div class="deliverable">Maintainable site structure for future updates</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="outcome">
+      <div class="section-kicker">Outcome</div>
+      <h2>A launched product people can use</h2>
+
+      <p class="section-intro">
+        The result is a public website that turns a complex multi-parish communication need into
+        a clearer, more welcoming, and more usable digital experience.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>What changed</h3>
+          <p>The site gives visitors a clearer place to start, creates more direct paths to essential information, and supports a more consistent communication experience for the parish community.</p>
+        </div>
+
+        <div class="card slate-card">
+          <h3>What it demonstrates</h3>
+          <p>This project shows my ability to take ambiguous needs, organize the work, create usable content, coordinate technical details, and carry a project through launch.</p>
+        </div>
+      </div>
+
+      <div class="button-row" style="margin-top: 28px;">
+        <a class="button" href="https://triparish.org/" target="_blank" rel="noopener noreferrer" aria-label="View the live Tri-Parish website">View Live Site</a>
+        <a class="button" href="index.html#project-management">View More PM Work</a>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <div class="section-kicker">Why This Project Matters</div>
+      <h2>The clearest proof of how I work</h2>
+
+      <p class="section-intro">
+        Tri-Parish is a strong portfolio example because it is not theoretical. It is a real project,
+        built for real people, with real constraints, real content needs, and a real launch.
+      </p>
+
+      <div class="summary-card">
+        <p>
+          This project brought together the parts of my work I value most: making messy information clear,
+          building systems people can use, writing for action, supporting stakeholders, and following through
+          until the work becomes something real.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Amber Largent · Tri-Parish Website Case Study</p>
+  </footer>
+
+</body>
+</html>
