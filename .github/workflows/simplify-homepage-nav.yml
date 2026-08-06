@@ -1,0 +1,66 @@
+name: Simplify homepage nav
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  simplify-nav:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Simplify homepage nav
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          old_nav = '''      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#where-i-create-value">Clarity</a>
+        <a href="values.html">How I Work</a>
+        <a href="#featured-project">Featured Project</a>
+        <a href="#project-management">Project + Process</a>
+        <a href="#instructional-design">Learning + Enablement</a>
+        <a href="#skills">Skills</a>
+        <a href="#credentials">Credentials</a>
+        <a href="samples.html">Work Samples</a>
+        <a href="#contact">Contact</a>
+      </div>'''
+
+          new_nav = '''      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#where-i-create-value">How I Help</a>
+        <a href="#project-management">Work</a>
+        <a href="#more-experience">Proof</a>
+        <a href="#contact">Contact</a>
+      </div>'''
+
+          if old_nav not in text:
+              raise SystemExit('Expected nav block not found')
+
+          text = text.replace(old_nav, new_nav)
+          path.write_text(text, encoding='utf-8')
+
+          workflow = Path('.github/workflows/simplify-homepage-nav.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+
+      - name: Commit simplified nav
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add index.html .github/workflows/simplify-homepage-nav.yml
+            git commit -m "Simplify homepage navigation"
+            git push
+          fi
