@@ -1,0 +1,51 @@
+name: Simplify homepage nav final
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Simplify homepage navigation
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          new_nav = '''      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#where-i-create-value">How I Help</a>
+        <a href="#project-management">Work</a>
+        <a href="#more-experience">Proof</a>
+        <a href="#contact">Contact</a>
+      </div>'''
+          pattern = r'      <div class="nav-links">\n(?:        <a href="[^"]+">[^<]+</a>\n)+      </div>'
+          s2, n = re.subn(pattern, new_nav, s, count=1)
+          if n != 1:
+              raise SystemExit(f'Expected to replace exactly one nav block, replaced {n}')
+          p.write_text(s2, encoding='utf-8')
+
+          for path in [
+              '.github/workflows/simplify-homepage-nav-final.yml',
+              '.github/workflows/simplify-homepage-nav.yml',
+              '.github/workflows/simplify-homepage-nav-2.yml',
+              '.github/workflows/trigger-simplify-homepage-nav.txt',
+              'trigger-simplify-homepage-nav.txt',
+          ]:
+              q = Path(path)
+              if q.exists():
+                  q.unlink()
+          PY
+      - name: Commit simplified navigation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Simplify homepage navigation" || exit 0
+          git push
