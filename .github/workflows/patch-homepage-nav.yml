@@ -1,4 +1,4 @@
-name: Patch homepage nav
+name: Patch site navigation
 
 on:
   push:
@@ -13,23 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Patch homepage navigation
+      - name: Patch navigation across pages
         run: |
           python3 <<'PY'
           from pathlib import Path
-          path = Path('index.html')
-          text = path.read_text()
 
-          old_css = '''    .nav-links a {
-      text-decoration: none;
-      color: var(--black);
-      transition: color 0.15s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--pink);
-    }
-'''
           new_css = '''    .nav-links a {
       text-decoration: none;
       transition: color 0.15s ease;
@@ -39,7 +27,7 @@ jobs:
       color: var(--slate);
     }
 
-    .nav-links a[href$=".html"] {
+    .nav-links a[href*=".html"] {
       color: var(--pink);
     }
 
@@ -47,7 +35,40 @@ jobs:
       color: var(--pink);
     }
 '''
-          old_nav = '''      <div class="nav-links">
+
+          old_css_options = [
+          '''    .nav-links a {
+      text-decoration: none;
+      color: var(--black);
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+''',
+          '''    .nav-links a {
+      text-decoration: none;
+      color: var(--black);
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--pink);
+    }
+'''
+          ]
+
+          for path in Path('.').glob('*.html'):
+              text = path.read_text()
+              original = text
+              for old_css in old_css_options:
+                  if old_css in text:
+                      text = text.replace(old_css, new_css)
+                      break
+              if path.name == 'index.html':
+                  old_nav = '''      <div class="nav-links">
         <a href="#about">About</a>
         <a href="values.html">How I Work</a>
         <a href="#where-i-create-value">How I Help</a>
@@ -55,7 +76,7 @@ jobs:
         <a href="#proof">Evidence</a>
         <a href="#contact">Contact</a>
       </div>'''
-          new_nav = '''      <div class="nav-links">
+                  new_nav = '''      <div class="nav-links">
         <a href="#about">About</a>
         <a href="#where-i-create-value">How I Help</a>
         <a href="#work">Work</a>
@@ -63,23 +84,20 @@ jobs:
         <a href="values.html">How I Work</a>
         <a href="#contact">Contact</a>
       </div>'''
-
-          if old_css not in text:
-              raise SystemExit('Target nav CSS not found')
-          if old_nav not in text:
-              raise SystemExit('Target nav markup not found')
-
-          text = text.replace(old_css, new_css)
-          text = text.replace(old_nav, new_nav)
-          path.write_text(text)
+                  if old_nav in text:
+                      text = text.replace(old_nav, new_nav)
+                  else:
+                      raise SystemExit('Homepage nav target not found')
+              if text != original:
+                  path.write_text(text)
+                  print(f'patched {path}')
           PY
       - name: Remove temporary workflow
-        run: |
-          git rm .github/workflows/patch-homepage-nav.yml
+        run: git rm .github/workflows/patch-homepage-nav.yml
       - name: Commit patch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Reorder and clarify homepage navigation"
+          git add -A
+          git commit -m "Clarify navigation link behavior across site"
           git push
