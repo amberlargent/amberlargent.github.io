@@ -1,0 +1,85 @@
+name: Patch homepage nav
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-homepage-nav.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch homepage navigation
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          path = Path('index.html')
+          text = path.read_text()
+
+          old_css = '''    .nav-links a {
+      text-decoration: none;
+      color: var(--black);
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+'''
+          new_css = '''    .nav-links a {
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a[href^="#"] {
+      color: var(--slate);
+    }
+
+    .nav-links a[href$=".html"] {
+      color: var(--pink);
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+'''
+          old_nav = '''      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="values.html">How I Work</a>
+        <a href="#where-i-create-value">How I Help</a>
+        <a href="#work">Work</a>
+        <a href="#proof">Evidence</a>
+        <a href="#contact">Contact</a>
+      </div>'''
+          new_nav = '''      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#where-i-create-value">How I Help</a>
+        <a href="#work">Work</a>
+        <a href="#proof">Evidence</a>
+        <a href="values.html">How I Work</a>
+        <a href="#contact">Contact</a>
+      </div>'''
+
+          if old_css not in text:
+              raise SystemExit('Target nav CSS not found')
+          if old_nav not in text:
+              raise SystemExit('Target nav markup not found')
+
+          text = text.replace(old_css, new_css)
+          text = text.replace(old_nav, new_nav)
+          path.write_text(text)
+          PY
+      - name: Remove temporary workflow
+        run: |
+          git rm .github/workflows/patch-homepage-nav.yml
+      - name: Commit patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Reorder and clarify homepage navigation"
+          git push
