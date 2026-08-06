@@ -17,77 +17,88 @@ jobs:
         run: |
           python3 <<'PY'
           from pathlib import Path
+          from textwrap import dedent
 
-          new_css = '''    .nav-links a {
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
+          new_css = dedent('''\
+              .nav-links a {
+                text-decoration: none;
+                transition: color 0.15s ease;
+              }
 
-    .nav-links a[href^="#"] {
-      color: var(--slate);
-    }
+              .nav-links a[href^="#"] {
+                color: var(--slate);
+              }
 
-    .nav-links a[href*=".html"] {
-      color: var(--pink);
-    }
+              .nav-links a[href*=".html"] {
+                color: var(--pink);
+              }
 
-    .nav-links a:hover {
-      color: var(--pink);
-    }
-'''
+              .nav-links a:hover {
+                color: var(--pink);
+              }
+          ''')
 
           old_css_options = [
-          '''    .nav-links a {
-      text-decoration: none;
-      color: var(--black);
-      transition: color 0.15s ease;
-    }
+              dedent('''\
+                  .nav-links a {
+                    text-decoration: none;
+                    color: var(--black);
+                    transition: color 0.15s ease;
+                  }
 
-    .nav-links a:hover {
-      color: var(--pink);
-    }
-''',
-          '''    .nav-links a {
-      text-decoration: none;
-      color: var(--black);
-      transition: color 0.15s ease;
-    }
+                  .nav-links a:hover {
+                    color: var(--pink);
+                  }
+              '''),
+              dedent('''\
+                  .nav-links a {
+                    text-decoration: none;
+                    color: var(--black);
+                    transition: color 0.15s ease;
+                  }
 
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--pink);
-    }
-'''
+                  .nav-links a:hover,
+                  .nav-links a:focus-visible {
+                    color: var(--pink);
+                  }
+              '''),
           ]
+
+          old_nav = dedent('''\
+                <div class="nav-links">
+                  <a href="#about">About</a>
+                  <a href="values.html">How I Work</a>
+                  <a href="#where-i-create-value">How I Help</a>
+                  <a href="#work">Work</a>
+                  <a href="#proof">Evidence</a>
+                  <a href="#contact">Contact</a>
+                </div>''')
+
+          new_nav = dedent('''\
+                <div class="nav-links">
+                  <a href="#about">About</a>
+                  <a href="#where-i-create-value">How I Help</a>
+                  <a href="#work">Work</a>
+                  <a href="#proof">Evidence</a>
+                  <a href="values.html">How I Work</a>
+                  <a href="#contact">Contact</a>
+                </div>''')
 
           for path in Path('.').glob('*.html'):
               text = path.read_text()
               original = text
+
               for old_css in old_css_options:
                   if old_css in text:
                       text = text.replace(old_css, new_css)
                       break
+
               if path.name == 'index.html':
-                  old_nav = '''      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="values.html">How I Work</a>
-        <a href="#where-i-create-value">How I Help</a>
-        <a href="#work">Work</a>
-        <a href="#proof">Evidence</a>
-        <a href="#contact">Contact</a>
-      </div>'''
-                  new_nav = '''      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#where-i-create-value">How I Help</a>
-        <a href="#work">Work</a>
-        <a href="#proof">Evidence</a>
-        <a href="values.html">How I Work</a>
-        <a href="#contact">Contact</a>
-      </div>'''
                   if old_nav in text:
                       text = text.replace(old_nav, new_nav)
                   else:
                       raise SystemExit('Homepage nav target not found')
+
               if text != original:
                   path.write_text(text)
                   print(f'patched {path}')
