@@ -23,9 +23,8 @@ jobs:
               text = p.read_text()
               if old not in text:
                   print(f"SKIP missing in {path}: {old[:80]!r}")
-                  return False
+                  return
               p.write_text(text.replace(old, new))
-              return True
 
           # Homepage labels
           replace('index.html', '<a href="values.html">Values</a>', '<a href="values.html">How I Work</a>')
@@ -34,7 +33,6 @@ jobs:
           replace('index.html', 'Explore additional Senior Specialist work, continued learning, project proof, values, and selected samples.', 'Explore the professional evidence, values, and outside-role projects that show how I think, support people, create structure, and follow through.')
           replace('index.html', '<a class="button" href="experience.html">View PM Proof + Experience</a>', '<a class="button" href="experience.html">View Work Evidence</a>')
           replace('index.html', '<a class="button" href="samples.html">View Work Samples</a>', '<a class="button" href="samples.html">View Proof Beyond the Role</a>')
-          replace('index.html', '<a class="button" href="values.html">View How I Work</a>', '<a class="button" href="values.html">View How I Work</a>')
 
           # Work Evidence page
           replace('experience.html', '<title>Amber Largent | PM Proof + Experience</title>', '<title>Amber Largent | Work Evidence</title>')
@@ -46,8 +44,9 @@ jobs:
           replace('experience.html', 'This page brings the PM-facing evidence forward: project structures, portfolio visibility,\n          reporting rhythms, stakeholder alignment, risk identification, Wrike systems, AI workflow support,\n          and the coaching foundation that helps me understand what is really happening before I build.', 'This page brings the professional evidence forward: coaching support, project structures, portfolio visibility,\n          reporting rhythms, stakeholder alignment, risk identification, Wrike systems, AI workflow support,\n          and the knowledge habits that help me understand what is really happening before I build.')
           replace('experience.html', '<p>© 2026 Amber Largent · PM Proof + Experience</p>', '<p>© 2026 Amber Largent · Work Evidence</p>')
 
-          # How I Work page
+          # How I Work page, using both possible current labels
           replace('values.html', '<title>Amber Largent | Values</title>', '<title>Amber Largent | How I Work</title>')
+          replace('values.html', '<title>Amber Largent | How I Work</title>', '<title>Amber Largent | How I Work</title>')
           replace('values.html', '<span>Values</span>', '<span>How I Work</span>')
           replace('values.html', '<h1>Values that shape the work.</h1>', '<h1>How I work.</h1>')
           replace('values.html', '<p>© 2026 Amber Largent · Values</p>', '<p>© 2026 Amber Largent · How I Work</p>')
@@ -70,6 +69,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html experience.html values.html samples.html .github/workflows/rename-proof-pages.yml
+          git add -A
           git commit -m "Clarify portfolio proof page naming"
           git push
