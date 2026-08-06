@@ -1,0 +1,75 @@
+name: Rename proof pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rename-proof-pages.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply naming system
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          def replace(path, old, new):
+              p = Path(path)
+              text = p.read_text()
+              if old not in text:
+                  print(f"SKIP missing in {path}: {old[:80]!r}")
+                  return False
+              p.write_text(text.replace(old, new))
+              return True
+
+          # Homepage labels
+          replace('index.html', '<a href="values.html">Values</a>', '<a href="values.html">How I Work</a>')
+          replace('index.html', '<a href="#proof">Proof</a>', '<a href="#proof">Evidence</a>')
+          replace('index.html', '<h2>Training, experience, values, and selected work samples</h2>', '<h2>Work evidence, working style, and proof beyond the role.</h2>')
+          replace('index.html', 'Explore additional Senior Specialist work, continued learning, project proof, values, and selected samples.', 'Explore the professional evidence, values, and outside-role projects that show how I think, support people, create structure, and follow through.')
+          replace('index.html', '<a class="button" href="experience.html">View PM Proof + Experience</a>', '<a class="button" href="experience.html">View Work Evidence</a>')
+          replace('index.html', '<a class="button" href="samples.html">View Work Samples</a>', '<a class="button" href="samples.html">View Proof Beyond the Role</a>')
+          replace('index.html', '<a class="button" href="values.html">View How I Work</a>', '<a class="button" href="values.html">View How I Work</a>')
+
+          # Work Evidence page
+          replace('experience.html', '<title>Amber Largent | PM Proof + Experience</title>', '<title>Amber Largent | Work Evidence</title>')
+          replace('experience.html', '<span>PM Proof + Experience</span>', '<span>Work Evidence</span>')
+          replace('experience.html', '<a href="values.html">Values</a>', '<a href="values.html">How I Work</a>')
+          replace('experience.html', '<a href="samples.html">Samples</a>', '<a href="samples.html">Proof Beyond the Role</a>')
+          replace('experience.html', '<div class="eyebrow">Project Management • Process • Visibility • AI</div>', '<div class="eyebrow">Work Evidence • Coaching • Process • Visibility</div>')
+          replace('experience.html', '<h1>Project proof for cross-functional work.</h1>', '<h1>Evidence for how I think, support people, and move work forward.</h1>')
+          replace('experience.html', 'This page brings the PM-facing evidence forward: project structures, portfolio visibility,\n          reporting rhythms, stakeholder alignment, risk identification, Wrike systems, AI workflow support,\n          and the coaching foundation that helps me understand what is really happening before I build.', 'This page brings the professional evidence forward: coaching support, project structures, portfolio visibility,\n          reporting rhythms, stakeholder alignment, risk identification, Wrike systems, AI workflow support,\n          and the knowledge habits that help me understand what is really happening before I build.')
+          replace('experience.html', '<p>© 2026 Amber Largent · PM Proof + Experience</p>', '<p>© 2026 Amber Largent · Work Evidence</p>')
+
+          # How I Work page
+          replace('values.html', '<title>Amber Largent | Values</title>', '<title>Amber Largent | How I Work</title>')
+          replace('values.html', '<span>Values</span>', '<span>How I Work</span>')
+          replace('values.html', '<h1>Values that shape the work.</h1>', '<h1>How I work.</h1>')
+          replace('values.html', '<p>© 2026 Amber Largent · Values</p>', '<p>© 2026 Amber Largent · How I Work</p>')
+
+          # Proof Beyond the Role page
+          replace('samples.html', '<title>Amber Largent | Proof Samples</title>', '<title>Amber Largent | Proof Beyond the Role</title>')
+          replace('samples.html', '<span>Proof Samples</span>', '<span>Proof Beyond the Role</span>')
+          replace('samples.html', '<a href="values.html">Values</a>', '<a href="values.html">How I Work</a>')
+          replace('samples.html', '<a href="#samples">Proof Samples</a>', '<a href="#samples">Proof Beyond the Role</a>')
+          replace('samples.html', '<h1>Proof samples and selected work.</h1>', '<h1>The same strengths, applied in different contexts.</h1>')
+          replace('samples.html', 'A focused set of proof samples that show launched work, practical enablement,\n          technology judgment, and clear communication. The strongest examples come first.', 'Projects and writing outside my core Apple role that show the same throughline: clear thinking,\n          practical structure, values-led communication, human-centered design, and follow-through.')
+          replace('samples.html', '<div class="section-kicker">Proof Samples</div>', '<div class="section-kicker">Proof Beyond the Role</div>')
+          replace('samples.html', '<h2>Launched work, enablement, and technology judgment</h2>', '<h2>Outside-role projects and writing that show the same Amber.</h2>')
+          replace('samples.html', 'These samples are ordered by strength for project, process, operational visibility,\n        readiness, and enablement roles.', 'These samples sit outside my day-to-day Apple role, but they show the same habits: clarify the audience,\n        organize the work, write for action, use judgment, and follow through.')
+          replace('samples.html', '<p>© 2026 Amber Largent · Proof Samples</p>', '<p>© 2026 Amber Largent · Proof Beyond the Role</p>')
+          PY
+      - name: Remove temporary workflow
+        run: git rm .github/workflows/rename-proof-pages.yml
+      - name: Commit naming update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html experience.html values.html samples.html .github/workflows/rename-proof-pages.yml
+          git commit -m "Clarify portfolio proof page naming"
+          git push
