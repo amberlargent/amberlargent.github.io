@@ -19,34 +19,12 @@ jobs:
           from pathlib import Path
           import re
 
-          new_css = '''    .nav-links a {
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
+          new_css = "    .nav-links a {\n      text-decoration: none;\n      transition: color 0.15s ease;\n    }\n\n    .nav-links a[href^=\"#\"] {\n      color: var(--slate);\n    }\n\n    .nav-links a[href*=\".html\"] {\n      color: var(--pink);\n    }\n\n    .nav-links a:hover {\n      color: var(--pink);\n    }\n"
 
-    .nav-links a[href^="#"] {
-      color: var(--slate);
-    }
+          css_pattern = re.compile(r"    \.nav-links a \{\n      text-decoration: none;\n      color: var\(--black\);\n      transition: color 0\.15s ease;\n    \}\n\n    \.nav-links a:hover(?:,\n    \.nav-links a:focus-visible)? \{\n      color: var\(--pink\);\n    \}\n")
 
-    .nav-links a[href*=".html"] {
-      color: var(--pink);
-    }
-
-    .nav-links a:hover {
-      color: var(--pink);
-    }
-'''
-
-          css_pattern = re.compile(r'''    \.nav-links a \{\n      text-decoration: none;\n      color: var\(--black\);\n      transition: color 0\.15s ease;\n    \}\n\n    \.nav-links a:hover(?:,\n    \.nav-links a:focus-visible)? \{\n      color: var\(--pink\);\n    \}\n''')
-
-          homepage_nav = '''      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#where-i-create-value">How I Help</a>
-        <a href="#work">Work</a>
-        <a href="#proof">Evidence</a>
-        <a href="values.html">How I Work</a>
-        <a href="#contact">Contact</a>
-      </div>'''
+          homepage_nav = "      <div class=\"nav-links\">\n        <a href=\"#about\">About</a>\n        <a href=\"#where-i-create-value\">How I Help</a>\n        <a href=\"#work\">Work</a>\n        <a href=\"#proof\">Evidence</a>\n        <a href=\"values.html\">How I Work</a>\n        <a href=\"#contact\">Contact</a>\n      </div>"
+          nav_pattern = re.compile(r"      <div class=\"nav-links\">\n(?:        <a href=\"[^\"]+\">[^<]+</a>\n)+      </div>")
 
           for path in Path('.').glob('*.html'):
               text = path.read_text()
@@ -54,12 +32,9 @@ jobs:
               text = css_pattern.sub(new_css, text)
 
               if path.name == 'index.html':
-                  text = re.sub(
-                      r'''      <div class="nav-links">\n(?:        <a href="[^"]+">[^<]+</a>\n)+      </div>''',
-                      homepage_nav,
-                      text,
-                      count=1,
-                  )
+                  text, count = nav_pattern.subn(homepage_nav, text, count=1)
+                  if count != 1:
+                      raise SystemExit('Homepage nav target not found')
 
               if text != original:
                   path.write_text(text)
