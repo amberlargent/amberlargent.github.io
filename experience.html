@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Amber Largent | Training + Experience</title>
+  <title>Amber Largent | Proof + Experience</title>
 
   <style>
     :root {
@@ -16,28 +16,28 @@
       --white: #fffafc;
     }
 
-a:focus-visible,
-.button:focus-visible {
-  outline: 4px solid var(--pink);
-  outline-offset: 4px;
-}
+    a:focus-visible,
+    .button:focus-visible {
+      outline: 4px solid var(--pink);
+      outline-offset: 4px;
+    }
 
-.skip-link {
-  position: absolute;
-  left: 16px;
-  top: -60px;
-  background: var(--black);
-  color: var(--white);
-  padding: 10px 14px;
-  border-radius: 999px;
-  font-weight: 900;
-  z-index: 100;
-}
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      z-index: 100;
+    }
 
-.skip-link:focus {
-  top: 16px;
-}
-    
+    .skip-link:focus {
+      top: 16px;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -91,7 +91,8 @@ a:focus-visible,
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      flex-wrap: wrap;
+      gap: 18px;
       font-size: 14px;
       font-weight: 800;
     }
@@ -99,6 +100,7 @@ a:focus-visible,
     .nav-links a {
       text-decoration: none;
       color: var(--black);
+      transition: color 0.15s ease;
     }
 
     .nav-links a:hover {
@@ -143,7 +145,7 @@ a:focus-visible,
 
     .lead {
       font-size: 21px;
-      max-width: 780px;
+      max-width: 820px;
       margin: 0 0 30px;
       color: #1c1c1c;
     }
@@ -204,7 +206,7 @@ a:focus-visible,
     }
 
     .section-intro {
-      max-width: 780px;
+      max-width: 840px;
       font-size: 19px;
       color: #202020;
       margin-bottom: 34px;
@@ -238,6 +240,10 @@ a:focus-visible,
       margin: 0 0 14px;
     }
 
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
     .card ul {
       margin: 14px 0 0;
       padding-left: 20px;
@@ -259,12 +265,42 @@ a:focus-visible,
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
+      align-items: start;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
+      align-items: start;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 30px 0 0;
+    }
+
+    .proof-stat {
+      border-top: 2px solid rgba(3, 3, 3, 0.18);
+      padding-top: 14px;
+    }
+
+    .proof-stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .proof-stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--slate);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .tag-list {
@@ -336,7 +372,8 @@ a:focus-visible,
       }
 
       .grid-2,
-      .grid-3 {
+      .grid-3,
+      .proof-grid {
         grid-template-columns: 1fr;
       }
 
@@ -363,234 +400,446 @@ a:focus-visible,
 </head>
 
 <body>
-
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <nav class="site-nav">
     <div class="nav-inner">
       <div class="brand">
         Amber Largent
-        <span>Training + Experience</span>
+        <span>Proof + Experience</span>
       </div>
 
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="values.html">Values</a>
-        <a href="#rss">RSS Work</a>
-        <a href="#training">Training</a>
+        <a href="#coaching">Coaching</a>
+        <a href="#knowledge">Knowledge</a>
+        <a href="#ai">AI</a>
         <a href="#credentials">Credentials</a>
-        <a href="samples.html">Work Samples</a>
+        <a href="samples.html">Samples</a>
         <a href="index.html#contact">Contact</a>
       </div>
     </div>
   </nav>
 
   <main id="main">
-
     <header>
       <div class="hero">
-        <div class="eyebrow">Training • Enablement • Experience</div>
+        <div class="eyebrow">Coaching • Knowledge Systems • AI Enablement • PM</div>
 
         <h1>The deeper proof behind the portfolio.</h1>
 
         <p class="lead">
-          This is the deeper proof layer behind my portfolio: RSS Senior Specialist work,
-          training and enablement projects, continued learning, and credentials that show how I build clarity,
-          support adoption, and help complex work move forward.
+          This page shows the working evidence behind my portfolio: Senior Specialist coaching,
+          root-cause analysis, leader-ready reporting, knowledge systems, facilitation, AI workflow design,
+          project structures, continued learning, and credentials.
         </p>
 
         <div class="button-row">
           <a class="button" href="index.html">Back to Main Portfolio</a>
-          <a class="button" href="#credentials">View Credentials</a>
+          <a class="button" href="#coaching">View Coaching Proof</a>
+          <a class="button" href="#ai">View AI Workflow</a>
         </div>
       </div>
     </header>
 
-    <section id="rss">
-      <div class="section-kicker">RSS Senior Specialist</div>
-      <h2>Regional Support Services work</h2>
+    <section id="proof-snapshot">
+      <div class="section-kicker">Proof Snapshot</div>
+      <h2>Scale, scope, and practical evidence</h2>
 
       <p class="section-intro">
-        My RSS Senior Specialist work gave me a wide base in support operations, readiness,
-        stakeholder communication, process improvement, reporting, and scalable enablement.
+        These numbers are intentionally practical. They show the kind of work I have done repeatedly:
+        coaching, teaching, documenting, analyzing, building systems, and helping people use the work.
+      </p>
+
+      <div class="proof-grid">
+        <div class="proof-stat">
+          <strong>10+ yrs</strong>
+          <span>Senior Specialist work since 2015</span>
+        </div>
+
+        <div class="proof-stat">
+          <strong>4x</strong>
+          <span>Leadership Academy experience</span>
+        </div>
+
+        <div class="proof-stat">
+          <strong>30+</strong>
+          <span>monthly evaluations as standard rhythm</span>
+        </div>
+
+        <div class="proof-stat">
+          <strong>20-25</strong>
+          <span>knowledge spaces supported</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="coaching">
+      <div class="section-kicker">Coaching Foundation</div>
+      <h2>Root-cause work, coaching, and team effectiveness</h2>
+
+      <p class="section-intro">
+        Senior Specialist work gave me a direct coaching foundation. I have used data, observation,
+        call evaluation, interviews, audits, and process review to understand what is really happening,
+        then translate those findings into coaching opportunities, process recommendations, direct feedback,
+        and leader-ready readouts.
       </p>
 
       <div class="grid-2">
         <div class="card pm-card">
-          <h3>Readiness + Process Support</h3>
-
+          <h3>Performance patterns and coaching plans</h3>
           <p>
-            <strong>Challenge:</strong> Teams needed clear support during process changes,
-            tool updates, and shifting operational needs.
+            In one immersion, data showed that several performance challenges were not simply burnout.
+            Some people were operating with faulty assumptions about difficult customer interactions.
           </p>
-
           <p>
-            <strong>Action:</strong> Created documentation, readiness support, communications,
-            and practical guidance to help teams understand changes and apply them in their work.
+            I used the data to correct misunderstandings, support new approaches to hard calls, and reframe
+            AHT as one signal within a larger customer-experience picture. The approach helped improve customer
+            experience indicators, including CSAT, while giving the team a healthier way to understand the work.
           </p>
-
-          <p>
-            <strong>Result:</strong> Helped reduce confusion, improve clarity, and support
-            more consistent adoption across teams.
-          </p>
-
           <div class="tag-list">
-            <span class="tag">Readiness</span>
-            <span class="tag">Process Support</span>
-            <span class="tag">Communication</span>
-            <span class="tag">Adoption</span>
+            <span class="tag">Root-cause analysis</span>
+            <span class="tag">Call evaluation</span>
+            <span class="tag">Coaching plans</span>
+            <span class="tag">CSAT</span>
+            <span class="tag">AHT</span>
+          </div>
+        </div>
+
+        <div class="card id-card">
+          <h3>Practice for difficult conversations</h3>
+          <p>
+            I used Box Notes in an innovative way to create interactive practice activities for difficult
+            customer conversations. The structure helped teams safely test language, receive feedback,
+            and build consistency around how to communicate hard "no" decisions before applying the approach
+            with customers.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Facilitation</span>
+            <span class="tag">Box Notes</span>
+            <span class="tag">Practice design</span>
+            <span class="tag">Feedback</span>
+          </div>
+        </div>
+
+        <div class="card neutral-card">
+          <h3>Leadership Academy + Team Manager backfill</h3>
+          <p>
+            I completed Leadership Academy four times and backfilled Team Manager responsibilities for teams
+            ranging from 5-20 Advisors. During backfill, I led weekly huddles, supported coaching follow-up,
+            provided direct Advisor feedback, and helped maintain the team operating rhythm.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Team Manager backfill</span>
+            <span class="tag">Weekly huddles</span>
+            <span class="tag">Direct feedback</span>
+            <span class="tag">Operating rhythm</span>
           </div>
         </div>
 
         <div class="card pm-card">
-          <h3>Workflow + Tool Enablement</h3>
-
+          <h3>Multi-level coaching and enablement</h3>
           <p>
-            <strong>Challenge:</strong> Enterprise tools and workflows needed support that was
-            clear, practical, and easy to sustain.
+            My coaching and enablement experience spans multiple levels of the organization, including
+            learners, peers, specialists, managers, and area leaders. Across Trainer, Senior Specialist,
+            and Team Manager backfill work, I have supported thousands of people through training,
+            facilitation, mentoring, root-cause analysis, and practical performance support.
           </p>
-
-          <p>
-            <strong>Action:</strong> Built guidance, workshops, support materials, and workflow
-            documentation for tools and processes used across support work.
-          </p>
-
-          <p>
-            <strong>Result:</strong> Helped teams use tools more confidently and reduced the need
-            for repeated one-off support.
-          </p>
-
           <div class="tag-list">
-            <span class="tag">Wrike</span>
-            <span class="tag">Chorus</span>
-            <span class="tag">Workflow Design</span>
-            <span class="tag">Enablement</span>
-          </div>
-        </div>
-
-        <div class="card pm-card">
-          <h3>Reporting + Visibility</h3>
-
-          <p>
-            <strong>Challenge:</strong> Leaders and managers needed clearer ways to understand
-            status, trends, follow-up needs, and project health.
-          </p>
-
-          <p>
-            <strong>Action:</strong> Built reporting and visibility tools, including audit workflows,
-            weekly reporting, dashboards, and manager-facing data views.
-          </p>
-
-          <p>
-            <strong>Result:</strong> Improved status tracking, follow-up, and decision support.
-          </p>
-
-          <div class="tag-list">
-            <span class="tag">Reporting</span>
-            <span class="tag">Dashboards</span>
-            <span class="tag">Manager Support</span>
-            <span class="tag">Follow-through</span>
-          </div>
-        </div>
-
-        <div class="card pm-card">
-          <h3>Cross-functional Execution</h3>
-
-          <p>
-            <strong>Challenge:</strong> Work often moved across teams, tools, timelines, and
-            priorities that needed structure.
-          </p>
-
-          <p>
-            <strong>Action:</strong> Supported planning, stakeholder alignment, action tracking,
-            communications, and follow-up across cross-functional work.
-          </p>
-
-          <p>
-            <strong>Result:</strong> Helped teams stay aligned, make decisions, and move work forward.
-          </p>
-
-          <div class="tag-list">
-            <span class="tag">Stakeholder Alignment</span>
-            <span class="tag">Project Support</span>
-            <span class="tag">Action Tracking</span>
-            <span class="tag">Execution</span>
+            <span class="tag">Learners</span>
+            <span class="tag">Peers</span>
+            <span class="tag">Specialists</span>
+            <span class="tag">Managers</span>
+            <span class="tag">Area leaders</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="training">
-      <div class="section-kicker">Training + Enablement</div>
-      <h2>Learning work that scales</h2>
+    <section id="reporting">
+      <div class="section-kicker">Reporting + Operational Visibility</div>
+      <h2>Turning signals into decisions</h2>
 
       <p class="section-intro">
-        My training work connects learning design, tool adoption, communication, and performance support.
-        I focus on resources people can understand, apply, and keep using after launch.
+        My reporting work connects data to action. I use operational, quality, survey, audit, case,
+        and call review data to identify individual performance patterns, team trends, and process gaps.
       </p>
 
       <div class="grid-2">
-        <div class="card id-card">
-          <h3>Personalized Learning Journey</h3>
-
+        <div class="card pm-card">
+          <h3>Leader-ready readouts</h3>
           <p>
-            Designed and supported learning work that connected learner needs, business goals,
-            performance signals, and cross-functional coordination.
+            I have created quarterly and ad hoc reporting readouts for leaders across multiple levels,
+            including managers, senior managers, area managers, business managers, and one VP-level audience.
           </p>
-
+          <p>
+            These readouts turned operational signals into coaching opportunities, process recommendations,
+            stakeholder updates, and clearer decisions.
+          </p>
           <div class="tag-list">
-            <span class="tag">Learning Strategy</span>
-            <span class="tag">Performance Support</span>
-            <span class="tag">Cross-functional Work</span>
-            <span class="tag">Measurement</span>
+            <span class="tag">Keynote readouts</span>
+            <span class="tag">Leader updates</span>
+            <span class="tag">Trend analysis</span>
+            <span class="tag">Decision support</span>
+          </div>
+        </div>
+
+        <div class="card pm-card">
+          <h3>Tools used for reporting and analysis</h3>
+          <p>
+            I have used Numbers, Excel, Wrike dashboards and reports, Qualtrics analytics, Tableau,
+            Keynote, internal dashboards and tools, case and call review tools, quality forms,
+            and audit trackers to collect, organize, analyze, summarize, and present findings.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Numbers</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Wrike dashboards</span>
+            <span class="tag">Qualtrics</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Keynote</span>
+            <span class="tag">Audit trackers</span>
+          </div>
+        </div>
+
+        <div class="card neutral-card">
+          <h3>Process backlog audit</h3>
+          <p>
+            When a process backlog grew and ownership was unclear, I created an audit tracker to document
+            each item, last-touch date, current status, and next step. The audit surfaced that the larger
+            issue was a broken accountability model, not individual effort alone.
+          </p>
+          <p>
+            That visibility helped managers improve ownership, adjust the process, and create a recurring
+            weekly update rhythm. The work later moved into a more efficient system and remains in use today.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Audit design</span>
+            <span class="tag">Accountability</span>
+            <span class="tag">Weekly rhythm</span>
+            <span class="tag">Process improvement</span>
+          </div>
+        </div>
+
+        <div class="card neutral-card">
+          <h3>Operational model risk</h3>
+          <p>
+            I identified risk in a proposed operating model change that would have overloaded hourly employees.
+            I built an alternative working model that preserved most of the intended business outcome while creating
+            a more sustainable approach for the people doing the work. That model became the operating approach still
+            used in large part today.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Risk identification</span>
+            <span class="tag">Operating model</span>
+            <span class="tag">Sustainable process</span>
+            <span class="tag">People-centered execution</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="knowledge">
+      <div class="section-kicker">Knowledge Systems</div>
+      <h2>Making information findable, usable, and sustainable</h2>
+
+      <p class="section-intro">
+        I am often the person people come to for resources, practical guidance, and help making messy work
+        easier to understand.
+      </p>
+
+      <div class="grid-2">
+        <div class="card neutral-card">
+          <h3>Knowledge architecture at scale</h3>
+          <p>
+            I have designed, audited, maintained, migrated, and restructured 20-25 knowledge spaces with
+            hundreds of supporting pages. These spaces supported advisors, specialists, managers, project teams,
+            leaders, and cross-functional partners.
+          </p>
+          <p>
+            The spaces covered onboarding, SOPs, launch readiness, team hubs, reporting hubs, tool support,
+            FAQs, manager resources, and project workspaces.
+          </p>
+          <div class="tag-list">
+            <span class="tag">20-25 spaces</span>
+            <span class="tag">Hundreds of pages</span>
+            <span class="tag">Information architecture</span>
+            <span class="tag">Content governance</span>
+          </div>
+        </div>
+
+        <div class="card neutral-card">
+          <h3>Platform transitions</h3>
+          <p>
+            I supported knowledge platform transitions from ConnectMe to Gather to Chorus by migrating content,
+            updating and reformatting pages, cleaning outdated resources, and building new information structures
+            that made content easier to find, trust, and maintain through change.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Migration support</span>
+            <span class="tag">Content cleanup</span>
+            <span class="tag">New structures</span>
+            <span class="tag">Change support</span>
           </div>
         </div>
 
         <div class="card id-card">
-          <h3>Discovery Series</h3>
-
+          <h3>First Senior Specialist procedures</h3>
           <p>
-            Designed scalable, modular training and support resources for tools, workflows,
-            and adoption needs.
+            When the Senior Specialist role lacked shared procedure documentation, I created the first standard
+            procedure resource to clarify expectations, reduce repeated questions, and support more consistent execution.
           </p>
-
+          <p>
+            That work became a foundation for future launch and project documentation. Over time, I built resources
+            that anticipated common questions so effectively that many launches had only one or two follow-up questions
+            after presentation.
+          </p>
           <div class="tag-list">
-            <span class="tag">Microlearning</span>
-            <span class="tag">Tool Training</span>
-            <span class="tag">Workflow Support</span>
-            <span class="tag">Reusable Model</span>
+            <span class="tag">Procedure docs</span>
+            <span class="tag">Launch support</span>
+            <span class="tag">Reduced questions</span>
+            <span class="tag">Reusable resources</span>
           </div>
         </div>
 
         <div class="card id-card">
-          <h3>Media Development Enablement</h3>
-
+          <h3>Roundtables + recurring enablement</h3>
           <p>
-            Helped build training, process documentation, standards, and support systems
-            for contributors creating learning and support content.
+            I facilitated weekly roundtables for several years, developed recurring Senior Specialist materials,
+            and later supported daily training as a Flex Instructor. I have also rapidly designed and delivered
+            tool training during urgent operational changes when formal training was not yet available.
           </p>
-
           <div class="tag-list">
-            <span class="tag">Team Enablement</span>
-            <span class="tag">Standards</span>
-            <span class="tag">Process Docs</span>
-            <span class="tag">Content Development</span>
+            <span class="tag">Weekly roundtables</span>
+            <span class="tag">Daily training</span>
+            <span class="tag">Rapid design</span>
+            <span class="tag">Tool enablement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai">
+      <div class="section-kicker">AI Enablement</div>
+      <h2>Daily AI workflow design, not just AI interest</h2>
+
+      <p class="section-intro">
+        I use AI tools daily and am known as an early adopter, resource sharer, prompt helper, presenter,
+        bug finder, and practical problem-solver. My focus is helping people use AI in ways that are useful,
+        repeatable, and grounded in the work.
+      </p>
+
+      <div class="grid-2">
+        <div class="card pm-card">
+          <h3>Portable chief-of-staff workflow</h3>
+          <p>
+            I built a portable AI workflow model that uses an internal enterprise assistant with a structured
+            Obsidian knowledge vault. Instead of locking agents, skills, prompts, contacts, project context,
+            and routing notes inside one tool, I keep the reusable logic in a structured vault that can support
+            multiple AI tools based on the task.
+          </p>
+          <p>
+            This approach supports context reuse, faster setup, cleaner handoffs between tools, just-in-time
+            data routing, and lower-friction AI-assisted work.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Enterprise assistant</span>
+            <span class="tag">Obsidian vault</span>
+            <span class="tag">Agents</span>
+            <span class="tag">Skills</span>
+            <span class="tag">Context routing</span>
+            <span class="tag">Prompt reuse</span>
           </div>
         </div>
 
-        <div class="card id-card">
-          <h3>Facilitation + Workshops</h3>
-
+        <div class="card pm-card">
+          <h3>AI resources and team enablement</h3>
           <p>
-            Created and delivered instructor-led sessions, workshops, and practical support
-            experiences to help learners build confidence and apply new skills.
+            I have created and shared roughly a dozen AI resources, prompts, workflows, and demos across use cases
+            such as agent drafting, prompt design, brainstorming, visual creation, note support, documentation cleanup,
+            editing workflows, and practical project support.
           </p>
-
+          <p>
+            I am also preparing a practical AI enablement presentation for a PM audience on using an enterprise
+            assistant as a chief-of-staff-style support system with a structured knowledge vault.
+          </p>
           <div class="tag-list">
-            <span class="tag">ILT</span>
-            <span class="tag">Workshops</span>
-            <span class="tag">Facilitation</span>
-            <span class="tag">Learner Support</span>
+            <span class="tag">AI champion</span>
+            <span class="tag">Prompt design</span>
+            <span class="tag">Workflow demos</span>
+            <span class="tag">Editing agent</span>
+            <span class="tag">Team enablement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-kicker">Project + Process Proof</div>
+      <h2>Structures that make work easier to see and move</h2>
+
+      <p class="section-intro">
+        My project work focuses on building the systems, artifacts, and rhythms that help teams understand
+        ownership, decisions, status, risks, and next steps.
+      </p>
+
+      <div class="grid-2">
+        <div class="card pm-card">
+          <h3>Wrike project hub</h3>
+          <p>
+            Designed a Wrike project hub with intake forms, blueprints, automations, dashboards, and reusable
+            project structures to improve visibility, intake, and follow-through.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Wrike</span>
+            <span class="tag">Forms</span>
+            <span class="tag">Blueprints</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Dashboards</span>
+          </div>
+        </div>
+
+        <div class="card pm-card">
+          <h3>Product support policy project</h3>
+          <p>
+            Co-PMing an early-stage product support policy project involving approximately seven teams and
+            creating the artifacts needed to support alignment, decisions, and follow-through.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Co-PM</span>
+            <span class="tag">7 teams</span>
+            <span class="tag">Project artifacts</span>
+            <span class="tag">Alignment</span>
+          </div>
+        </div>
+
+        <div class="card pm-card">
+          <h3>Portfolio visibility support</h3>
+          <p>
+            Supported planning and portfolio management work for a broad AppleCare portfolio through recurring
+            updates, portfolio data maintenance, and visibility support.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Portfolio support</span>
+            <span class="tag">Recurring updates</span>
+            <span class="tag">Data maintenance</span>
+            <span class="tag">Visibility</span>
+          </div>
+        </div>
+
+        <div class="card pm-card">
+          <h3>Global learning pilot</h3>
+          <p>
+            Supported a global Personalized Learning Journey pilot involving cross-functional partners and vendors
+            in multiple countries. Pilot tracks improved Case AHT by 1+ minute to nearly 1.5 minutes while also
+            improving CSAT and Issue Resolution in key paths.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Global pilot</span>
+            <span class="tag">Vendors</span>
+            <span class="tag">AHT</span>
+            <span class="tag">CSAT</span>
+            <span class="tag">Issue Resolution</span>
           </div>
         </div>
       </div>
@@ -698,7 +947,7 @@ a:focus-visible,
   </main>
 
   <footer>
-    <p>© 2026 Amber Largent · Training + Experience</p>
+    <p>© 2026 Amber Largent · Proof + Experience</p>
   </footer>
 
 </body>
