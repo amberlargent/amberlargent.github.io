@@ -137,21 +137,23 @@
     }
 
     .hero-signoff {
-      width: min(340px, 70vw);
-      margin: 10px 0 22px;
+      width: fit-content;
+      margin: 24px 0 46px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 24px;
     }
 
     .hero-doodles {
       display: block;
-      width: 92px;
+      width: 148px;
       height: auto;
-      opacity: 0;
-      transform: translateY(8px);
-      animation: doodleFloatIn 0.9s ease 0.15s forwards;
+      opacity: 0.98;
+      margin-bottom: 22px;
+      transform-origin: center;
+      animation: gentleSparkle 7s ease-in-out infinite;
+      filter: drop-shadow(0 0 6px rgba(228, 111, 161, 0.10));
     }
 
     .hero-signature {
@@ -162,8 +164,8 @@
     }
 
     .hero-signoff .hero-signature {
-      width: 100%;
-      margin: 0;
+      width: min(360px, 54vw);
+      margin: 0 0 6px;
     }
 
     h1 {
@@ -519,15 +521,29 @@
       }
     }
 
-    @keyframes doodleFloatIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px) scale(0.98);
+    @keyframes gentleSparkle {
+      0%, 100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 0.96;
+        filter: drop-shadow(0 0 4px rgba(228, 111, 161, 0.10));
       }
 
-      to {
+      25% {
+        transform: translateY(-3px) scale(1.035) rotate(-1deg);
         opacity: 1;
-        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 14px rgba(228, 111, 161, 0.28));
+      }
+
+      50% {
+        transform: translateY(1px) scale(0.995) rotate(1deg);
+        opacity: 0.94;
+        filter: drop-shadow(0 0 6px rgba(228, 111, 161, 0.16));
+      }
+
+      75% {
+        transform: translateY(-2px) scale(1.02) rotate(0deg);
+        opacity: 1;
+        filter: drop-shadow(0 0 12px rgba(228, 111, 161, 0.24));
       }
     }
 
@@ -599,6 +615,21 @@
         gap: 14px;
       }
 
+      .hero-signoff {
+        align-items: flex-start;
+        gap: 14px;
+        margin: 22px 0 34px;
+      }
+
+      .hero-doodles {
+        width: 112px;
+        margin-bottom: 12px;
+      }
+
+      .hero-signoff .hero-signature {
+        width: min(300px, 62vw);
+      }
+
       .stats {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -630,10 +661,10 @@
 
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="values.html">Values</a>
         <a href="#where-i-create-value">How I Help</a>
         <a href="#project-management">Work</a>
         <a href="#more-experience">Proof</a>
-        <a href="values.html">Values</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
