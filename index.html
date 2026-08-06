@@ -137,12 +137,46 @@
     }
 
     .hero-signoff {
+      position: relative;
       width: fit-content;
       margin: 24px 0 46px;
       display: flex;
       flex-direction: row;
       align-items: flex-end;
       gap: 24px;
+    }
+
+    .hero-signoff::before,
+    .hero-signoff::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: var(--pink);
+      pointer-events: none;
+      opacity: 0.2;
+      transform: scale(0.7);
+      animation: sparklePulse 3.4s ease-in-out infinite;
+    }
+
+    .hero-signoff::before {
+      left: 34px;
+      top: 2px;
+      width: 9px;
+      height: 9px;
+      box-shadow:
+        0 0 0 4px rgba(228, 111, 161, 0.08),
+        0 0 16px rgba(228, 111, 161, 0.45);
+    }
+
+    .hero-signoff::after {
+      left: 118px;
+      top: 58px;
+      width: 7px;
+      height: 7px;
+      animation-delay: 1.35s;
+      box-shadow:
+        0 0 0 4px rgba(228, 111, 161, 0.08),
+        0 0 14px rgba(228, 111, 161, 0.4);
     }
 
     .hero-doodles {
@@ -152,8 +186,7 @@
       opacity: 0.98;
       margin-bottom: 22px;
       transform-origin: center;
-      animation: gentleSparkle 7s ease-in-out infinite;
-      filter: drop-shadow(0 0 6px rgba(228, 111, 161, 0.10));
+      filter: drop-shadow(0 0 8px rgba(228, 111, 161, 0.16));
     }
 
     .hero-signature {
@@ -509,47 +542,23 @@
       opacity: 0.92;
     }
 
-    @keyframes softRise {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes gentleSparkle {
+    @keyframes sparklePulse {
       0%, 100% {
-        transform: translateY(0) scale(1) rotate(0deg);
-        opacity: 0.96;
-        filter: drop-shadow(0 0 4px rgba(228, 111, 161, 0.10));
+        opacity: 0.18;
+        transform: scale(0.7);
+        filter: blur(0);
       }
 
-      25% {
-        transform: translateY(-3px) scale(1.035) rotate(-1deg);
+      42% {
         opacity: 1;
-        filter: drop-shadow(0 0 14px rgba(228, 111, 161, 0.28));
+        transform: scale(1.55);
+        filter: blur(0.2px);
       }
 
-      50% {
-        transform: translateY(1px) scale(0.995) rotate(1deg);
-        opacity: 0.94;
-        filter: drop-shadow(0 0 6px rgba(228, 111, 161, 0.16));
+      58% {
+        opacity: 0.72;
+        transform: scale(1.15);
       }
-
-      75% {
-        transform: translateY(-2px) scale(1.02) rotate(0deg);
-        opacity: 1;
-        filter: drop-shadow(0 0 12px rgba(228, 111, 161, 0.24));
-      }
-    }
-
-    .hero,
-    section {
-      animation: softRise 0.65s ease both;
     }
 
     .hero-banner,
@@ -576,14 +585,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero,
-      section {
+      .hero-signoff::before,
+      .hero-signoff::after {
         animation: none;
-      }
-
-      .hero-doodles {
-        animation: none;
-        opacity: 1;
+        opacity: 0.55;
         transform: none;
       }
 
@@ -628,6 +633,16 @@
 
       .hero-signoff .hero-signature {
         width: min(300px, 62vw);
+      }
+
+      .hero-signoff::before {
+        left: 24px;
+        top: 0;
+      }
+
+      .hero-signoff::after {
+        left: 88px;
+        top: 44px;
       }
 
       .stats {
