@@ -99,8 +99,15 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--black);
       transition: color 0.15s ease;
+    }
+
+    .nav-links a[href^="#"] {
+      color: var(--slate);
+    }
+
+    .nav-links a[href*=".html"] {
+      color: var(--pink);
     }
 
     .nav-links a:hover {

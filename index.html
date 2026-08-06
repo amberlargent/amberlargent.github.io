@@ -100,8 +100,15 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--black);
       transition: color 0.15s ease;
+    }
+
+    .nav-links a[href^="#"] {
+      color: var(--slate);
+    }
+
+    .nav-links a[href*=".html"] {
+      color: var(--pink);
     }
 
     .nav-links a:hover {
@@ -547,10 +554,10 @@
 
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="values.html">How I Work</a>
         <a href="#where-i-create-value">How I Help</a>
         <a href="#work">Work</a>
         <a href="#proof">Evidence</a>
+        <a href="values.html">How I Work</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
