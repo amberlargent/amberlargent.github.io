@@ -34,17 +34,10 @@
       z-index: 100;
     }
 
-    .skip-link:focus {
-      top: 16px;
-    }
+    .skip-link:focus { top: 16px; }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -54,9 +47,7 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     .site-nav {
       position: sticky;
@@ -102,17 +93,9 @@
       transition: color 0.15s ease;
     }
 
-    .nav-links a[href^="#"] {
-      color: var(--slate);
-    }
-
-    .nav-links a[href*=".html"] {
-      color: var(--pink);
-    }
-
-    .nav-links a:hover {
-      color: var(--pink);
-    }
+    .nav-links a[href^="#"] { color: var(--slate); }
+    .nav-links a[href*=".html"] { color: var(--pink); }
+    .nav-links a:hover { color: var(--pink); }
 
     header {
       background:
@@ -174,10 +157,7 @@
       background: var(--white);
       color: var(--black);
       box-shadow: 0 6px 0 var(--black);
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
     .button:hover {
@@ -219,6 +199,18 @@
       margin-bottom: 34px;
     }
 
+    .grid-2,
+    .grid-3,
+    .proof-grid {
+      display: grid;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .proof-grid { grid-template-columns: repeat(4, 1fr); }
+
     .card {
       background: rgba(255, 250, 252, 0.86);
       border: 1px solid rgba(228, 111, 161, 0.34);
@@ -226,10 +218,7 @@
       border-radius: 24px;
       padding: 26px;
       box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        border-color 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
     .card:hover {
@@ -243,46 +232,12 @@
       letter-spacing: -0.02em;
     }
 
-    .card p {
-      margin: 0 0 14px;
-    }
+    .card p { margin: 0 0 14px; }
+    .card p:last-child { margin-bottom: 0; }
 
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .pm-card {
-      border-top-color: var(--pink);
-    }
-
-    .id-card {
-      border-top-color: var(--slate);
-    }
-
-    .neutral-card {
-      border-top-color: var(--blush);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin: 30px 0 0;
-    }
+    .pm-card { border-top-color: var(--pink); }
+    .id-card { border-top-color: var(--slate); }
+    .neutral-card { border-top-color: var(--blush); }
 
     .proof-stat {
       border-top: 2px solid rgba(3, 3, 3, 0.18);
@@ -319,39 +274,13 @@
       padding: 6px 10px;
       font-size: 13px;
       font-weight: 900;
-      transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        border-color 0.15s ease;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
     }
 
     .tag:hover {
       transform: translateY(-2px);
       background: var(--blush);
       border-color: var(--pink);
-    }
-
-    .credential-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .credential-item {
-      padding: 14px 16px;
-      background: rgba(255, 250, 252, 0.65);
-      border-left: 5px solid var(--pink);
-      border-radius: 14px;
-    }
-
-    .credential-item strong {
-      display: block;
-    }
-
-    .credential-item span {
-      color: var(--slate);
-      font-size: 14px;
-      font-weight: 700;
     }
 
     footer {
@@ -368,16 +297,8 @@
         flex-direction: column;
       }
 
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-
-      .grid-2,
-      .grid-3,
-      .proof-grid {
-        grid-template-columns: 1fr;
-      }
+      .nav-links { gap: 14px; }
+      .grid-2, .grid-3, .proof-grid { grid-template-columns: 1fr; }
 
       section {
         margin: 28px 14px;
@@ -388,15 +309,10 @@
     @media (prefers-reduced-motion: reduce) {
       .button,
       .card,
-      .tag {
-        transition: none;
-      }
-
+      .tag { transition: none; }
       .button:hover,
       .card:hover,
-      .tag:hover {
-        transform: none;
-      }
+      .tag:hover { transform: none; }
     }
   </style>
 </head>
@@ -413,7 +329,7 @@
 
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="#pm-work">PM Work</a>
+        <a href="#project-process">Project + Process</a>
         <a href="#reporting">Reporting</a>
         <a href="#coaching">Coaching</a>
         <a href="#knowledge">Knowledge</a>
@@ -431,16 +347,21 @@
       <div class="hero">
         <div class="eyebrow">Work Evidence • Coaching • Process • Visibility</div>
 
-        <h1>Evidence for how I think, support people, and move work forward.</h1>
+        <h1>Evidence for how I diagnose, structure, lead, and move work forward.</h1>
 
         <p class="lead">
-          This page brings the professional evidence forward: coaching support, project structures, portfolio visibility,
-          reporting rhythms, stakeholder alignment, risk identification, Wrike systems, AI workflow support,
-          and the knowledge habits that help me understand what is really happening before I build.
+          This page brings forward the professional evidence behind my work: coaching, project structure,
+          portfolio visibility, reporting rhythms, stakeholder alignment, risk identification, Wrike systems,
+          AI workflow design, and knowledge systems.
+        </p>
+
+        <p class="lead">
+          The throughline is practical leadership: understand what is happening, make the work visible,
+          build useful structure, and help teams move with clearer ownership and follow-through.
         </p>
 
         <div class="button-row">
-          <a class="button" href="#pm-work">View PM Work</a>
+          <a class="button" href="#project-process">View Project + Process</a>
           <a class="button" href="#reporting">View Reporting + Visibility</a>
           <a class="button" href="#ai">View AI Workflow</a>
           <a class="button" href="index.html">Back to Main Portfolio</a>
@@ -451,10 +372,9 @@
     <section id="proof-snapshot">
       <div class="section-kicker">Proof Snapshot</div>
       <h2>Scale, scope, and practical evidence</h2>
-
       <p class="section-intro">
-        These proof points are intentionally practical. They show the kind of work I have done repeatedly:
-        structuring projects, building visibility, documenting work, supporting decisions, and helping teams move.
+        These proof points show work I have done repeatedly: structuring projects, building visibility,
+        documenting systems, surfacing risks, supporting decisions, and creating momentum across complex work.
       </p>
 
       <div class="proof-grid">
@@ -462,17 +382,14 @@
           <strong>Global</strong>
           <span>PLJ pilot with vendors in multiple countries</span>
         </div>
-
         <div class="proof-stat">
           <strong>7 teams</strong>
           <span>early product policy project involvement</span>
         </div>
-
         <div class="proof-stat">
           <strong>Wrike</strong>
           <span>forms, blueprints, automations, dashboards</span>
         </div>
-
         <div class="proof-stat">
           <strong>20-25</strong>
           <span>knowledge spaces supported</span>
@@ -480,13 +397,12 @@
       </div>
     </section>
 
-    <section id="pm-work">
-      <div class="section-kicker">PM Work</div>
+    <section id="project-process">
+      <div class="section-kicker">Project + Process</div>
       <h2>Structures that make work easier to see and move</h2>
-
       <p class="section-intro">
-        My project work focuses on building the systems, artifacts, and rhythms that help teams understand
-        ownership, decisions, status, risks, dependencies, and next steps. I am most useful when the work is complex,
+        My project and process work builds the systems, artifacts, and rhythms that help teams understand
+        ownership, decisions, status, risks, dependencies, and next steps. I am strongest when the work is complex,
         cross-functional, and still becoming clear.
       </p>
 
@@ -494,7 +410,7 @@
         <div class="card pm-card">
           <h3>Personalized Learning Journey global pilot</h3>
           <p>
-            Supported a global Personalized Learning Journey pilot involving cross-functional partners and vendors
+            Contributed to a global Personalized Learning Journey pilot involving cross-functional partners and vendors
             in multiple countries. The work connected training, analytics, exam operations, vendor management,
             readiness planning, and stakeholder follow-up.
           </p>
@@ -516,8 +432,8 @@
         <div class="card pm-card">
           <h3>Product support policy project</h3>
           <p>
-            Help drive early-stage product support policy work across approximately seven teams by creating project
-            artifacts that track status, decisions, risks, and next steps.
+            Helped coordinate early-stage product support policy work across approximately seven teams by creating project
+            artifacts that tracked status, decisions, risks, and next steps.
           </p>
           <div class="tag-list">
             <span class="tag">Co-PM</span>
@@ -549,7 +465,7 @@
         <div class="card pm-card">
           <h3>Portfolio visibility + capacity planning</h3>
           <p>
-            Supported planning and portfolio management work for a broad AppleCare portfolio through recurring updates,
+            Maintained planning and portfolio visibility for a broad AppleCare portfolio through recurring updates,
             portfolio data maintenance, and visibility support. I also built a working manager capacity planning prototype
             to help visualize workload, availability, and planning needs.
           </p>
@@ -567,7 +483,6 @@
     <section id="reporting">
       <div class="section-kicker">Reporting + Operational Visibility</div>
       <h2>Turning signals into decisions</h2>
-
       <p class="section-intro">
         My reporting work connects data to action. I use operational, quality, survey, audit, case,
         and call review data to identify individual performance patterns, team trends, process gaps,
@@ -651,7 +566,6 @@
     <section id="coaching">
       <div class="section-kicker">Coaching Foundation</div>
       <h2>Root-cause work, coaching, and team effectiveness</h2>
-
       <p class="section-intro">
         Senior Specialist work gave me a direct coaching foundation. I have used data, observation,
         call evaluation, interviews, audits, and process review to understand what is really happening,
@@ -734,9 +648,8 @@
     <section id="knowledge">
       <div class="section-kicker">Knowledge Systems</div>
       <h2>Making information findable, usable, and sustainable</h2>
-
       <p class="section-intro">
-        I am often the person people come to for resources, practical guidance, and help making messy work easier to
+        I am often the person people come to for resources, practical guidance, and help making complex work easier to
         understand. This matters for PM roles because project work often breaks down when people cannot find the right
         information, trust the source, or see the current process.
       </p>
@@ -813,7 +726,6 @@
     <section id="ai">
       <div class="section-kicker">AI Enablement</div>
       <h2>Daily AI workflow design, not just AI interest</h2>
-
       <p class="section-intro">
         I use AI tools daily and am known as an early adopter, resource sharer, prompt helper, presenter,
         bug finder, and practical problem-solver. My focus is helping people use AI in ways that are useful,
@@ -867,7 +779,6 @@
     <section id="recommendations">
       <div class="section-kicker">Recommendation Themes</div>
       <h2>What leaders and partners consistently notice</h2>
-
       <p class="section-intro">
         The recommendations and feedback I have received point to the same throughline: I lead with curiosity, share
         resources generously, identify problems early, and move toward practical solutions instead of adding noise.
@@ -899,116 +810,22 @@
       </div>
     </section>
 
-    <section id="credentials">
-      <div class="section-kicker">Additional Credentials</div>
-      <h2>Training, certifications, and continued learning</h2>
-
+    <section id="learning-credentials">
+      <div class="section-kicker">Learning + Credentials</div>
+      <h2>Education, certifications, and continuing education</h2>
       <p class="section-intro">
-        This is the fuller learning record behind the shorter credentials section on my main portfolio.
+        My formal education and credentials support the same work shown here: project delivery, agile collaboration,
+        technical fluency, Apple ecosystem support, instructional design, workplace performance, and responsible AI use.
       </p>
 
-      <div class="grid-3">
-        <div class="card pm-card">
-          <h3>Project + Agile</h3>
-
-          <div class="credential-list">
-            <div class="credential-item">
-              <strong>Certified Scrum Product Owner</strong>
-              <span>Scrum Alliance</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Certified ScrumMaster</strong>
-              <span>Scrum Alliance</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>CompTIA Project+</strong>
-              <span>CompTIA</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Foundations of Project Management</strong>
-              <span>Google / Coursera</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Project Management Foundations and Project Planning</strong>
-              <span>Wiley / Coursera</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card pm-card">
-          <h3>AI + Workflow</h3>
-
-          <div class="credential-list">
-            <div class="credential-item">
-              <strong>Generative AI for Project Managers</strong>
-              <span>Coursera Specialization</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Generative AI: Introduction and Applications</strong>
-              <span>IBM / Coursera</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Generative AI: Prompt Engineering Basics</strong>
-              <span>IBM / Coursera</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Prompt Engineering for ChatGPT</strong>
-              <span>Vanderbilt University / Coursera</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Generative AI Essentials: Overview and Impact</strong>
-              <span>University of Michigan / Coursera</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card neutral-card">
-          <h3>Technical + Apple</h3>
-
-          <div class="credential-list">
-            <div class="credential-item">
-              <strong>Apple Certified IT Professional</strong>
-              <span>Apple Inc. · Issued Aug 2026 · Expires Aug 2028</span>
-              <p>Recognizes knowledge needed to deploy, manage, and secure Apple devices at scale in large organizations.</p>
-            </div>
-
-            <div class="credential-item">
-              <strong>CompTIA A+</strong>
-              <span>CompTIA</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Apple Certified Support Professional</strong>
-              <span>Apple</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Apple Certified iOS Technician</strong>
-              <span>Apple</span>
-            </div>
-
-            <div class="credential-item">
-              <strong>Apple Certified Associate in Mac Integration</strong>
-              <span>Apple</span>
-            </div>
-          </div>
-        </div>
+      <div class="button-row">
+        <a class="button" href="learning.html">View Learning + Credentials</a>
       </div>
     </section>
-
   </main>
 
   <footer>
     <p>© 2026 Amber Largent · Work Evidence</p>
   </footer>
-
 </body>
 </html>
