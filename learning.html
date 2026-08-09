@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Amber Largent | Learning + Credentials</title>
+
+  <style>
+    :root {
+      --sage: #CFD2B4;
+      --blush: #F2C6D5;
+      --pink: #E46FA1;
+      --slate: #6A747E;
+      --black: #030303;
+      --white: #fffafc;
+    }
+
+    a:focus-visible,
+    .button:focus-visible {
+      outline: 4px solid var(--pink);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      z-index: 100;
+    }
+
+    .skip-link:focus { top: 16px; }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--sage);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 250, 252, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a[href^="#"] { color: var(--slate); }
+    .nav-links a[href*=".html"] { color: var(--pink); }
+    .nav-links a:hover { color: var(--pink); }
+
+    header {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(242, 198, 213, 0.85), transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(228, 111, 161, 0.24), transparent 30%),
+        var(--sage);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 86px 24px 72px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255, 250, 252, 0.78);
+      border: 1px solid rgba(228, 111, 161, 0.4);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin: 0 0 24px;
+      max-width: 980px;
+    }
+
+    .lead {
+      font-size: 21px;
+      max-width: 860px;
+      margin: 0 0 30px;
+      color: #1c1c1c;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      box-shadow: 0 6px 0 var(--black);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .button:hover {
+      background: var(--pink);
+      transform: translateY(2px);
+      box-shadow: 0 4px 0 var(--black);
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 48px auto;
+      padding: 56px 32px;
+      background: rgba(255, 250, 252, 0.42);
+      border: 1px solid rgba(255, 250, 252, 0.7);
+      border-radius: 32px;
+      box-shadow: 0 18px 50px rgba(3, 3, 3, 0.10);
+    }
+
+    .section-kicker {
+      color: var(--pink);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 22px;
+    }
+
+    .section-intro {
+      max-width: 860px;
+      font-size: 19px;
+      color: #202020;
+      margin-bottom: 34px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .credential-card {
+      background: rgba(255, 250, 252, 0.86);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-top: 6px solid var(--pink);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+    }
+
+    .credential-card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      color: var(--slate);
+      font-size: 14px;
+      font-weight: 800;
+      margin: 0 0 14px;
+    }
+
+    .credential-card p { margin: 0 0 14px; }
+    .credential-card p:last-child { margin-bottom: 0; }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      background: var(--blush);
+      border: 1px solid rgba(228, 111, 161, 0.5);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .note-card {
+      background: rgba(255, 250, 252, 0.86);
+      border-left: 7px solid var(--pink);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+    }
+
+    footer {
+      padding: 34px 24px;
+      text-align: center;
+      background: var(--black);
+      color: var(--blush);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .grid-2 { grid-template-columns: 1fr; }
+
+      section {
+        margin: 28px 14px;
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        Amber Largent
+        <span>Learning + Credentials</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#project-agile">Project + Agile</a>
+        <a href="#ai-workflow">AI + Workflow</a>
+        <a href="#technical-apple">Technical + Apple</a>
+        <a href="experience.html">Work Evidence</a>
+        <a href="values.html">How I Work</a>
+        <a href="samples.html">Proof Beyond the Role</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header>
+      <div class="hero">
+        <div class="eyebrow">Learning + Credentials</div>
+        <h1>Learning that supports practical, people-centered work.</h1>
+        <p class="lead">
+          These certifications, badges, and courses support the way I work across project management, agile practices,
+          AI workflows, Apple ecosystems, technical support, and operational clarity.
+        </p>
+        <p class="lead">
+          I describe each item by mirroring the issuing body’s stated purpose as closely as possible. The goal is not to
+          inflate the credential. The goal is to make the learning visible, clear, and easy to connect back to real work.
+        </p>
+        <div class="button-row">
+          <a class="button" href="#project-agile">Project + Agile</a>
+          <a class="button" href="#ai-workflow">AI + Workflow</a>
+          <a class="button" href="#technical-apple">Technical + Apple</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="project-agile">
+      <div class="section-kicker">Project + Agile</div>
+      <h2>Credentials that support structure, delivery, and team flow</h2>
+      <p class="section-intro">
+        This learning supports project planning, agile collaboration, ownership clarity, stakeholder alignment,
+        and practical delivery habits.
+      </p>
+
+      <div class="grid-2">
+        <div class="credential-card">
+          <h3>Certified Scrum Product Owner</h3>
+          <p class="meta">Scrum Alliance</p>
+          <p>
+            Scrum Alliance describes CSPO as a globally recognized certification designed to equip people with skills for
+            product development roles. The course covers the scrum framework, principles, values, and key tools needed to
+            be effective as a product owner.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Scrum</span>
+            <span class="tag">Product ownership</span>
+            <span class="tag">Value delivery</span>
+            <span class="tag">Agile collaboration</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Certified ScrumMaster</h3>
+          <p class="meta">Scrum Alliance</p>
+          <p>
+            Scrum Alliance positions CSM as a starting point for people who want to serve as scrum masters, adopt scrum,
+            or build skills to be more agile. The required training provides hands-on skills that can be applied to a role
+            or professional development.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Scrum</span>
+            <span class="tag">Agile practices</span>
+            <span class="tag">Team flow</span>
+            <span class="tag">Facilitation</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>CompTIA Project+</h3>
+          <p class="meta">CompTIA</p>
+          <p>
+            CompTIA describes Project+ as validating entry-level, hands-on IT project management skills used to coordinate
+            small- to medium-sized projects using waterfall and agile methodologies.
+          </p>
+          <div class="tag-list">
+            <span class="tag">IT project management</span>
+            <span class="tag">Waterfall</span>
+            <span class="tag">Agile</span>
+            <span class="tag">Project coordination</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Foundations of Project Management</h3>
+          <p class="meta">Google / Coursera</p>
+          <p>
+            Coursera lists this as part of the Google Project Management Professional Certificate. I treat it as continued
+            learning that supports foundational project management language, methods, and role clarity.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Project foundations</span>
+            <span class="tag">Role clarity</span>
+            <span class="tag">Planning basics</span>
+            <span class="tag">Continued learning</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Project Management Foundations and Project Planning</h3>
+          <p class="meta">Wiley / Coursera</p>
+          <p>
+            Coursera describes this Wiley course as introducing essential project management foundations and focusing on
+            effective project planning so goals are clearly defined and achievable. The course connects theory to practical
+            planning techniques that can be applied in real projects.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Project planning</span>
+            <span class="tag">Goal definition</span>
+            <span class="tag">Practical application</span>
+            <span class="tag">Planning techniques</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-workflow">
+      <div class="section-kicker">AI + Workflow</div>
+      <h2>Learning that supports responsible, repeatable AI use</h2>
+      <p class="section-intro">
+        This learning supports practical AI use in project work, documentation, brainstorming, prompt design,
+        workflow support, and judgment-heavy knowledge work.
+      </p>
+
+      <div class="grid-2">
+        <div class="credential-card">
+          <h3>Generative AI for Project Managers</h3>
+          <p class="meta">IBM / SkillUp EdTech / Coursera Specialization</p>
+          <p>
+            Coursera describes this specialization as focused on the skills, tools, and techniques project managers can use
+            to apply generative AI across the project management lifecycle.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Generative AI</span>
+            <span class="tag">Project lifecycle</span>
+            <span class="tag">PM workflow</span>
+            <span class="tag">AI-supported work</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Generative AI: Introduction and Applications</h3>
+          <p class="meta">IBM / Coursera</p>
+          <p>
+            Coursera describes this IBM course as an introduction to generative AI and its applications, with hands-on labs
+            using IBM Generative AI Classroom and tools such as ChatGPT.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Generative AI</span>
+            <span class="tag">Applications</span>
+            <span class="tag">Hands-on labs</span>
+            <span class="tag">AI tools</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Generative AI: Prompt Engineering Basics</h3>
+          <p class="meta">IBM / Coursera</p>
+          <p>
+            IBM Developer describes this course as focused on understanding the concepts and relevance of prompt engineering
+            in generative AI models.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Prompt engineering</span>
+            <span class="tag">Generative AI models</span>
+            <span class="tag">Prompt structure</span>
+            <span class="tag">AI reliability</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Prompt Engineering for ChatGPT</h3>
+          <p class="meta">Vanderbilt University / Coursera</p>
+          <p>
+            This course supports practical prompt-writing skill for ChatGPT and similar large language model tools. I use it
+            as continued learning for structured, repeatable, and purpose-built prompting.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Prompt writing</span>
+            <span class="tag">ChatGPT</span>
+            <span class="tag">Structured prompts</span>
+            <span class="tag">Repeatable output</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Generative AI Essentials: Overview and Impact</h3>
+          <p class="meta">University of Michigan / Coursera</p>
+          <p>
+            The University of Michigan describes this course as an introduction to large language models and generative AI tools,
+            including discussion of the impacts of generative AI on society and its implications for the future.
+          </p>
+          <div class="tag-list">
+            <span class="tag">LLMs</span>
+            <span class="tag">AI tools</span>
+            <span class="tag">Societal impact</span>
+            <span class="tag">AI literacy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="technical-apple">
+      <div class="section-kicker">Technical + Apple</div>
+      <h2>Credentials that support Apple ecosystem and technical fluency</h2>
+      <p class="section-intro">
+        These credentials connect to Apple support, deployment, troubleshooting, integration, repair, and baseline IT support.
+      </p>
+
+      <div class="grid-2">
+        <div class="credential-card">
+          <h3>Apple Certified IT Professional</h3>
+          <p class="meta">Apple Inc. · Issued Aug 2026 · Expires Aug 2028</p>
+          <p>
+            Apple describes this digital badge as recognizing the knowledge needed to deploy, manage, and secure Apple devices
+            at scale in large organizations.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Apple deployment</span>
+            <span class="tag">Device management</span>
+            <span class="tag">Security</span>
+            <span class="tag">Enterprise scale</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>CompTIA A+</h3>
+          <p class="meta">CompTIA</p>
+          <p>
+            CompTIA describes A+ earners as proven problem solvers able to perform critical IT support tasks, including device
+            configuration, data backup and recovery, operating system configuration, malware removal, privacy concerns,
+            and troubleshooting core service challenges.
+          </p>
+          <div class="tag-list">
+            <span class="tag">IT support</span>
+            <span class="tag">Troubleshooting</span>
+            <span class="tag">Operating systems</span>
+            <span class="tag">Security basics</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Apple Certified Support Professional</h3>
+          <p class="meta">Apple</p>
+          <p>
+            Apple describes this digital badge as recognizing the knowledge needed to support and troubleshoot Apple devices
+            in a large organization as a level 1 or level 2 help desk professional.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Apple support</span>
+            <span class="tag">Troubleshooting</span>
+            <span class="tag">Help desk</span>
+            <span class="tag">Large organization</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Apple Certified iOS Technician</h3>
+          <p class="meta">Apple · Legacy technician credential</p>
+          <p>
+            I am keeping this description conservative because current issuer language for this legacy credential is limited.
+            Apple’s current technician certification language focuses on technicians becoming proficient in supporting,
+            troubleshooting, and repairing Apple hardware.
+          </p>
+          <div class="tag-list">
+            <span class="tag">iOS</span>
+            <span class="tag">Apple technician</span>
+            <span class="tag">Support</span>
+            <span class="tag">Repair fluency</span>
+          </div>
+        </div>
+
+        <div class="credential-card">
+          <h3>Apple Certified Associate in Mac Integration</h3>
+          <p class="meta">Apple · Legacy integration credential</p>
+          <p>
+            I am keeping this description conservative because current issuer language for this legacy credential is limited.
+            Third-party training references describe the Mac Integration credential as supporting professionals who integrate
+            Mac computers into Windows environments.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Mac integration</span>
+            <span class="tag">Windows environments</span>
+            <span class="tag">Apple ecosystem</span>
+            <span class="tag">Technical fluency</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="note">
+      <div class="section-kicker">How to read this page</div>
+      <h2>Useful context, not résumé padding</h2>
+      <div class="note-card">
+        <p>
+          This page is meant to show the learning behind the work. Some items are formal certifications. Some are course
+          completions or continued learning. I keep the distinction clear because credibility matters more than making every
+          item sound bigger than it is.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Amber Largent · Learning + Credentials</p>
+  </footer>
+</body>
+</html>
