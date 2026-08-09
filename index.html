@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Amber Largent | Clarity in the Messy Middle</title>
+  <title>Amber Largent | Clear Paths Through Complex Work</title>
 
   <style>
     :root {
@@ -34,17 +34,10 @@
       z-index: 100;
     }
 
-    .skip-link:focus {
-      top: 16px;
-    }
+    .skip-link:focus { top: 16px; }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -54,9 +47,7 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     .site-nav {
       position: sticky;
@@ -103,17 +94,9 @@
       transition: color 0.15s ease;
     }
 
-    .nav-links a[href^="#"] {
-      color: var(--slate);
-    }
-
-    .nav-links a[href*=".html"] {
-      color: var(--pink);
-    }
-
-    .nav-links a:hover {
-      color: var(--pink);
-    }
+    .nav-links a[href^="#"] { color: var(--slate); }
+    .nav-links a[href*=".html"] { color: var(--pink); }
+    .nav-links a:hover { color: var(--pink); }
 
     header {
       background:
@@ -150,71 +133,19 @@
       margin-bottom: 22px;
     }
 
-    .hero-signoff {
-      position: relative;
-      width: fit-content;
-      margin: 24px 0 46px;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      gap: 24px;
-    }
-
-    .hero-signoff::before,
-    .hero-signoff::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      background: var(--pink);
-      pointer-events: none;
-      opacity: 0.2;
-      transform: scale(0.7);
-      animation: sparklePulse 3.4s ease-in-out infinite;
-    }
-
-    .hero-signoff::before {
-      left: 34px;
-      top: 2px;
-      width: 9px;
-      height: 9px;
-      box-shadow:
-        0 0 0 4px rgba(228, 111, 161, 0.08),
-        0 0 16px rgba(228, 111, 161, 0.45);
-    }
-
-    .hero-signoff::after {
-      left: 118px;
-      top: 58px;
-      width: 7px;
-      height: 7px;
-      animation-delay: 1.35s;
-      box-shadow:
-        0 0 0 4px rgba(228, 111, 161, 0.08),
-        0 0 14px rgba(228, 111, 161, 0.4);
-    }
-
-    .hero-doodles {
-      display: block;
-      width: 148px;
-      height: auto;
-      opacity: 0.98;
-      margin-bottom: 22px;
-      filter: drop-shadow(0 0 8px rgba(228, 111, 161, 0.16));
-    }
-
-    .hero-signature {
-      display: block;
-      width: min(360px, 54vw);
-      height: auto;
-      margin: 0 0 6px;
-    }
-
     h1 {
       font-size: clamp(44px, 6vw, 76px);
       line-height: 0.98;
       letter-spacing: -0.055em;
       margin: 0 0 24px;
       max-width: 980px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 22px;
     }
 
     .lead {
@@ -229,7 +160,6 @@
       flex-wrap: wrap;
       gap: 14px;
       margin-top: 32px;
-      margin-bottom: 42px;
     }
 
     .button {
@@ -242,10 +172,7 @@
       background: var(--white);
       color: var(--black);
       box-shadow: 0 6px 0 var(--black);
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
     .button:hover {
@@ -254,10 +181,16 @@
       box-shadow: 0 4px 0 var(--black);
     }
 
-    .stats {
+    .stats,
+    .grid-2,
+    .grid-3 {
       display: grid;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .stats {
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
       max-width: 940px;
       margin-top: 42px;
     }
@@ -283,20 +216,8 @@
       letter-spacing: 0.08em;
     }
 
-    .hero-banner {
-      margin-top: 42px;
-      background: rgba(255, 250, 252, 0.52);
-      border: 1px solid rgba(255, 250, 252, 0.85);
-      border-radius: 32px;
-      padding: 14px;
-      box-shadow: 0 24px 60px rgba(3, 3, 3, 0.14);
-    }
-
-    .hero-banner img {
-      width: 100%;
-      display: block;
-      border-radius: 22px;
-    }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
 
     section {
       margin-top: 48px;
@@ -318,33 +239,11 @@
       margin-bottom: 10px;
     }
 
-    h2 {
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin: 0 0 22px;
-    }
-
     .section-intro {
       max-width: 860px;
       font-size: 19px;
       color: #202020;
       margin-bottom: 34px;
-    }
-
-    .grid-2,
-    .grid-3 {
-      display: grid;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
     }
 
     .card {
@@ -354,15 +253,6 @@
       border-radius: 24px;
       padding: 26px;
       box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        border-color 0.18s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 46px rgba(3, 3, 3, 0.14);
     }
 
     .card h3 {
@@ -371,29 +261,11 @@
       letter-spacing: -0.02em;
     }
 
-    .card p {
-      margin: 0 0 14px;
-    }
+    .card p { margin: 0 0 14px; }
+    .card p:last-child { margin-bottom: 0; }
 
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .pm-card {
-      border-top-color: var(--pink);
-    }
-
-    .id-card {
-      border-top-color: var(--slate);
-    }
-
-    .tech-card {
-      border-top-color: var(--slate);
-    }
-
-    .neutral-card {
-      border-top-color: var(--blush);
-    }
+    .id-card { border-top-color: var(--slate); }
+    .neutral-card { border-top-color: var(--blush); }
 
     .tag-list {
       display: flex;
@@ -409,16 +281,6 @@
       padding: 6px 10px;
       font-size: 13px;
       font-weight: 900;
-      transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        border-color 0.15s ease;
-    }
-
-    .tag:hover {
-      transform: translateY(-2px);
-      background: var(--blush);
-      border-color: var(--pink);
     }
 
     .quote-card {
@@ -453,91 +315,16 @@
       font-size: 14px;
     }
 
-    .footer-signature {
-      display: block;
-      width: min(220px, 60vw);
-      height: auto;
-      margin: 0 auto 14px;
-      opacity: 0.92;
-    }
-
-    @keyframes sparklePulse {
-      0%, 100% {
-        opacity: 0.18;
-        transform: scale(0.7);
-        filter: blur(0);
-      }
-
-      42% {
-        opacity: 1;
-        transform: scale(1.55);
-        filter: blur(0.2px);
-      }
-
-      58% {
-        opacity: 0.72;
-        transform: scale(1.15);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      .hero-signoff::before,
-      .hero-signoff::after {
-        animation: none;
-        opacity: 0.55;
-        transform: none;
-      }
-
-      .button,
-      .card,
-      .tag {
-        transition: none;
-      }
-
-      .button:hover,
-      .card:hover,
-      .tag:hover {
-        transform: none;
-      }
+      .button { transition: none; }
+      .button:hover { transform: none; }
     }
 
     @media (max-width: 900px) {
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-
-      .hero-signoff {
-        align-items: flex-start;
-        gap: 14px;
-        margin: 22px 0 34px;
-      }
-
-      .hero-doodles {
-        width: 112px;
-        margin-bottom: 12px;
-      }
-
-      .hero-signature {
-        width: min(300px, 62vw);
-      }
-
-      .stats,
-      .grid-2,
-      .grid-3,
-      .contact-card {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        margin: 28px 14px;
-        padding: 40px 20px;
-      }
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      .nav-links { flex-wrap: wrap; gap: 14px; }
+      .stats, .grid-2, .grid-3, .contact-card { grid-template-columns: 1fr; }
+      section { margin: 28px 14px; padding: 40px 20px; }
     }
   </style>
 </head>
@@ -549,14 +336,13 @@
     <div class="nav-inner">
       <div class="brand">
         Amber Largent
-        <span>Clarity in the messy middle</span>
+        <span>Clear paths through complex work</span>
       </div>
 
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#where-i-create-value">How I Help</a>
-        <a href="#work">Work</a>
-        <a href="#proof">Evidence</a>
+        <a href="#value">How I Help</a>
+        <a href="#evidence">Evidence</a>
         <a href="learning.html">Learning</a>
         <a href="values.html">How I Work</a>
         <a href="#contact">Contact</a>
@@ -567,385 +353,116 @@
   <main id="main">
     <header>
       <div class="hero">
-        <div class="eyebrow">Clarity in the messy middle</div>
-
-        <div class="hero-signoff">
-          <img class="hero-doodles" src="hero-doodles.svg" alt="" aria-hidden="true">
-          <img class="hero-signature" src="signature-black.png" alt="Amber Largent signature">
-        </div>
-
-        <h1>Chaos coordinator. Checklist believer. Clarity builder.</h1>
+        <div class="eyebrow">Clear paths through complex work</div>
+        <h1>Chaos coordinator. Checklist believer. Clear path builder.</h1>
 
         <p class="lead">
-          I help teams make sense of messy work: what changed, what matters, who is responsible for what,
-          and what happens next.
+          I help teams turn unclear work into structure, movement, and follow-through.
         </p>
 
         <p class="lead">
-          My background in project support, learning design, data-driven coaching, process improvement,
-          AI enablement, knowledge systems, and operational visibility helps me create structure people can actually use.
+          My work connects project and process support, learning design, performance coaching, AI enablement,
+          knowledge systems, reporting, and operational visibility.
         </p>
 
         <p class="lead">
-          I do not walk into a situation assuming I already know the answer. I start by listening, learning the system,
-          and understanding what people are carrying. Then I help make the work clearer, easier to sustain,
-          and easier for people to carry.
+          When ownership is unclear or the first step is not obvious, I step in, learn the system,
+          make the work visible, and help move it forward.
         </p>
 
         <div class="button-row">
-          <a class="button" href="#work">View Project + Process Work</a>
-          <a class="button" href="#enablement">View Learning + Enablement Work</a>
+          <a class="button" href="experience.html">View Work Evidence</a>
+          <a class="button" href="learning.html">View Learning + Credentials</a>
           <a class="button" href="https://poplme.co/hash/FR1OYUIb/1/dash" target="_blank" rel="noopener noreferrer">Contact Me</a>
         </div>
 
         <div class="stats">
-          <div class="stat">
-            <strong>14</strong>
-            <span>Years at Apple</span>
-          </div>
-
-          <div class="stat">
-            <strong>PM</strong>
-            <span>Project + Process</span>
-          </div>
-
-          <div class="stat">
-            <strong>L&D</strong>
-            <span>Learning + Enablement</span>
-          </div>
-
-          <div class="stat">
-            <strong>AI</strong>
-            <span>Knowledge + Workflow</span>
-          </div>
-        </div>
-
-        <div class="hero-banner">
-          <img src="poplheader.png" alt="Organized project planning desk with checklist, laptop, and workflow cards">
+          <div class="stat"><strong>14</strong><span>Years at Apple</span></div>
+          <div class="stat"><strong>PM</strong><span>Project + Process</span></div>
+          <div class="stat"><strong>L&D</strong><span>Learning + Enablement</span></div>
+          <div class="stat"><strong>AI</strong><span>Knowledge + Workflow</span></div>
         </div>
       </div>
     </header>
 
     <section id="about">
       <div class="section-kicker">About</div>
-      <h2>Listen first. Structure second. Move forward together.</h2>
-
+      <h2>I build structure where the work needs a path forward.</h2>
       <p class="section-intro">
-        I work at the intersection of learning, facilitation, project and process support, data-driven coaching,
-        AI enablement, knowledge systems, and operational visibility.
+        I work best in complex, cross-functional spaces where people need clarity, ownership, practical systems,
+        and steady follow-through.
       </p>
 
-      <div class="card neutral-card">
-        <p>
-          The throughline is simple: I help people understand what is really happening, create usable structure,
-          and move from symptoms to practical next steps.
-        </p>
+      <div class="grid-2">
+        <div class="card neutral-card">
+          <h3>How I approach the work</h3>
+          <p>
+            I listen first, learn the system, identify what is unclear, and create structure people can actually use.
+            I do not wait for perfect conditions before helping.
+          </p>
+        </div>
 
-        <p>
-          That means I can support more than one type of role. For PM work, I bring planning, tracking,
-          follow-through, decision visibility, and stakeholder alignment. For coaching and enablement work,
-          I bring observation, call evaluation, analytics deep dives, feedback, mentorship, facilitation,
-          and practical team support.
-        </p>
+        <div class="card neutral-card">
+          <h3>What hiring managers get</h3>
+          <p>
+            A practical, people-centered project partner who can organize ambiguity, build useful systems,
+            communicate clearly, and carry unglamorous work with care and follow-through.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="where-i-create-value">
+    <section id="value">
       <div class="section-kicker">How I Help</div>
-      <h2>Where people, process, learning, AI, and knowledge meet.</h2>
-
+      <h2>Where I create value</h2>
       <p class="section-intro">
-        I keep the site broad on purpose because the work is connected. Project work needs learning support.
-        Learning work needs clear systems. Coaching work needs data and trust. AI enablement needs judgment,
-        documentation, and repeatable workflows.
+        My strongest work sits where projects, people, process, learning, technology, and communication meet.
       </p>
 
       <div class="grid-2">
-        <div class="card pm-card">
-          <h3>Project + Process Work</h3>
-          <p>
-            I create structure for ambiguous work through ownership, timelines, decisions, risks, dependencies,
-            project artifacts, and follow-through.
-          </p>
+        <div class="card">
+          <h3>Project + Process</h3>
+          <p>Create ownership, timelines, decisions, risks, dependencies, project artifacts, and follow-through for complex work.</p>
         </div>
-
         <div class="card id-card">
-          <h3>Learning + Enablement Work</h3>
-          <p>
-            I design and facilitate learning experiences, support resources, and practical guidance that help people
-            understand change and apply new approaches in real work.
-          </p>
+          <h3>Learning + Enablement</h3>
+          <p>Design learning, guidance, and resources that help people understand change and apply new approaches in real work.</p>
         </div>
-
         <div class="card neutral-card">
-          <h3>Knowledge Systems + Operational Visibility</h3>
-          <p>
-            I design, audit, migrate, and maintain knowledge spaces while using reporting, dashboards, audits,
-            and operational signals to make work easier to find, trust, and act on.
-          </p>
+          <h3>Visibility + Knowledge Systems</h3>
+          <p>Build reporting, dashboards, knowledge spaces, audits, and resource hubs that make work easier to find, trust, and act on.</p>
         </div>
-
-        <div class="card tech-card">
+        <div class="card">
           <h3>Coaching + Team Support</h3>
-          <p>
-            I support performance through observation, call evaluation, analytics deep dives, feedback, mentorship,
-            practical follow-up, and team enablement.
-          </p>
+          <p>Use observation, data, call evaluation, feedback, facilitation, and mentorship to identify patterns and practical next steps.</p>
         </div>
       </div>
     </section>
 
-    <section id="work">
-      <div class="section-kicker">Project + Process Work</div>
-      <h2>Proof that connects structure, visibility, and follow-through.</h2>
-
+    <section id="evidence">
+      <div class="section-kicker">Evidence</div>
+      <h2>Proof that the work moves</h2>
       <p class="section-intro">
-        These examples show how I help teams make complex work clearer, easier to track, and easier to move.
+        These examples show the same pattern: clarify the need, build the structure, support the people, and move the work forward.
       </p>
 
-      <div class="grid-2">
-        <div class="card pm-card">
-          <h3>Personalized Learning Journey global pilot</h3>
-          <p>
-            Supported a global pilot with partners across training, analytics, exam operations, vendor management,
-            and internal teams.
-          </p>
-          <p>
-            Pilot tracks improved Case AHT by 1+ minute to nearly 1.5 minutes while also improving CSAT and Issue
-            Resolution in key paths.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Global pilot</span>
-            <span class="tag">Cross-functional PM</span>
-            <span class="tag">Readiness</span>
-            <span class="tag">AHT</span>
-            <span class="tag">CSAT</span>
-            <span class="tag">Issue Resolution</span>
-          </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Global PLJ pilot</h3>
+          <p>Contributed to a global Personalized Learning Journey pilot with partners across training, analytics, exam operations, vendors, and readiness.</p>
+          <p>Pilot tracks improved Case AHT by 1+ minute to nearly 1.5 minutes while also improving CSAT and Issue Resolution in key paths.</p>
         </div>
 
-        <div class="card pm-card">
-          <h3>Product support policy work</h3>
-          <p>
-            Help drive early-stage product support policy work across approximately seven teams by creating project
-            artifacts that track status, decisions, risks, and next steps.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Project artifacts</span>
-            <span class="tag">7 teams</span>
-            <span class="tag">Status tracking</span>
-            <span class="tag">Decision visibility</span>
-            <span class="tag">Risk tracking</span>
-          </div>
-        </div>
-
-        <div class="card pm-card">
+        <div class="card">
           <h3>Wrike project hub</h3>
-          <p>
-            Designed a Wrike project hub with intake forms, blueprints, automations, dashboards, and reusable project
-            structures to improve visibility, intake, and follow-through.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Wrike</span>
-            <span class="tag">Forms</span>
-            <span class="tag">Blueprints</span>
-            <span class="tag">Automation</span>
-            <span class="tag">Dashboards</span>
-          </div>
+          <p>Designed a Wrike project hub with intake forms, blueprints, automations, dashboards, and reusable structures for visibility and follow-through.</p>
         </div>
 
-        <div class="card neutral-card">
-          <h3>Reporting + visibility systems</h3>
-          <p>
-            Built audit workflows, weekly reporting, Wrike dashboards, and manager-facing data used for status tracking,
-            follow-up, operational visibility, and better decision-making.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Reporting</span>
-            <span class="tag">Dashboards</span>
-            <span class="tag">Leader updates</span>
-            <span class="tag">Follow-up</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="enablement">
-      <div class="section-kicker">Learning + Enablement Work</div>
-      <h2>Support that helps people apply the change.</h2>
-
-      <p class="section-intro">
-        My learning and enablement work is practical by design. It helps people understand what changed,
-        why it matters, and how to apply it with their teams.
-      </p>
-
-      <div class="grid-2">
-        <div class="card id-card">
-          <h3>Manager+ enablement</h3>
-          <p>
-            <strong>Challenge:</strong> Leaders needed practical support applying new customer service approaches and rapidly
-            changing tools with their teams.
-          </p>
-          <p>
-            <strong>Action:</strong> Facilitated 10+ customer service model course deliveries and a dozen rapid-response COVID
-            tools sessions for manager+ audiences, with follow-up Q&amp;A, chat mentoring, and practical support.
-          </p>
-          <p>
-            <strong>Result:</strong> Helped leaders understand, apply, and reinforce new approaches with their teams through
-            repeated enablement and real-time support.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Manager+ enablement</span>
-            <span class="tag">Facilitation</span>
-            <span class="tag">Chat mentoring</span>
-            <span class="tag">Change support</span>
-          </div>
-        </div>
-
-        <div class="card id-card">
-          <h3>New Product Team readiness</h3>
-          <p>
-            <strong>Challenge:</strong> Disclosed new product work required readiness support across multiple AC Training
-            partners, including new processes, regulations, and ambiguous work.
-          </p>
-          <p>
-            <strong>Action:</strong> Led cross-functional learning and readiness work across 3 organizations and 5 teams,
-            authoring 6 instructor-led courses with online workbooks, developing 27 self-guided trainings, designing
-            3 Chorus pages, updating process documentation, and creating scalable support resources.
-          </p>
-          <p>
-            <strong>Result:</strong> Helped partners prepare for complex product-related work with clearer documentation,
-            practical training support, and reusable readiness resources.
-          </p>
-          <div class="tag-list">
-            <span class="tag">3 organizations</span>
-            <span class="tag">5 teams</span>
-            <span class="tag">6 ILTs</span>
-            <span class="tag">27 SGTs</span>
-            <span class="tag">3 Chorus pages</span>
-            <span class="tag">Process docs</span>
-          </div>
-        </div>
-
-        <div class="card id-card">
-          <h3>Media Development + Communications Teams</h3>
-          <p>
-            Founded and helped scale teams that improved process clarity, support systems, platform transitions,
-            and execution across AppleCare.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Team scaling</span>
-            <span class="tag">Process clarity</span>
-            <span class="tag">Support systems</span>
-            <span class="tag">Platform transitions</span>
-          </div>
-        </div>
-
-        <div class="card neutral-card">
+        <div class="card">
           <h3>Knowledge systems</h3>
-          <p>
-            Designed, migrated, and maintained knowledge systems across 20-25 spaces and hundreds of pages, supporting
-            onboarding, SOPs, launch readiness, team hubs, reporting hubs, tool support, FAQs, manager resources,
-            and project workspaces.
-          </p>
-          <div class="tag-list">
-            <span class="tag">20-25 spaces</span>
-            <span class="tag">Hundreds of pages</span>
-            <span class="tag">SOPs</span>
-            <span class="tag">Launch readiness</span>
-          </div>
+          <p>Designed, migrated, and maintained 20-25 knowledge spaces with hundreds of pages supporting onboarding, SOPs, launch readiness, and project workspaces.</p>
         </div>
       </div>
-    </section>
-
-    <section id="coaching-support">
-      <div class="section-kicker">Coaching + Team Support</div>
-      <h2>Coaching that starts with evidence and practical support.</h2>
-
-      <p class="section-intro">
-        My coaching foundation is practical and AppleCare-tested: performance observation, call evaluation,
-        analytics deep dives, feedback, mentorship, facilitation, and team support. I use those signals to understand
-        what is really happening and help people move toward clear, useful next steps.
-      </p>
-
-      <div class="grid-2">
-        <div class="card neutral-card">
-          <h3>Leadership Academy + performance support</h3>
-          <p>
-            I’ve supported performance through observation, call evaluation, analytics deep dives, feedback, mentorship,
-            and four rounds of Leadership Academy, a Team Manager career development opportunity focused on leadership,
-            coaching, prioritization, and daily team support.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Leadership Academy</span>
-            <span class="tag">Coaching</span>
-            <span class="tag">Prioritization</span>
-            <span class="tag">Daily team support</span>
-          </div>
-        </div>
-
-        <div class="card neutral-card">
-          <h3>Performance patterns + next steps</h3>
-          <p>
-            Completed 30+ evaluations per month as part of Advisor performance support, using call review, observation,
-            and performance patterns to identify coaching opportunities and practical next steps.
-          </p>
-          <div class="tag-list">
-            <span class="tag">30+ evaluations/month</span>
-            <span class="tag">Observation</span>
-            <span class="tag">Call review</span>
-            <span class="tag">Practical next steps</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="featured-project">
-      <div class="section-kicker">Featured Launch Project</div>
-      <h2>From concept to launched website</h2>
-
-      <p class="section-intro">
-        The Tri-Parish Website Redesign is a full-cycle project example: a real community need, clearer site structure,
-        user-friendly content, technical setup, domain coordination, and a public launch.
-      </p>
-
-      <div class="grid-2">
-        <div class="card pm-card">
-          <h3>Tri-Parish Website Redesign</h3>
-          <p>
-            I helped take a multi-parish website project from early planning to launched product by clarifying the audience,
-            organizing content, writing page copy, supporting the build, and preparing the site for launch.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Project Management</span>
-            <span class="tag">Website Redesign</span>
-            <span class="tag">Content Strategy</span>
-            <span class="tag">GitHub Pages</span>
-            <span class="tag">Launch Readiness</span>
-          </div>
-          <div class="button-row" style="margin-bottom: 0;">
-            <a class="button" href="triparish.html">View Case Study</a>
-            <a class="button" href="https://triparishok.org/" target="_blank" rel="noopener noreferrer" aria-label="View the live Tri-Parish website">View Live Site</a>
-          </div>
-        </div>
-
-        <div class="card tech-card">
-          <h3>Why it belongs here</h3>
-          <p>
-            This project shows the same throughline as the rest of my work: clarify the audience, organize the system,
-            write for action, coordinate the details, and move the work to launch.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="proof">
-      <div class="section-kicker">More Proof</div>
-      <h2>Work evidence, working style, and proof beyond the role.</h2>
-
-      <p class="section-intro">
-        Explore the professional evidence, values, and outside-role projects that show how I think, support people, create structure, and follow through.
-      </p>
 
       <div class="button-row">
         <a class="button" href="experience.html">View Work Evidence</a>
@@ -956,12 +473,11 @@
 
     <section id="professional-feedback">
       <div class="section-kicker">Professional Feedback</div>
-      <h2>Trusted to improve the work.</h2>
-
+      <h2>Trusted to improve the work</h2>
       <div class="quote-card">
         <p>
-          The throughline is consistent: I help people, improve processes, drive what matters,
-          and build practical systems that make the work better for teams and customers.
+          Leaders and partners consistently recognize my curiosity, resourcefulness, problem identification,
+          follow-through, and willingness to step into work that needs structure.
         </p>
       </div>
     </section>
@@ -969,28 +485,20 @@
     <section id="contact">
       <div class="section-kicker">Contact</div>
       <h2>Let’s connect</h2>
-
       <div class="card neutral-card contact-card">
         <div>
           <h3>Current contact details</h3>
-          <p>
-            My digital contact card includes my current email, LinkedIn, and portfolio details.
-          </p>
+          <p>My digital contact card includes my current email, LinkedIn, and portfolio details.</p>
         </div>
-
         <div>
-          <a class="button" href="https://poplme.co/hash/FR1OYUIb/1/dash" target="_blank" rel="noopener noreferrer">
-            Open Contact Card
-          </a>
+          <a class="button" href="https://poplme.co/hash/FR1OYUIb/1/dash" target="_blank" rel="noopener noreferrer">Open Contact Card</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <img class="footer-signature" src="signature-white.png" alt="Amber Largent signature">
-    <p>© 2026 Amber Largent · Clarity in the messy middle</p>
+    <p>© 2026 Amber Largent · Clear paths through complex work</p>
   </footer>
-
 </body>
 </html>
