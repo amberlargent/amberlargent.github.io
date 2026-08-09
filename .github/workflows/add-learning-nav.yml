@@ -19,33 +19,16 @@ jobs:
           from pathlib import Path
           import re
 
-          homepage_nav = '''      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#where-i-create-value">How I Help</a>
-        <a href="#work">Work</a>
-        <a href="#proof">Evidence</a>
-        <a href="learning.html">Learning</a>
-        <a href="values.html">How I Work</a>
-        <a href="#contact">Contact</a>
-      </div>'''
+          homepage_nav = '      <div class="nav-links">\n        <a href="#about">About</a>\n        <a href="#where-i-create-value">How I Help</a>\n        <a href="#work">Work</a>\n        <a href="#proof">Evidence</a>\n        <a href="learning.html">Learning</a>\n        <a href="values.html">How I Work</a>\n        <a href="#contact">Contact</a>\n      </div>'
 
           for path in Path('.').glob('*.html'):
               text = path.read_text()
               original = text
 
               if path.name == 'index.html':
-                  text = re.sub(
-                      r'      <div class="nav-links">\n(?:        <a href="[^"]+">[^<]+</a>\n)+      </div>',
-                      homepage_nav,
-                      text,
-                      count=1,
-                  )
+                  text = re.sub(r'      <div class="nav-links">\n(?:        <a href="[^"]+">[^<]+</a>\n)+      </div>', homepage_nav, text, count=1)
               elif path.name != 'learning.html' and 'learning.html' not in text:
-                  text = text.replace(
-                      '        <a href="values.html">How I Work</a>',
-                      '        <a href="learning.html">Learning</a>\n        <a href="values.html">How I Work</a>',
-                      1,
-                  )
+                  text = text.replace('        <a href="values.html">How I Work</a>', '        <a href="learning.html">Learning</a>\n        <a href="values.html">How I Work</a>', 1)
 
               if text != original:
                   path.write_text(text)
