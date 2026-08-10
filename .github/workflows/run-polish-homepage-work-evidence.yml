@@ -1,0 +1,35 @@
+name: Run portfolio polish
+
+on:
+  push:
+    paths:
+      - 'scripts/polish_homepage_work_evidence.py'
+      - '.github/workflows/run-polish-homepage-work-evidence.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run polish script
+        run: python scripts/polish_homepage_work_evidence.py
+
+      - name: Remove temporary files
+        run: |
+          rm scripts/polish_homepage_work_evidence.py
+          rm .github/workflows/run-polish-homepage-work-evidence.yml
+
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html experience.html scripts .github/workflows
+          git commit -m "Polish homepage and Work Evidence language" || echo "No changes to commit"
+          git push
