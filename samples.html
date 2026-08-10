@@ -34,17 +34,9 @@
       z-index: 100;
     }
 
-    .skip-link:focus {
-      top: 16px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    .skip-link:focus { top: 16px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -54,9 +46,7 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     .site-nav {
       position: sticky;
@@ -77,17 +67,8 @@
       gap: 24px;
     }
 
-    .brand {
-      font-weight: 900;
-      letter-spacing: -0.02em;
-    }
-
-    .brand span {
-      display: block;
-      color: var(--slate);
-      font-size: 13px;
-      font-weight: 700;
-    }
+    .brand { font-weight: 900; letter-spacing: -0.02em; }
+    .brand span { display: block; color: var(--slate); font-size: 13px; font-weight: 700; }
 
     .nav-links {
       display: flex;
@@ -97,22 +78,10 @@
       font-weight: 800;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .nav-links a[href^="#"] {
-      color: var(--slate);
-    }
-
-    .nav-links a[href*=".html"] {
-      color: var(--pink);
-    }
-
-    .nav-links a:hover {
-      color: var(--pink);
-    }
+    .nav-links a { text-decoration: none; transition: color 0.15s ease; }
+    .nav-links a[href^="#"] { color: var(--slate); }
+    .nav-links a[href*=".html"] { color: var(--pink); }
+    .nav-links a:hover { color: var(--pink); }
 
     header {
       background:
@@ -182,10 +151,7 @@
       min-width: 0;
       height: auto;
       white-space: nowrap;
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
     .button:hover {
@@ -244,10 +210,7 @@
       display: grid;
       gap: 16px;
       align-content: start;
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        border-color 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
     .sample-card:hover {
@@ -268,9 +231,7 @@
       letter-spacing: -0.01em;
     }
 
-    .sample-card p {
-      margin: 0;
-    }
+    .sample-card p { margin: 0; }
 
     .sample-card .category {
       color: var(--pink);
@@ -280,22 +241,11 @@
       text-transform: uppercase;
     }
 
-    .featured-sample {
-      grid-column: 1 / -1;
-    }
-
-    .communication-card {
-      border-top-color: var(--blush);
-    }
-
+    .featured-sample { grid-column: 1 / -1; }
+    .communication-card { border-top-color: var(--blush); }
     .evaluation-card,
-    .learning-card {
-      border-top-color: var(--pink);
-    }
-
-    .technology-card {
-      border-top-color: var(--slate);
-    }
+    .learning-card { border-top-color: var(--pink); }
+    .technology-card { border-top-color: var(--slate); }
 
     .tag-list {
       display: flex;
@@ -311,10 +261,7 @@
       padding: 6px 10px;
       font-size: 13px;
       font-weight: 900;
-      transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        border-color 0.15s ease;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
     }
 
     .tag:hover {
@@ -332,9 +279,34 @@
       gap: 12px;
     }
 
-    .approach p {
-      margin: 0;
+    .approach p { margin: 0; }
+
+    .outside-role-card {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
     }
+
+    .outside-role-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+    }
+
+    .outside-role-copy {
+      background: rgba(255, 250, 252, 0.72);
+      border-left: 6px solid var(--pink);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+    }
+
+    .outside-role-copy p { margin: 0 0 16px; }
+    .outside-role-copy p:last-child { margin-bottom: 0; }
 
     .note-card {
       background: rgba(207, 210, 180, 0.55);
@@ -354,46 +326,22 @@
     }
 
     @media (max-width: 900px) {
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .samples-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .featured-sample {
-        grid-column: auto;
-      }
-
-      section {
-        margin: 28px 14px;
-        padding: 40px 20px;
-      }
-
-      .button {
-        white-space: normal;
-        text-align: center;
-      }
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 14px; }
+      .samples-grid,
+      .outside-role-card { grid-template-columns: 1fr; }
+      .featured-sample { grid-column: auto; }
+      section { margin: 28px 14px; padding: 40px 20px; }
+      .button { white-space: normal; text-align: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .button,
       .sample-card,
-      .tag {
-        transition: none;
-      }
-
+      .tag { transition: none; }
       .button:hover,
       .sample-card:hover,
-      .tag:hover {
-        transform: none;
-      }
+      .tag:hover { transform: none; }
     }
   </style>
 </head>
@@ -414,6 +362,7 @@
         <a href="learning.html">Learning</a>
         <a href="values.html">How I Work</a>
         <a href="#samples">Proof Beyond the Role</a>
+        <a href="#outside-role">Outside the Role</a>
         <a href="index.html#contact">Contact</a>
       </div>
     </div>
@@ -593,6 +542,43 @@
       </div>
     </section>
 
+    <section id="outside-role">
+      <div class="section-kicker">Outside the Role</div>
+      <h2>The same strengths show up outside of work.</h2>
+
+      <p class="section-intro">
+        This is the human side of the portfolio: service, follow-through, curiosity, and a willingness to do the necessary work.
+      </p>
+
+      <div class="outside-role-card">
+        <div class="outside-role-image">
+          <img src="beyond-role-collage.png" alt="A collage showing Amber at work, dressed for an interview, doing car maintenance, and smiling during a team meeting." />
+        </div>
+
+        <div class="outside-role-copy">
+          <p>
+            Outside work, I am a widowed mom of three, part of a two-kitten family, a Chiefs fan, and a bibliophile. I care about people deeply, but I am also practical, grounded, and hands-on.
+          </p>
+
+          <p>
+            After losing my husband, who was a mechanic, I learned how to do my own car maintenance as a way to honor him and keep moving forward. That experience says a lot about how I work: when something needs to be figured out, I am willing to learn, get close to the problem, and do the work.
+          </p>
+
+          <p>
+            The same thread runs through my professional work: see the need, learn the system, build a useful path, and follow through.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag">Widowed mom of 3</span>
+            <span class="tag">2-kitten family</span>
+            <span class="tag">Chiefs fan</span>
+            <span class="tag">Bibliophile</span>
+            <span class="tag">Hands-on problem solver</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="next">
       <div class="section-kicker">Connected Portfolio</div>
       <h2>How these samples connect to the work</h2>
@@ -617,6 +603,5 @@
   <footer>
     <p>© 2026 Amber Largent · Proof Beyond the Role</p>
   </footer>
-
 </body>
 </html>
