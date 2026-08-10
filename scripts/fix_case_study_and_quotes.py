@@ -1,0 +1,820 @@
+from pathlib import Path
+import re
+
+repo = Path('.')
+
+capacity_html = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Amber Largent | Capacity Planning Platform Case Study</title>
+
+  <style>
+    :root {
+      --sage: #CFD2B4;
+      --blush: #F2C6D5;
+      --pink: #E46FA1;
+      --slate: #6A747E;
+      --black: #030303;
+      --white: #fffafc;
+    }
+
+    a:focus-visible,
+    .button:focus-visible {
+      outline: 4px solid var(--pink);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      z-index: 100;
+    }
+
+    .skip-link:focus { top: 16px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--sage);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 250, 252, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand { font-weight: 900; letter-spacing: -0.02em; }
+    .brand span { display: block; color: var(--slate); font-size: 13px; font-weight: 700; }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a { text-decoration: none; transition: color 0.15s ease; }
+    .nav-links a[href^="#"] { color: var(--slate); }
+    .nav-links a[href*=".html"] { color: var(--pink); }
+    .nav-links a:hover { color: var(--pink); }
+
+    header {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(242, 198, 213, 0.85), transparent 28%),
+        radial-gradient(circle at 88% 82%, rgba(228, 111, 161, 0.24), transparent 30%),
+        var(--sage);
+      border-bottom: 1px solid rgba(3, 3, 3, 0.08);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 86px 24px 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255, 250, 252, 0.78);
+      border: 1px solid rgba(228, 111, 161, 0.4);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--slate);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin: 0 0 24px;
+      max-width: 940px;
+    }
+
+    .lead {
+      font-size: 21px;
+      max-width: 820px;
+      margin: 0 0 30px;
+      color: #1c1c1c;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      box-shadow: 0 6px 0 var(--black);
+      white-space: nowrap;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .button:hover {
+      background: var(--pink);
+      transform: translateY(2px);
+      box-shadow: 0 4px 0 var(--black);
+    }
+
+    .platform-frame {
+      background: var(--white);
+      border: 2px solid var(--black);
+      border-radius: 24px;
+      box-shadow: 0 14px 0 var(--black);
+      overflow: hidden;
+    }
+
+    .platform-bar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(242, 198, 213, 0.72);
+      border-bottom: 2px solid var(--black);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--pink);
+      border: 1px solid var(--black);
+    }
+
+    .platform-url {
+      margin-left: 8px;
+      background: rgba(255, 250, 252, 0.86);
+      border: 1px solid rgba(3, 3, 3, 0.18);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--slate);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .platform-visual {
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(207, 210, 180, 0.62), rgba(242, 198, 213, 0.45)),
+        var(--white);
+    }
+
+    .platform-header {
+      background: var(--black);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+
+    .platform-header strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .platform-header span {
+      display: block;
+      margin-top: 8px;
+      color: var(--blush);
+      font-weight: 800;
+    }
+
+    .capacity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .capacity-cell {
+      min-height: 54px;
+      border-radius: 14px;
+      border: 1px solid rgba(3, 3, 3, 0.16);
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 900;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .capacity-cell:nth-child(1), .capacity-cell:nth-child(5) { background: rgba(255, 250, 252, 0.9); }
+    .capacity-cell:nth-child(2), .capacity-cell:nth-child(6) { background: rgba(207, 210, 180, 0.7); }
+    .capacity-cell:nth-child(3), .capacity-cell:nth-child(7) { background: rgba(242, 198, 213, 0.85); }
+    .capacity-cell:nth-child(4), .capacity-cell:nth-child(8) { background: rgba(228, 111, 161, 0.72); color: var(--black); }
+
+    section {
+      max-width: 1120px;
+      margin: 48px auto;
+      padding: 56px 32px;
+      background: rgba(255, 250, 252, 0.42);
+      border: 1px solid rgba(255, 250, 252, 0.7);
+      border-radius: 32px;
+      box-shadow: 0 18px 50px rgba(3, 3, 3, 0.10);
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0 0 22px;
+    }
+
+    .section-intro {
+      max-width: 820px;
+      font-size: 19px;
+      color: #202020;
+      margin-bottom: 34px;
+    }
+
+    .grid-2, .grid-3, .proof-strip {
+      display: grid;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .proof-strip { grid-template-columns: repeat(4, 1fr); }
+
+    .card, .summary-card {
+      background: rgba(255, 250, 252, 0.88);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-top: 6px solid var(--pink);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(3, 3, 3, 0.08);
+    }
+
+    .summary-card {
+      border-left: 7px solid var(--pink);
+      border-top: 1px solid rgba(228, 111, 161, 0.34);
+      padding: 30px;
+    }
+
+    .summary-card p {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.4;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .card p { margin: 0 0 14px; }
+    .card p:last-child { margin-bottom: 0; }
+    .slate-card { border-top-color: var(--slate); }
+    .blush-card { border-top-color: var(--blush); }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .timeline-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--blush);
+      border: 2px solid var(--black);
+      box-shadow: 0 4px 0 var(--black);
+      font-weight: 900;
+    }
+
+    .timeline-content {
+      background: rgba(255, 250, 252, 0.88);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .timeline-content h3 { margin: 0 0 8px; font-size: 22px; letter-spacing: -0.02em; }
+    .timeline-content p { margin: 0; }
+
+    .proof-item {
+      background: rgba(255, 250, 252, 0.82);
+      border: 1px solid rgba(228, 111, 161, 0.34);
+      border-radius: 18px;
+      padding: 18px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .proof-item span {
+      display: block;
+      color: var(--slate);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: var(--blush);
+      border: 1px solid rgba(228, 111, 161, 0.5);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    footer {
+      padding: 34px 24px;
+      text-align: center;
+      background: var(--black);
+      color: var(--blush);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 14px; }
+      .hero-grid, .grid-2, .grid-3, .proof-strip, .capacity-grid { grid-template-columns: 1fr; }
+      section { margin: 28px 14px; padding: 40px 20px; }
+      .button { white-space: normal; text-align: center; }
+      .timeline-item { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .button { transition: none; }
+      .button:hover { transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        Amber Largent
+        <span>In-Role Case Study</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="experience.html">Work Evidence</a>
+        <a href="#story">Story</a>
+        <a href="#process">Process</a>
+        <a href="#features">Features</a>
+        <a href="#outcome">Outcome</a>
+        <a href="learning.html">Learning</a>
+        <a href="values.html">How I Work</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header>
+      <div class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">In-Role Platform Case Study</div>
+            <h1>Capacity Planning Platform</h1>
+            <p class="lead">
+              A web-based operational platform built to help leaders visualize project capacity, forecast overload,
+              and rebalance work before assignment issues became urgent.
+            </p>
+            <div class="button-row">
+              <a class="button" href="experience.html">Back to Work Evidence</a>
+              <a class="button" href="#outcome">View Outcome</a>
+            </div>
+          </div>
+
+          <div class="platform-frame" aria-label="Visual summary of the capacity planning platform">
+            <div class="platform-bar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <div class="platform-url">capacity planning dashboard</div>
+            </div>
+            <div class="platform-visual">
+              <div class="platform-header">
+                <strong>One place to see load before it becomes overload</strong>
+                <span>Capacity • Forecasting • Rebalancing • Intake decisions</span>
+              </div>
+              <div class="capacity-grid">
+                <div class="capacity-cell">Manager A</div>
+                <div class="capacity-cell">Manager B</div>
+                <div class="capacity-cell">Manager C</div>
+                <div class="capacity-cell">Manager D</div>
+                <div class="capacity-cell">25-50%</div>
+                <div class="capacity-cell">75-100%</div>
+                <div class="capacity-cell">100-125%</div>
+                <div class="capacity-cell">150%+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="story">
+      <h2>From scattered planning data to an operational platform</h2>
+      <p class="section-intro">
+        Leaders needed a clearer way to see capacity across teams, compare project load, and make assignment decisions
+        before workload issues became urgent. Existing planning details were spread across multiple spaces, which made it
+        harder to see overload risk, handoffs, and rebalancing opportunities in one place.
+      </p>
+
+      <div class="summary-card">
+        <p>
+          I built a web-based capacity planning platform that connected project planning data, manager views,
+          capacity forecasting, and rebalancing signals into one usable operating tool.
+        </p>
+      </div>
+
+      <div class="proof-strip">
+        <div class="proof-item">4<span>manager orgs</span></div>
+        <div class="proof-item">5<span>solution paths evaluated</span></div>
+        <div class="proof-item">2 weeks<span>to functional prototype</span></div>
+        <div class="proof-item">Org-wide<span>scope expansion</span></div>
+      </div>
+    </section>
+
+    <section id="overview">
+      <h2>What I owned</h2>
+      <p class="section-intro">
+        This project shows in-role ownership across stakeholder discovery, product thinking, workflow design,
+        data architecture, front-end development, API integration, visual design, and scope management.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Role</h3>
+          <p>Discovery lead, product/workflow designer, prototype builder, integration partner, and scope manager.</p>
+        </div>
+        <div class="card slate-card">
+          <h3>Scope</h3>
+          <p>Capacity model, monthly heat map, project sync, manager views, utilization rollups, overload alerts, and intake decision support.</p>
+        </div>
+        <div class="card blush-card">
+          <h3>Status</h3>
+          <p>Functional prototype built in under two weeks, with scope expanded from a single-team tool to an org-wide initiative.</p>
+        </div>
+      </div>
+
+      <div class="tag-list">
+        <span class="tag">Capacity Planning</span>
+        <span class="tag">Operational Platform</span>
+        <span class="tag">Stakeholder Discovery</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">GitHub Enterprise</span>
+        <span class="tag">GenAI (Claude)</span>
+      </div>
+    </section>
+
+    <section id="challenge">
+      <h2>The problem to solve</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Leaders needed better visibility.</h3>
+          <p>Monthly planning required a clearer view of who was loaded, who had room, and where work could be rebalanced.</p>
+        </div>
+        <div class="card slate-card">
+          <h3>Capacity needed to be forecasted, not discovered too late.</h3>
+          <p>The goal was to surface overload before it became urgent, not simply report on workload after the fact.</p>
+        </div>
+        <div class="card blush-card">
+          <h3>Different managers needed different levels of detail.</h3>
+          <p>The platform needed progressive disclosure so leaders could start with a clear view, then expand into deeper planning detail when needed.</p>
+        </div>
+        <div class="card">
+          <h3>The workflow needed to connect back to project data.</h3>
+          <p>The tool needed to support planning decisions without becoming another disconnected place to manually update project information.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <h2>How the work moved forward</h2>
+      <p class="section-intro">
+        I approached the work as an operational product build: clarify the need, test the solution path,
+        design the model, build the prototype, connect the data, and support broader adoption.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-number">1</div>
+          <div class="timeline-content">
+            <h3>Led discovery</h3>
+            <p>Worked with stakeholders across four manager organizations to define the capacity problem, planning needs, required views, and decision points.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-number">2</div>
+          <div class="timeline-content">
+            <h3>Evaluated solution paths</h3>
+            <p>Compared five possible approaches before selecting and building the path that best balanced speed, usability, integration needs, and future scale.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-number">3</div>
+          <div class="timeline-content">
+            <h3>Designed the operating model</h3>
+            <p>Created the interaction model, data architecture, and visual design system so the platform could support real planning decisions, not just display data.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-number">4</div>
+          <div class="timeline-content">
+            <h3>Built the prototype</h3>
+            <p>Built and deployed a functional prototype in under two weeks using HTML, CSS, JavaScript, REST APIs, GitHub Enterprise, internal enterprise hosting, and GenAI as an engineering partner.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-number">5</div>
+          <div class="timeline-content">
+            <h3>Connected the workflow</h3>
+            <p>Created an API integration with the team’s project management platform to support project sync and tie the capacity platform back to the operating hub.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>What the platform included</h2>
+      <p class="section-intro">
+        The feature set focused on helping leaders see capacity, understand risk, and make better assignment decisions faster.
+      </p>
+
+      <div class="grid-2">
+        <div class="card"><h3>Monthly heat map</h3><p>A 7-tier capacity color scale made load, overload, and expected utilization easier to scan and compare.</p></div>
+        <div class="card slate-card"><h3>Portfolio rollups</h3><p>Portfolio-level utilization views helped leaders understand load across teams instead of only one person or one project at a time.</p></div>
+        <div class="card blush-card"><h3>Forward-looking alerts</h3><p>Overload alerts and cross-team availability suggestions surfaced rebalancing opportunities before assignment problems became urgent.</p></div>
+        <div class="card"><h3>Manager-specific views</h3><p>Per-manager configurable views used progressive disclosure so leaders could see the right level of detail without one-size-fits-all clutter.</p></div>
+        <div class="card slate-card"><h3>Allocation tracking</h3><p>Multi-assignee support allowed independent allocation tracking so shared work could be represented more accurately.</p></div>
+        <div class="card blush-card"><h3>Intake support</h3><p>A priority scoring engine and contractor offload opportunity detection helped support better intake and assignment decisions.</p></div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <h2>Tools and methods</h2>
+      <p class="section-intro">
+        This project combined project management, product thinking, front-end development, API integration,
+        data modeling, and GenAI-assisted engineering.
+      </p>
+      <div class="tag-list">
+        <span class="tag">HTML/CSS/JavaScript</span>
+        <span class="tag">REST APIs</span>
+        <span class="tag">Internal enterprise hosting</span>
+        <span class="tag">GitHub Enterprise</span>
+        <span class="tag">GenAI (Claude)</span>
+        <span class="tag">Project management platform integration</span>
+      </div>
+    </section>
+
+    <section id="outcome">
+      <h2>A practical operating tool for better decisions</h2>
+      <p class="section-intro">
+        The result was a functional platform that helped leaders see project load, forecast overload, identify rebalancing opportunities,
+        and connect capacity planning back to the team’s project management workflow.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>What changed</h3>
+          <p>The work moved from scattered planning inputs toward a clearer operating model for resource allocation, capacity visibility, and assignment decisions.</p>
+        </div>
+        <div class="card slate-card">
+          <h3>What it demonstrates</h3>
+          <p>This case study shows how I approach ambiguous operational problems: listen first, map the real workflow, test solution paths, build practical structure, and create tools that help leaders make better decisions faster.</p>
+        </div>
+      </div>
+
+      <div class="button-row" style="margin-top: 28px;">
+        <a class="button" href="experience.html">Back to Work Evidence</a>
+        <a class="button" href="index.html">Main Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Amber Largent · Capacity Planning Platform Case Study</p>
+  </footer>
+</body>
+</html>
+'''
+
+(repo / 'capacity-planning.html').write_text(capacity_html, encoding='utf-8')
+
+exp = repo / 'experience.html'
+text = exp.read_text(encoding='utf-8')
+
+old_capacity = '''        <div class="card pm-card">
+          <h3>Capacity planning platform</h3>
+          <p>
+            Built a web-based capacity planning platform for a large project management organization. The tool helps leaders
+            balance workload across teams by visualizing monthly resource allocation, forecasting overload before it happens,
+            and surfacing rebalancing opportunities across the org.
+          </p>
+          <p>
+            <strong>Challenge:</strong> Leaders needed a clearer way to see capacity across teams, compare project load,
+            and make assignment decisions before workload issues became urgent.
+          </p>
+          <p>
+            <strong>Action:</strong> Led discovery with stakeholders across four manager organizations, evaluated five solution
+            paths, designed the interaction model, data architecture, and visual design system, built and deployed a functional
+            prototype in under two weeks using GenAI as an engineering partner, and created an API integration with the team’s
+            project management platform to support project sync.
+          </p>
+          <p>
+            <strong>Features:</strong> Monthly heat map with a 7-tier capacity color scale, portfolio-level utilization rollups,
+            forward-looking overload alerts, cross-team availability suggestions, per-manager configurable views, multi-assignee
+            allocation tracking, priority scoring for intake decisions, and contractor offload opportunity detection.
+          </p>
+          <p>
+            <strong>Tools and methods:</strong> HTML/CSS/JavaScript, REST APIs, internal enterprise hosting, GitHub Enterprise,
+            GenAI (Claude), and project management platform integration.
+          </p>
+          <p>
+            <strong>Value:</strong> Managed scope expansion from a single-team tool to an org-wide initiative and created a
+            practical operating tool that helps leaders make better project assignment decisions faster.
+          </p>
+          <div class="tag-list">
+            <span class="tag">Case Study</span>
+            <span class="tag">Capacity Planning</span>
+            <span class="tag">4 Manager Orgs</span>
+            <span class="tag">5 Solution Paths</span>
+            <span class="tag">Under 2 Weeks</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">GitHub Enterprise</span>
+            <span class="tag">GenAI (Claude)</span>
+          </div>
+        </div>'''
+new_capacity = '''        <div class="card pm-card">
+          <h3>Capacity planning platform</h3>
+          <p>
+            Built a web-based capacity planning platform for a large project management organization, moving from stakeholder
+            discovery to functional prototype in under two weeks. The platform helps leaders visualize monthly allocation,
+            forecast overload, identify rebalancing opportunities, and sync project details with the team’s project management platform.
+          </p>
+          <div class="tag-list">
+            <span class="tag">In-role case study</span>
+            <span class="tag">4 manager orgs</span>
+            <span class="tag">5 solution paths</span>
+            <span class="tag">Under 2 weeks</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">GenAI (Claude)</span>
+          </div>
+          <div class="button-row" style="margin-top: 20px;">
+            <a class="button" href="capacity-planning.html">View Case Study</a>
+          </div>
+        </div>'''
+if old_capacity not in text:
+    raise SystemExit('Capacity card block not found')
+text = text.replace(old_capacity, new_capacity)
+
+old_recs = re.compile(r'''    <section id="recommendations">.*?    </section>''', re.S)
+new_recs = '''    <section id="recommendations">
+      <h2>Direct-manager feedback</h2>
+      <p class="section-intro">
+        Short excerpts from direct-manager recommendation letters. Full letters are available on request.
+      </p>
+
+      <div class="grid-2">
+        <div class="card neutral-card">
+          <h3>Chris Pickar</h3>
+          <p>“Amber’s eye for detail and excellent analytical skills, combined with her deep technical knowledge and experience, are enormous advantages.”</p>
+          <p>“Amber was able to create six high-fidelity courses within a three-month timespan.”</p>
+        </div>
+
+        <div class="card pm-card">
+          <h3>Amanda Jackson</h3>
+          <p>“Amber demonstrates integrity in everything she does and drives what matters.”</p>
+          <p>“Amber can see around corners and has multiple times prevented disastrous outcomes from happening within our business.”</p>
+        </div>
+      </div>
+    </section>'''
+text, n = old_recs.subn(new_recs, text)
+if n != 1:
+    raise SystemExit('Experience recommendations section replacement failed')
+
+# Add the case study page to the work evidence nav if not present.
+text = text.replace('<a href="#project-process">Project + Process</a>', '<a href="#project-process">Project + Process</a>\n        <a href="capacity-planning.html">Capacity Case Study</a>', 1)
+exp.write_text(text, encoding='utf-8')
+
+idx = repo / 'index.html'
+text = idx.read_text(encoding='utf-8')
+
+old_prof = '''    <section id="professional-feedback">
+      <h2>Direct-manager feedback</h2>
+      <div class="quote-card">
+        <p>
+          Two direct-manager recommendation letters are available and speak to my integrity, follow-through, curiosity, problem identification, process improvement, and willingness to step into complex work. Exact excerpts can be added here once the public-safe quote text is selected.
+        </p>
+      </div>
+    </section>'''
+new_prof = '''    <section id="professional-feedback">
+      <h2>Direct-manager feedback</h2>
+      <p class="section-intro">
+        Short excerpts from direct-manager recommendation letters. Full letters are available on request.
+      </p>
+      <div class="grid-2">
+        <div class="card neutral-card">
+          <h3>Chris Pickar</h3>
+          <p>“Amber’s eye for detail and excellent analytical skills, combined with her deep technical knowledge and experience, are enormous advantages.”</p>
+          <p>“Amber was able to create six high-fidelity courses within a three-month timespan.”</p>
+        </div>
+        <div class="card">
+          <h3>Amanda Jackson</h3>
+          <p>“Amber demonstrates integrity in everything she does and drives what matters.”</p>
+          <p>“Amber can see around corners and has multiple times prevented disastrous outcomes from happening within our business.”</p>
+        </div>
+      </div>
+    </section>'''
+if old_prof not in text:
+    raise SystemExit('Homepage professional feedback block not found')
+text = text.replace(old_prof, new_prof)
+
+old_evidence_card = '''        <div class="card">
+          <h3>Knowledge systems</h3>
+          <p>Designed, migrated, and maintained 20-25 knowledge spaces with hundreds of pages supporting onboarding, SOPs, launch readiness, and project workspaces.</p>
+        </div>'''
+new_evidence_card = '''        <div class="card">
+          <h3>Capacity planning platform</h3>
+          <p>Built a web-based capacity planning platform for a large project management organization, moving from discovery to functional prototype in under two weeks.</p>
+        </div>'''
+if old_evidence_card in text:
+    text = text.replace(old_evidence_card, new_evidence_card)
+text = text.replace('<a class="button" href="experience.html">View Work Evidence</a>', '<a class="button" href="experience.html">View Work Evidence</a>\n        <a class="button" href="capacity-planning.html">View Capacity Case Study</a>', 1)
+idx.write_text(text, encoding='utf-8')
