@@ -1,0 +1,38 @@
+name: Run positioning follow-up
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Run positioning follow-up
+        run: python3 scripts/fix_positioning_followup.py
+
+      - name: Remove temporary files
+        run: |
+          rm scripts/fix_positioning_followup.py
+          rm .github/workflows/run-positioning-followup.yml
+
+      - name: Commit cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html scripts/fix_positioning_followup.py .github/workflows/run-positioning-followup.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Refine homepage positioning follow-up"
+            git push
+          fi
