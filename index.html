@@ -115,8 +115,29 @@
     }
 
     .hero {
-      padding-top: 86px;
+      padding-top: 70px;
       padding-bottom: 72px;
+    }
+
+    .hero-brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+
+    .signature-mark {
+      display: block;
+      width: min(360px, 72vw);
+      height: auto;
+    }
+
+    .hero-doodles {
+      display: block;
+      width: min(280px, 36vw);
+      height: auto;
+      opacity: 0.92;
     }
 
     .eyebrow {
@@ -323,6 +344,8 @@
     @media (max-width: 900px) {
       .nav-inner { align-items: flex-start; flex-direction: column; }
       .nav-links { flex-wrap: wrap; gap: 14px; }
+      .hero-brand-header { align-items: flex-start; flex-direction: column; }
+      .hero-doodles { width: min(240px, 60vw); }
       .stats, .grid-2, .grid-3, .contact-card { grid-template-columns: 1fr; }
       section { margin: 28px 14px; padding: 40px 20px; }
     }
@@ -353,6 +376,11 @@
   <main id="main">
     <header>
       <div class="hero">
+        <div class="hero-brand-header">
+          <img class="signature-mark" src="signature-black.png" alt="Amber Largent" />
+          <img class="hero-doodles" src="hero-doodles.svg" alt="" aria-hidden="true" />
+        </div>
+
         <div class="eyebrow">Clear paths through complex work</div>
         <h1>Chaos coordinator. Checklist believer. Clear path builder.</h1>
 
