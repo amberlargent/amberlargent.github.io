@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+/* The full Beyond the Role composition is the visual reference for this page. */
+.editorial-home{--display:'Cormorant Garamond',Georgia,serif;--hand:'Allura','Bodoni Moda',cursive;--rose:#b96d7c;--paper:#fffaf2}
+.editorial-home h1,.editorial-home h2,.editorial-home h3{font-family:var(--display)}
+.editorial-home .wrap{max-width:1320px}
+.editorial-home .hero.wrap{position:relative;isolation:isolate;overflow:hidden;background:var(--ivory);color:var(--ink);max-width:none;padding-block:48px 62px}
+.editorial-home .professional-title{color:var(--ruby);font-size:17px}
+.editorial-home .hero .hero-heading h1{font-weight:600;font-size:clamp(26px,5.2vw,72px);line-height:1.05;margin-bottom:18px;letter-spacing:-1.6px}
+.editorial-home .hero .hero-heading h1>em{font-family:var(--hand);font-weight:400;font-style:normal;font-size:1.8em;line-height:.95;color:var(--ruby);margin:12px 0 24px 8px;max-width:max-content;position:relative}
+.editorial-home .hero .hero-heading h1>em:after{content:'';position:absolute;left:2%;right:3%;bottom:-3px;height:6px;border-bottom:3px solid var(--rose);border-radius:50%;transform:rotate(-2deg)}
+.editorial-home .hero .hero-grid{grid-template-columns:1.35fr 1fr;gap:9%;align-items:center;margin-top:32px}
+.editorial-home .hero .intro{font-size:25px;line-height:1.45;margin-bottom:0}
+.editorial-home .hero .hero-links{gap:15px 26px;margin-top:26px}
+.editorial-home .hero .hero-links a{color:var(--ruby)}
+.editorial-home .hero .hero-links a:focus-visible{outline-color:var(--teal)}
+.editorial-home .hero-art{background:var(--champagne);padding:18px;transform:rotate(2deg);box-shadow:none;border:1px solid #d0bd9d;max-width:350px;justify-self:center;width:100%;margin:0 15px 10px 0}
+.editorial-home .hero .hero-art img{width:100%;height:auto;max-height:380px;display:block}
+.editorial-home .education-spread{border-top:1px solid var(--line);padding-top:56px}
+.editorial-home .education-spread>h2{font-size:clamp(34px,4vw,55px);font-weight:600;max-width:none;margin-bottom:38px}
+.editorial-home .degree-layout{grid-template-columns:1.5fr 1fr;gap:6%;padding-bottom:12px}
+.editorial-home .graduate-degree{border-top:3px solid var(--ruby);padding-top:24px}
+.editorial-home .graduate-degree h3{font-size:clamp(38px,4.2vw,57px);font-weight:600;line-height:1.03}
+.editorial-home .graduate-degree h3 em{font-weight:500}
+.editorial-home .undergraduate-degree{background:#eee6d9;margin-top:65px;border:0;padding:28px 30px 15px;position:relative}
+.editorial-home .undergraduate-degree:before{content:'';position:absolute;left:22px;right:22px;top:-8px;border-top:1px solid #c5b29c}
+.editorial-home .undergraduate-degree h3{font-size:35px}
+.editorial-home .degree-level{margin-bottom:14px}
+.editorial-home #work{border-top:0;padding-top:30px}
+.editorial-home #work>.section-head h2{font-size:clamp(48px,5.4vw,74px);font-weight:600}
+.editorial-home #work>.section-head h2 em{font-family:var(--hand);font-style:normal;font-size:1.35em;font-weight:400;color:var(--ruby);margin-left:.05em}
+.editorial-home .lead-project{background:transparent;color:var(--ink);gap:6%;grid-template-columns:1fr 1.15fr;padding:25px 0 35px;align-items:center}
+.editorial-home .lead-project-copy{padding:0}
+.editorial-home .lead-project h3{font-size:49px;font-weight:600;line-height:1.02}
+.editorial-home .lead-project h3 a{text-decoration:underline;text-decoration-thickness:1px}
+.editorial-home .lead-project .project-context{color:var(--teal)}
+.editorial-home .pilot-art{padding:35px 24px;background:var(--champagne);border-radius:48% 48% 3px 3px;position:relative;min-height:410px}
+.editorial-home .pilot-art .art-caption{justify-content:center;gap:28px}
+.editorial-home .pilot-art figcaption{font-family:var(--hand);font-size:36px;font-style:normal;line-height:1.05}
+.editorial-home .pilot-art .orbit:nth-child(3){font-family:var(--display);font-style:italic}
+.editorial-home .project-list{column-gap:8%;row-gap:46px}
+.editorial-home .project-list>article:first-child{padding-top:28px;border-top:1px solid var(--line)}
+.editorial-home .project-list h3{font-weight:600}
+.editorial-home .project-list>article:nth-child(2){padding:12px 0 0 20px;border-left:3px solid var(--rose)}
+.editorial-home .project-list>article:nth-child(3){background:var(--paper);border-top:5px solid var(--champagne);padding:24px 28px 16px}
+.editorial-home .project-list>article:nth-child(4){padding:30px;align-self:start}
+.editorial-home .project-list>article:nth-child(5){padding-top:35px;border-top:1px solid var(--line)}
+.editorial-home .expertise{background:#eee6d9}
+.editorial-home .expertise .section-head h2{font-weight:600;font-size:clamp(27px,4vw,53px)}
+.editorial-home .expertise-list dt{font-family:var(--display);font-weight:600;font-size:32px}
+.editorial-home .philosophy h2{font-size:clamp(30px,4.3vw,59px);font-weight:600}
+.editorial-home .philosophy h2>span+span{font-family:var(--hand);font-size:1.35em;font-weight:400;line-height:1.05;color:var(--ruby)}
+.editorial-home .philosophy-copy blockquote{font-family:var(--display);font-size:35px;line-height:1.2;color:var(--teal)}
+.editorial-home .personal-feature{padding:42px 0 48px;background:var(--paper);border:0;overflow:hidden}
+.editorial-home .personal-collage{margin:0 0 36px;position:relative}
+.editorial-home .personal-collage img{display:block;width:100%;height:auto}
+.editorial-home .personal-feature .about-copy{display:grid;grid-template-columns:1fr 1fr;gap:0 6%}
+.editorial-home .personal-feature .professional-connection>p:first-child{font-size:25px;line-height:1.35;color:var(--teal)}
+.editorial-home .personal-feature .community-update{grid-column:1/-1;max-width:none;margin-top:8px}
+.editorial-home .personal-feature .about-reading{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;margin-top:8px}
+.editorial-home .experience-band h2{font-family:var(--hand);font-style:normal;font-size:clamp(52px,6.2vw,85px);line-height:1}
+.editorial-home .experience-index dl>div{grid-template-columns:1fr 1.5fr}
+.editorial-home .experience-index dt{font-family:var(--display);font-size:26px;line-height:1.15;font-weight:600}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.editorial-home .judgment-feature{display:grid;grid-template-columns:1fr 1.25fr;gap:7%;margin-top:46px;padding:32px 36px;background:var(--champagne);border-left:3px solid var(--ruby)}
+.editorial-home .judgment-feature h3{font-size:42px;font-weight:600;line-height:1.05}
+.editorial-home .judgment-feature h3 em{color:var(--ruby);font-weight:500}
+.editorial-home .judgment-feature p{margin-top:0}
+.editorial-home .judgment-feature a{font:14px/1.5 'DM Sans',Arial,sans-serif}
+.editorial-home .contact .wrap{display:grid;grid-template-columns:1fr 2fr;gap:6%;align-items:start}
+.editorial-home .contact-primary{font:600 clamp(32px,4.5vw,48px)/1.15 var(--display);margin:0 0 26px;color:var(--ruby)}
+.editorial-home .contact-primary a{text-decoration-thickness:1px;text-underline-offset:7px}
+.editorial-home .contact-secondary{display:flex;flex-wrap:wrap;gap:12px 28px;font:14px/1.6 'DM Sans',Arial,sans-serif;margin:0}
+.editorial-home .contact-secondary a{overflow-wrap:anywhere;text-decoration-thickness:1px}
+@media(max-width:760px){
+ .editorial-home .contact .wrap{grid-template-columns:1fr;gap:26px}
+ .editorial-home .judgment-feature{grid-template-columns:1fr;gap:20px;padding:26px;margin-top:30px}
+ .editorial-home .hero.wrap{padding-block:30px 40px}
+ .editorial-home .professional-title{font-size:15px}
+ .editorial-home .hero .hero-heading h1{font-size:clamp(22px,5.2vw,37px);letter-spacing:-.6px}
+ .editorial-home .hero .hero-heading h1>em{font-size:2em;margin:10px 0 24px 0}
+ .editorial-home .hero .hero-grid{grid-template-columns:1fr;margin-top:20px;gap:25px}
+ .editorial-home .hero .intro{font-size:21px}
+ .editorial-home .hero-art{max-width:300px;margin-top:6px}
+ .editorial-home .education-spread{padding-top:40px}
+ .editorial-home .education-spread>h2{font-size:35px}
+ .editorial-home .degree-layout{grid-template-columns:1fr}
+ .editorial-home .graduate-degree h3{font-size:40px}
+ .editorial-home .undergraduate-degree{margin-top:28px;padding:25px}
+ .editorial-home .lead-project{grid-template-columns:1fr;gap:28px}
+ .editorial-home .lead-project h3{font-size:42px}
+ .editorial-home .pilot-art{min-height:350px;max-width:500px;width:100%;margin:0 auto}
+ .editorial-home .project-list{row-gap:32px}
+ .editorial-home .expertise .section-head h2{font-size:clamp(24px,4.8vw,35px)}
+ .editorial-home .philosophy h2{font-size:clamp(25px,4.8vw,35px)}
+ .editorial-home .philosophy h2>span+span{font-size:1.25em}
+ .editorial-home .personal-feature{padding-block:28px 32px}
+ .editorial-home .personal-feature>.wrap{padding-inline:0}
+ .editorial-home .personal-collage{margin:0 0 28px}
+ .editorial-home .personal-feature .about-copy{display:block;padding-inline:6%}
+ .editorial-home .personal-feature .professional-connection>p:first-child{font-size:23px}
+ .editorial-home .personal-feature .about-copy p{margin-bottom:20px}
+ .editorial-home .personal-feature .about-reading{margin-bottom:0}
+ .editorial-home .experience-index dl>div{grid-template-columns:1fr;gap:14px}
+}
